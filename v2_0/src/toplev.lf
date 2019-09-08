@@ -1,5 +1,6 @@
-:- module(toplev, [top_loop/3,no_message/0,checking_is_off/0,next_command/3,process_command/7,build_command/7]).   % converted djd
-:- style_check(-singleton). % added djd
+%:- module(toplev, [top_loop/3,no_message/0,checking_is_off/0,next_command/3,process_command/7,build_command/7]).   % converted djd
+module("toplev")?
+% :- style_check(-singleton). % added djd
 
 % Copyright (C) Goedel Group, University of Bristol, June 1992.
 % Title and ownership of all Goedel software originating from the Goedel
@@ -24,19 +25,19 @@
 % should be directed to J.W. Lloyd at jwl@compsci.bristol.ac.uk.
 
 
-/*-----------------------------------------------------------------------------
- * The top level query evaluator for the Goedel system. Entry point top_loop/1.
- *
- * File:	toplev.pl
- * Author:	Jiwei Wang
- * Date:	Completely restored at 30 Jan. 1992
- *
-==============================================================================*/
+%% /*-----------------------------------------------------------------------------
+%%  * The top level query evaluator for the Goedel system. Entry point top_loop/1.
+%%  *
+%%  * File:	toplev.pl
+%%  * Author:	Jiwei Wang
+%%  * Date:	Completely restored at 30 Jan. 1992
+%%  *
+%% ==============================================================================*/
 
 
-/*-----------------------------------------------------------------------------
- * Predicates for version control.
- */
+%% /*-----------------------------------------------------------------------------
+%%  * Predicates for version control.
+%%  */
 
 
 

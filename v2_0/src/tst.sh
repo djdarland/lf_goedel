@@ -1,3 +1,3 @@
-wild_life dsa.pl 
+wild_life <dsa.pl 
 
 

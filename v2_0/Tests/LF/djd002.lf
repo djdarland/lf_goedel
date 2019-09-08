@@ -1,0 +1,49 @@
+%
+% load selectif
+%
+
+loadl(X)  :- 
+	( 
+	loadpath(X,".lf") ;
+	loadpath(X,".life")  
+	), !.
+loadl(F) :-
+	write("*** File ",F,".l.. not found."), nl.
+loadin(X) :- loadpath(X,".in"), !.
+loadin(F) :-
+	write("*** File ",F,".in not found."), nl.
+loadgr(X) :- loadpath(X,".gr"), !.
+loadgr(F) :-
+	write("*** File ",F,".gr not found."), nl.
+
+
+loadpath(X:string,Suffix) :- 
+	!,
+	Y = load_path,
+	Z=strcon(strcon(Y,X), Suffix),
+	exists(Z),
+        !,
+	load_if_needed(Z).
+
+loadpath(X,Suffix) :- loadpath(psi2str(X),Suffix).
+
+
+
+
+% ;
+
+write("Hello")?
+
+write(X,"\n",Y,"\n",Z,"\n")?
+			       
+% write("X = ", X, "\n")?
+%;
+
+% Z = strcon(X, "dsa.lf")?
+% ;
+
+% write("Z = ", Z, "\n")?
+% ;
+
+	  
+       

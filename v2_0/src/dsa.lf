@@ -54,10 +54,15 @@ file_version('2.0').
 % :- use_module(library(clpq)).
 %% :- use_module(library(clpr)).
 
+load_from_src(Y) :-     
+     X = "~/lf_goedel/v2_0/src/",
+     Z = strcon(X,Y),
+     load(Z).
+
 
 % top-level
-load("toplev.lf")?
-:- use_module(toplev).
+load_from_src("toplev.lf")?
+% :- use_module(toplev).
 :- use_module(utilities).
 :- use_module(tracer).
 

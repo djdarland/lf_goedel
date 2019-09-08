@@ -1,0 +1,200 @@
+echo "-----------"
+echo "Goedel tool"
+echo "-----------"
+echo "0 PceEmacs"
+echo "---------------------"
+echo "1 edit avltrees.lf"
+echo "2 edit avlTrees.lf"
+echo "3 edit builtin.lf"
+echo "4 edit checking.lf"
+echo "5 edit compiler.lf"
+echo "6 edit constraint.lf"
+echo "7 edit delay.lf"
+echo "8 edit dsa.lf"
+echo "9 edit extraSyntax.lf"
+echo "10 edit floats.lf"
+echo "11 edit flocksIO.lf"
+echo "12 edit flocks.lf"
+echo "13 edit formula.lf"
+echo "14 edit gfreeze.lf"
+echo "15 edit integers.lf"
+echo "16 edit io.lf"
+echo "17 edit lib.lf"
+echo "18 edit lists_g.lf"
+echo "19 edit numbersIO.lf"
+echo "20 edit numbers.lf"
+echo "21 edit parser.lf"
+echo "22 edit programCache.lf"
+echo "23 edit programsIO.lf"
+echo "24 edit programs.lf"
+echo "25 edit rationals.lf"
+echo "26 edit scriptsIO.lf"
+echo "---------------------"
+echo "<cr> to continue"
+read
+echo "---------------------"
+echo "27 edit scripts.lf"
+echo "28 edit sets.lf"
+echo "29 edit sets_sup.lf"
+echo "30 edit sharedPrograms.lf"
+echo "31 edit sharedSyntax.lf"
+echo "32 edit statement.lf"
+echo "33 edit strings.lf"
+echo "34 edit strings_sup.lf"
+echo "35 edit substs.lf"
+echo "36 edit syntax.lf"
+echo "37 edit system.lf"
+echo "38 edit tables.lf"
+echo "39 edit term.lf"
+echo "40 edit theoriesIO.lf"
+echo "41 edit theories.lf"
+echo "42 edit tokenizer2.lf"
+echo "43 edit tokenizer.lf"
+echo "44 edit toplev.lf"
+echo "45 edit tracer.lf"
+echo "46 edit transform.lf"
+echo "47 edit units.lf"
+echo "48 edit units_sup.lf"
+echo "49 edit utilities.lf"
+echo "---------------------"
+
+echo "333 edit ee"
+echo "444 edit ff"
+echo "555 test 1"
+echo "666 test 2"
+
+echo "777 NOTES_DJD.txt"
+echo "999 quit"
+echo "select"
+read select
+while [ $select -ne 999 ]
+do 
+case $select in
+0) swipl  ;;
+1) $EDITOR avltrees.lf  ;;
+2) $EDITOR avlTrees.lf  ;;
+3) $EDITOR builtin.lf  ;;
+4) $EDITOR checking.lf  ;;
+5) $EDITOR compiler.lf  ;;
+6) $EDITOR constraint.lf  ;;
+7) $EDITOR delay.lf  ;;
+8) $EDITOR dsa.lf  ;;
+9) $EDITOR extraSyntax.lf  ;;
+10) $EDITOR floats.lf  ;;
+11) $EDITOR flocksIO.lf  ;;
+12) $EDITOR flocks.lf  ;;
+13) $EDITOR formula.lf  ;;
+14) $EDITOR gfreeze.lf  ;;
+15) $EDITOR integers.lf  ;;
+16) $EDITOR io.lf  ;;
+17) $EDITOR lib.lf  ;;
+18) $EDITOR lists_g.lf  ;;
+19) $EDITOR numbersIO.lf  ;;
+20) $EDITOR numbers.lf  ;;
+21) $EDITOR parser.lf  ;;
+22) $EDITOR programCache.lf  ;;
+23) $EDITOR programsIO.lf  ;;
+24) $EDITOR programs.lf  ;;
+25) $EDITOR rationals.lf  ;;
+26) $EDITOR scriptsIO.lf  ;;
+27) $EDITOR scripts.lf  ;;
+28) $EDITOR sets.lf  ;;
+29) $EDITOR sets_sup.lf  ;;
+30) $EDITOR sharedPrograms.lf  ;;
+31) $EDITOR sharedSyntax.lf  ;;
+32) $EDITOR statement.lf  ;;
+33) $EDITOR strings.lf  ;;
+34) $EDITOR strings_sup.lf  ;;
+35) $EDITOR substs.lf  ;;
+36) $EDITOR syntax.lf  ;;
+37) $EDITOR system.lf  ;;
+38) $EDITOR tables.lf  ;;
+39) $EDITOR term.lf  ;;
+40) $EDITOR theoriesIO.lf  ;;
+41) $EDITOR theories.lf  ;;
+42) $EDITOR tokenizer2.lf  ;;
+43) $EDITOR tokenizer.lf  ;;
+44) $EDITOR toplev.lf  ;;
+45) $EDITOR tracer.lf  ;;
+46) $EDITOR transform.lf  ;;
+47) $EDITOR units.lf  ;;
+48) $EDITOR units_sup.lf  ;;
+49) $EDITOR utilities.lf  ;;
+
+
+444) $EDITOR ee ;;
+555) ./ts.sh ;;
+666) ./tst2.sh ;;
+
+777) $EDITOR NOTES_DJD.txt & ;;
+
+esac
+
+echo "-----------"
+echo "Goedel tool"
+echo "-----------"
+echo "0 PceEmacs"
+echo "---------------------"
+echo "1 edit avltrees.lf"
+echo "2 edit avlTrees.lf"
+echo "3 edit builtin.lf"
+echo "4 edit checking.lf"
+echo "5 edit compiler.lf"
+echo "6 edit constraint.lf"
+echo "7 edit delay.lf"
+echo "8 edit dsa.lf"
+echo "9 edit extraSyntax.lf"
+echo "10 edit floats.lf"
+echo "11 edit flocksIO.lf"
+echo "12 edit flocks.lf"
+echo "13 edit formula.lf"
+echo "14 edit gfreeze.lf"
+echo "15 edit integers.lf"
+echo "16 edit io.lf"
+echo "17 edit lib.lf"
+echo "18 edit lists_g.lf"
+echo "19 edit numbersIO.lf"
+echo "20 edit numbers.lf"
+echo "21 edit parser.lf"
+echo "22 edit programCache.lf"
+echo "23 edit programsIO.lf"
+echo "24 edit programs.lf"
+echo "25 edit rationals.lf"
+echo "26 edit scriptsIO.lf"
+echo "---------------------"
+echo "<cr> to continue"
+read
+echo "---------------------"
+echo "27 edit scripts.lf"
+echo "28 edit sets.lf"
+echo "29 edit sets_sup.lf"
+echo "30 edit sharedPrograms.lf"
+echo "31 edit sharedSyntax.lf"
+echo "32 edit statement.lf"
+echo "33 edit strings.lf"
+echo "34 edit strings_sup.lf"
+echo "35 edit substs.lf"
+echo "36 edit syntax.lf"
+echo "37 edit system.lf"
+echo "38 edit tables.lf"
+echo "39 edit term.lf"
+echo "40 edit theoriesIO.lf"
+echo "41 edit theories.lf"
+echo "42 edit tokenizer2.lf"
+echo "43 edit tokenizer.lf"
+echo "44 edit toplev.lf"
+echo "45 edit tracer.lf"
+echo "46 edit transform.lf"
+echo "47 edit units.lf"
+echo "48 edit units_sup.lf"
+echo "49 edit utilities.lf"
+echo "---------------------"
+echo "444 edit ee"
+echo "555 test 1"
+echo "666 test 2"
+
+echo "777 NOTES_DJD.txt"
+echo "999 quit"
+echo "select"
+read select
+done
