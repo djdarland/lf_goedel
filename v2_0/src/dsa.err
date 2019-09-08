@@ -1,0 +1,140 @@
+%  library(clpq) compiled into clpq 0.07 sec, 2,762 clauses
+%  toplev compiled into toplev 0.01 sec, 285 clauses
+%  utilities compiled into utilities 0.00 sec, 66 clauses
+%  tracer compiled into tracer 0.00 sec, 52 clauses
+%  lib compiled into lib 0.00 sec, 10 clauses
+%  gfreeze compiled into gfreeze 0.00 sec, 22 clauses
+%  tokenizer compiled into tokenizer 0.00 sec, 64 clauses
+%  tokenizer2 compiled into tokenizer2 0.00 sec, 37 clauses
+%  term compiled into term 0.01 sec, 130 clauses
+%  formula compiled into formula 0.01 sec, 166 clauses
+%  statement compiled into statement 0.00 sec, 50 clauses
+%  parser compiled into parser 0.01 sec, 237 clauses
+%  checking compiled into checking 0.00 sec, 103 clauses
+%  system compiled 0.03 sec, 888 clauses
+%  avlTrees compiled into avlTrees 0.01 sec, 147 clauses
+%  builtin compiled into builtin 0.00 sec, 79 clauses
+%  compiler compiled into compiler 0.01 sec, 137 clauses
+%  delay compiled into delay 0.00 sec, 36 clauses
+%  constraint compiled into constraint 0.00 sec, 27 clauses
+%  transform compiled into transform 0.00 sec, 56 clauses
+%  integers compiled into integers 0.00 sec, 52 clauses
+%  rationals compiled into rationals 0.00 sec, 68 clauses
+%  floats compiled into floats 0.00 sec, 1 clauses
+%  numbers compiled into numbers 0.00 sec, 8 clauses
+%  lists_g compiled into lists_g 0.00 sec, 105 clauses
+%  sets compiled into sets 0.00 sec, 24 clauses
+%  strings compiled into strings 0.00 sec, 40 clauses
+%  tables compiled into tables 0.01 sec, 189 clauses
+%  units compiled into units 0.00 sec, 60 clauses
+%  flocks compiled into flocks 0.00 sec, 35 clauses
+%  flocksIO compiled into flocksIO 0.00 sec, 20 clauses
+%  io compiled into io 0.00 sec, 55 clauses
+%  numbersIO compiled into numbersIO 0.00 sec, 1 clauses
+%  syntax compiled into syntax 0.03 sec, 975 clauses
+%  extraSyntax compiled into extraSyntax 0.00 sec, 11 clauses
+%  sharedSyntax compiled into sharedSyntax 0.01 sec, 248 clauses
+%  substs compiled into substs 0.02 sec, 446 clauses
+%  programs compiled into programs 0.03 sec, 602 clauses
+%  sharedPrograms compiled into sharedPrograms 0.03 sec, 642 clauses
+%  programCache compiled into programCache 0.00 sec, 8 clauses
+%  scripts compiled into scripts 0.01 sec, 177 clauses
+%  scriptsIO compiled into scriptsIO 0.00 sec, 8 clauses
+%  programsIO compiled into programsIO 0.00 sec, 24 clauses
+%  theories compiled into theories 0.00 sec, 1 clauses
+%  theoriesIO compiled into theoriesIO 0.00 sec, 1 clauses
+
+%         toplev:top_loop/3: [call,redo,exit,fail]
+%         toplev:next_command/3: [call,redo,exit,fail]
+%         toplev:process_command/7: [call,redo,exit,fail]
+%         tokenizer2:get_one_item_2nd_aux/3: [call,redo,exit,fail]
+%         tokenizer2:get_one_item_2nd_aux/3: [call,redo,exit,fail]
+%         toplev:build_command/7: [call,redo,exit,fail]
+%         toplev:build_command/8: [call,redo,exit,fail]
+%         parser:parse_program/3: [call,redo,exit,fail]
+%         parser:parse_program/3: [call,redo,exit,fail]
+%         builtin:plus/3: [call,redo,exit,fail]
+%         integers:plus/3: [call,redo,exit,fail]
+%         rationals:plus/3: [call,redo,exit,fail]
+%         sets:plus/3: [call,redo,exit,fail]
+%         plus/3: [call,redo,exit,fail]
+%         builtin:plus/3: [call,redo,exit,fail]
+%         SharedPrograms.ProgramSkeleton.P4/4: [call,redo,exit,fail]
+
+ T Call: (25) toplev:top_loop('', null, null)
+
+ T Call: (26) toplev:next_command('', null, null)
+
+ T Call: (27) toplev:process_command([59, 99, 32, 77, 49, 46], null, null, _G2168, '', _G2170, _G2171)
+ T Call: (28) tokenizer2:get_one_item_2nd_aux([59, 99, 32, 77, 49, 46], _G2166, _G2167)
+ T Redo: (28) tokenizer2:get_one_item_2nd_aux([59, 99, 32, 77, 49, 46], _G2166, _G2167)
+ T Redo: (28) tokenizer2:get_one_item_2nd_aux([59, 99, 32, 77, 49, 46], _G2166, _G2167)
+ T Call: (29) tokenizer2:get_one_item_2nd_aux([99, 32, 77, 49, 46], _G2169, _G2127)
+ T Redo: (29) tokenizer2:get_one_item_2nd_aux([99, 32, 77, 49, 46], _G2177, _G2127)
+ T Redo: (29) tokenizer2:get_one_item_2nd_aux([99, 32, 77, 49, 46], _G2177, _G2127)
+ T Call: (30) tokenizer2:get_one_item_2nd_aux([32, 77, 49, 46], _G2180, _G2138)
+ T Redo: (30) tokenizer2:get_one_item_2nd_aux([32, 77, 49, 46], _G2191, _G2138)
+ T Redo: (30) tokenizer2:get_one_item_2nd_aux([32, 77, 49, 46], _G2191, _G2138)
+ T Call: (31) tokenizer2:get_one_item_2nd_aux([46], _G2194, _G2152)
+ T Exit: (31) tokenizer2:get_one_item_2nd_aux([46], [], [])
+ T Exit: (30) tokenizer2:get_one_item_2nd_aux([32, 77, 49, 46], [], [big_name('M1')])
+ T Exit: (29) tokenizer2:get_one_item_2nd_aux([99, 32, 77, 49, 46], [], [little_name(c), big_name('M1')])
+ T Exit: (28) tokenizer2:get_one_item_2nd_aux([59, 99, 32, 77, 49, 46], [], [;, little_name(c), big_name('M1')])
+ T Call: (28) toplev:build_command([;, little_name(c), big_name('M1')], null, null, _G2196, '', _G2198, _G2199)
+ T Call: (29) toplev:build_command(;, [little_name(c), big_name('M1')], null, null, _G2197, '', _G2199, _G2200)
+ T Call: (32) parser:parse_program('M1', compile, _G2207)
+%         parser:module_as_items/3: [call,redo,exit,fail]
+%         utilities:string2Gstring/2: [call,redo,exit,fail]
+%         parser:identify_module_kind/2: [call,redo,exit,fail]
+%         parser:identify_module_part/3: [call,redo,exit,fail]
+%         ParserPrograms.QuickNewProgram.P3/3: [call,redo,exit,fail]
+%         parser:parse_module_decl/10: [call,redo,exit,fail]
+%         ParserPrograms.ExportSymbolTable.P3/3: [call,redo,exit,fail]
+%         parser:parse_statements/6: [call,redo,exit,fail]
+%         parser:parse_statements_aux/5: [call,redo,exit,fail]
+%         statement:statement/5: [call,redo,exit,fail]
+%         parser:print_error_return/5: [call,redo,exit,fail]
+%         parser:print_error_return/6: [call,redo,exit,fail]
+%         SharedPrograms.ProgramLanguage.P2/2: [call,redo,exit,fail]
+%         ParserPrograms.ParserCheckStatement.P4/4: [call,redo,exit,fail]
+%         parser:get_predicate_arity/3: [call,redo,exit,fail]
+%         ParserPrograms.QuickInsertStatement.P6/6: [call,redo,exit,fail]
+%         checking:singleton_variable_checking/5: [call,redo,exit,fail]
+%         checking:quantified_variable_checking/3: [call,redo,exit,fail]
+%         checking:floundering_checking/3: [call,redo,exit,fail]
+%         parser:print_type_error/4: [call,redo,exit,fail]
+ T Call: (33) parser:module_as_items('M1', _G3622, _G3623)
+ T Exit: (33) parser:module_as_items('M1', [], [item([big_name('MODULE'), big_name('M1')], 2, 1), item([big_name('BASE'), big_name('Day'), ',', big_name(...)], 2, 3), item([big_name('CONSTANT'), big_name('Nil'), graphic_name(...)|...], 4, 7), item([big_name('FUNCTION'), big_name(...)|...], 8, 8), item([big_name(...)|...], 9, 10), item([...|...], 11, 12), item(..., ..., ...)|...])
+ T Call: (33) utilities:string2Gstring('M1', _G5709)
+ T Exit: (33) utilities:string2Gstring('M1', '"M1')
+ T Call: (33) parser:identify_module_kind([], _G5784)
+ T Exit: (33) parser:identify_module_kind([], 'ProgDefs.ModuleKind.C0')
+ T Call: (33) parser:identify_module_part([], _G5784, _G5785)
+ T Exit: (33) parser:identify_module_part([], _G5784, 'ProgDefs.Module.C0')
+ T Call: (33) 'ParserPrograms.QuickNewProgram.P3'('"M1', 'ProgDefs.ModuleKind.C0', _G5785)
+ T Call: (34) 'SharedPrograms.ProgramSkeleton.P4'('"M1', 'ProgDefs.ModuleKind.C0', 0, _G5903)
+ T Fail: (34) 'SharedPrograms.ProgramSkeleton.P4'('"M1', 'ProgDefs.ModuleKind.C0', 0, _G5903)
+ T Fail: (33) 'ParserPrograms.QuickNewProgram.P3'('"M1', 'ProgDefs.ModuleKind.C0', _G5785)
+ T Fail: (32) parser:parse_program('M1', compile, _G2207)
+ T Fail: (29) toplev:build_command(;, [little_name(c), big_name('M1')], null, null, _G2197, '', _G2199, _G2200)
+ T Fail: (28) toplev:build_command([;, little_name(c), big_name('M1')], null, null, _G2196, '', _G2198, _G2199)
+ T Fail: (27) toplev:process_command([59, 99, 32, 77, 49, 46], null, null, _G2168, '', _G2170, _G2171)
+ T Fail: (26) toplev:next_command('', null, null)
+ T Fail: (25) toplev:top_loop('', null, null)
+Warning: /home/dennis/src/lang/goedel/goedel/v2_0/src/dsa.pl:264:
+	Goal (directive) failed: user:goedel
+% dsa.pl compiled 0.37 sec, 9,256 clauses
+Welcome to SWI-Prolog (Multi-threaded, 64 bits, Version 6.6.4)
+Copyright (c) 1990-2013 University of Amsterdam, VU Amsterdam
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to redistribute it under certain conditions.
+Please visit http://www.swi-prolog.org for details.
+
+For help, use ?- help(Topic). or ?- apropos(Word).
+
+ERROR: Syntax error: Operator expected
+ERROR: ;
+ERROR: ** here **
+ERROR: quit . 
+
+% halt

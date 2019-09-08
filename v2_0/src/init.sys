@@ -1,0 +1,282 @@
+
+% Copyright (C) Goedel Group, University of Bristol, June 1992.
+% Title and ownership of all Goedel software originating from the Goedel
+% Group at the University of Bristol remains with the Goedel Group.
+%
+% The Goedel language was designed by P.M. Hill and J.W. Lloyd, and the 
+% language was implemented by A. Bowers and J. Wang. The design and 
+% implementation of the language was partly supported by the ESPRIT Basic 
+% Research Action 3012 (Compulog), a SERC Grant GR/F/26256, and the 
+% University of Bristol.
+%
+% This software is available ONLY for research and educational purposes.
+% In particular, it may not be used for any commercial purpose whatsoever.
+% The software is free and is provided "as is", without warranty of any kind.
+% Users of the software are free to modify and experiment with it for 
+% research and educational purposes. However, users may not distribute 
+% the software (modified or not) to third parties without the express 
+% permission of the Goedel Group. The normal method of obtaining this 
+% software is by ftp from ftp.cs.kuleuven.ac.be.
+%
+% Any enquiries about this copyright notice or the use of this software 
+% should be directed to J.W. Lloyd at jwl@compsci.bristol.ac.uk.
+
+
+% change the following two directory addresses if necessary
+
+% default system source code dir /usr/local/lib/Goedel/src
+system_directory('~/src/lang/goedel/goedel/v1_4/src').
+
+
+% Please don't change anything below this line.
+% ---------------------------------------------
+
+goedel_version('1.4').
+:- write("DJD0000001\n").
+file_version('1.3').
+:- write("DJD0000002\n").
+'$$init'('@(#)init.pl 1.64 last updated 94/04/24 15:56:56 by jiwei
+').
+:- write("DJD0000003\n").
+
+:- multifile '$$module'/1.
+:- write("DJD0000004\n").
+
+% top-level
+[toplev].
+:- write("DJD0000005\n").
+system_file(utilities).
+:- write("DJD0000006\n").
+system_file(tracer).
+:- write("DJD0000007\n").
+
+% library
+system_file(lib).
+:- write("DJD0000008\n").
+system_file(gfreeze).
+:- write("DJD0000009\n").
+
+% parser
+system_file(tokenizer).
+:- write("DJD0000010\n").
+system_file(tokenizer2).
+:- write("DJD0000011\n").
+system_file(term).
+:- write("DJD0000012\n").
+system_file(formula).
+:- write("DJD0000013\n").
+system_file(statement).
+:- write("DJD0000014\n").
+system_file(parser).
+:- write("DJD0000015\n").
+system_file(checking).
+:- write("DJD0000016\n").
+
+% ground representation
+system_file(system).
+:- write("DJD0000017\n").
+system_file(avltrees).
+:- write("DJD0000018\n").
+system_file(builtin).
+:- write("DJD0000019\n").
+
+% compiler
+system_file(compiler).
+:- write("DJD0000020\n").
+system_file(delay).
+:- write("DJD0000021\n").
+system_file(constraint).
+:- write("DJD0000022\n").
+system_file(transform).
+:- write("DJD0000023\n").
+
+% language files of system modules
+% system_file(sys_modules).
+% NOTE =========================has been commented out=============
+
+% system modules code
+system_file('Integers').
+:- write("DJD0000024\n").
+system_file('Rationals').
+:- write("DJD0000025\n").
+system_file('Floats').
+:- write("DJD0000026\n").
+system_file('Numbers').
+:- write("DJD0000027\n").
+system_file('Lists').
+:- write("DJD0000028\n").
+system_file('Sets').
+:- write("DJD0000029\n").
+system_file('Strings').
+:- write("DJD0000030\n").
+
+system_file('Tables').
+:- write("DJD0000031\n").
+system_file('Units').
+:- write("DJD0000032\n").
+system_file('Flocks').
+:- write("DJD0000033\n").
+system_file('FlocksIO').
+:- write("DJD0000034\n").
+system_file('IO').
+:- write("DJD0000035\n").
+system_file('NumbersIO').
+:- write("DJD0000036\n").
+
+system_file('Syntax').
+:- write("DJD0000037\n").
+system_file('ExtraSyntax').
+:- write("DJD0000038\n").
+system_file('SharedSyntax').
+:- write("DJD0000039\n").
+system_file('Substs').
+:- write("DJD0000040\n").
+
+system_file('Programs').
+:- write("DJD0000041\n").
+system_file('SharedPrograms').
+:- write("DJD0000042\n").
+system_file('ProgramCache').
+:- write("DJD0000043\n").
+
+system_file('Scripts').
+:- write("DJD0000044\n").
+system_file('ScriptsIO').
+:- write("DJD00000045\n").
+
+system_file('AVLTrees').
+:- write("DJD0000046\n").
+
+system_file('ProgramsIO').
+:- write("DJD0000047\n").
+system_file('Theories').
+:- write("DJD0000048\n").
+system_file('TheoriesIO').
+:- write("DJD0000049\n").
+
+% This file suplies routines for the runtime system.  Never included in
+% the saved states.
+runtime_system_file(init).
+:- write("DJD0000050\n").
+runtime_system_file(aux).
+% runtime_system_file(sys_modules).	% this'll have to be removed when
+:- write("DJD0000051\n").
+					% SICStus works properly.
+
+%------------------------------------------------------------------------------
+:- dynamic top_loop/3.
+:- write("DJD000052\n").
+
+goedel:-
+
+%	set_prolog_flag(unknown, warning),	% cause undefined predicates to fail.
+	% modified above for swi 5/16/2018 DJD
+%	( prolog_flag(compiling, _, fastcode);
+%	  true				% in case user's SICStus doesn't
+%					% support fastcode
+%	), !,
+    write("DJD0000053\n"),
+    goedel_version(Version),
+    write("DJD0000054\n"),
+    format(user_output, "Goedel ~a~nType ;h. for help.~n", [Version]),
+    %	nofileerrors,
+    write("DJD0000055\n"),
+    
+    top_loop('', null, null),
+    write("DJD0000056\n").
+
+%	fileerrors.
+
+gauge_goedel:-
+	use_module(library(gauge)),
+	prolog_flag(compiling, _, profiledcode),
+	findall(F, ( system_file(F),
+		     system_directory(D),
+	             join_string(D, F, DF),
+	             compile(DF)
+		   ), _).
+
+/* cannot work because of the bug in SICStus
+save_goedel:-
+	( prolog_flag(compiling, _, fastcode);
+	  true                          % in case user's SICStus doesn't
+                                        % support fastcode
+        ), !,
+	findall(F, ( system_file(F),
+	             system_directory(D),
+		     join_string(D, F, DF),
+	             compile(DF)
+		   ), _),
+	save(goedel, Status),
+	process(Status).
+*/
+
+save_goedel:-
+	compile(sys_modules),
+	( prolog_flag(compiling, _, fastcode);
+	  true				% in case user's SICStus doesn't
+					% support fastcode
+	), !,
+	findall(F, ( system_file(F),
+	             system_directory(D),
+		     join_string(D, F, DF),
+	             compile(DF)
+		   ), _),
+	save(goedel, Status),
+	process(Status).
+
+
+% creating .ql files for the runtime system
+make_runtime:-
+	fcompile(sys_modules),		% this is compiled in compact code
+	prolog_flag(compiling, _, fastcode),
+	findall(F, ( system_file(F),
+		     system_directory(D),
+		     join_string(D, F, DF),
+	             fcompile(DF)
+		   ), _),
+	% especially for the runtime system 
+	findall(F, ( runtime_system_file(F),
+		     system_directory(D),
+		     join_string(D, F, DF),
+	             fcompile(DF)
+		   ), _).
+
+% Creating .ql files for the runtime system on Linux
+% All system modules are compiled in compact code
+make_pc_runtime:-
+	prolog_flag(compiling, _, compactcode),
+	fcompile(sys_modules),
+	findall(F, ( system_file(F),
+		     system_directory(D),
+		     join_string(D, F, DF),
+	             fcompile(DF)
+		   ), _),
+	findall(F, ( runtime_system_file(F),
+		     system_directory(D),
+		     join_string(D, F, DF),
+	             fcompile(DF)
+		   ), _).
+
+process(0) :-
+	goedel_version(Version),
+	format('Goedel version ~a created~n', [Version]).
+
+process(1) :-
+	goedel,
+	unix(exit(1)).
+
+/*------------------------------------------------------------------------------
+ * utility routines for init.pl only.
+ */
+
+join_string(A, B, C):-
+	name(A, A1),
+	name(B, B1),
+	init_append(A1, B1, C1),
+	name(C, C1).
+
+init_append([],Y,Y).
+init_append([U|X],Y,[U|Z]):-
+	init_append(X,Y,Z).
+

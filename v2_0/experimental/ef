@@ -1,0 +1,80 @@
+echo "-----------"
+echo "Goedel tool"
+echo "-----------"
+echo "0 PceEmacs"
+echo "1 edit aux_djd.pl"
+echo "2 edit compiler_djd.pl"
+echo "3 edit ground_djd.pl"
+echo "4 edit dsa.pl"
+echo "5 edit lib_djd.pl"
+echo "6 edit parser_djd.pl"
+echo "7 edit programs_djd.pl"
+echo "8 edit syntax_djd.pl"
+echo "9 edit sys_modules_djd.pl"
+echo "10 edit system1_djd.pl"
+echo "11 edit top_djd.pl"
+
+echo "444 edit ee"
+echo "555 test 1"
+echo "666 test 2"
+
+echo "777 NOTES_DJD.txt"
+echo "999 quit"
+echo "select"
+read select
+while [ $select -ne 999 ]
+do 
+case $select in
+0) swipl  ;;
+
+
+
+
+
+
+1) $EDITOR aux_djd.pl ;;
+2) $EDITOR compiler_djd.pl ;;
+3) $EDITOR ground_djd.pl ;;
+4) $EDITOR dsa.pl ;;
+5) $EDITOR lib_djd.pl ;;
+6) $EDITOR parser_djd.pl ;;
+7) $EDITOR programs_djd.pl ;;
+8) $EDITOR syntax_djd.pl ;;
+9) $EDITOR sys_modules_djd.pl ;;
+10) $EDITOR system1_djd.pl ;;
+11) $EDITOR top_djd.pl ;;
+
+
+
+444) $EDITOR ee ;;
+555) ./tst.sh ;;
+666) ./tst2.sh ;;
+
+777) $EDITOR NOTES_DJD.txt & ;;
+
+esac
+
+echo "-----------"
+echo "Goedel tool"
+echo "-----------"
+echo "0 PceEmacs"
+echo "1 edit aux_djd.pl"
+echo "2 edit compiler_djd.pl"
+echo "3 edit ground_djd.pl"
+echo "4 edit dsa.pl"
+echo "5 edit lib_djd.pl"
+echo "6 edit parser_djd.pl"
+echo "7 edit programs_djd.pl"
+echo "8 edit syntax_djd.pl"
+echo "9 edit sys_modules_djd.pl"
+echo "10 edit system1_djd.pl"
+echo "11 edit top_djd.pl"
+echo "444 edit ee"
+echo "555 test 1"
+echo "666 test 2"
+
+echo "777 NOTES_DJD.txt"
+echo "999 quit"
+echo "select"
+read select
+done

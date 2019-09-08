@@ -1,0 +1,208 @@
+echo "-----------"
+echo "Goedel tool"
+echo "-----------"
+echo "0 PceEmacs"
+echo "---------------------"
+echo "1 edit avltrees.pl"
+echo "2 edit avlTrees.pl"
+echo "3 edit builtin.pl"
+echo "4 edit checking.pl"
+echo "5 edit compiler.pl"
+echo "6 edit constraint.pl"
+echo "7 edit delay.pl"
+echo "8 edit dsa.pl"
+echo "9 edit extraSyntax.pl"
+echo "10 edit floats.pl"
+echo "11 edit flocksIO.pl"
+echo "12 edit flocks.pl"
+echo "13 edit formula.pl"
+echo "14 edit gfreeze.pl"
+echo "15 edit integers.pl"
+echo "16 edit io.pl"
+echo "17 edit lib.pl"
+echo "18 edit lists_g.pl"
+echo "19 edit numbersIO.pl"
+echo "20 edit numbers.pl"
+echo "21 edit parser.pl"
+echo "22 edit programCache.pl"
+echo "23 edit programsIO.pl"
+echo "24 edit programs.pl"
+echo "25 edit rationals.pl"
+echo "26 edit scriptsIO.pl"
+echo "---------------------"
+echo "<cr> to continue"
+read
+echo "---------------------"
+echo "27 edit scripts.pl"
+echo "28 edit sets.pl"
+echo "29 edit sets_sup.pl"
+echo "30 edit sharedPrograms.pl"
+echo "31 edit sharedSyntax.pl"
+echo "32 edit statement.pl"
+echo "33 edit strings.pl"
+echo "34 edit strings_sup.pl"
+echo "35 edit substs.pl"
+echo "36 edit syntax.pl"
+echo "37 edit system.pl"
+echo "38 edit tables.pl"
+echo "39 edit term.pl"
+echo "40 edit theoriesIO.pl"
+echo "41 edit theories.pl"
+echo "42 edit tokenizer2.pl"
+echo "43 edit tokenizer.pl"
+echo "44 edit toplev.pl"
+echo "45 edit tracer.pl"
+echo "46 edit transform.pl"
+echo "47 edit units.pl"
+echo "48 edit units_sup.pl"
+echo "49 edit utilities.pl"
+echo "50 edit djd01.pl"
+echo "---------------------"
+
+echo "333 edit ee"
+echo "444 edit ff"
+echo "555 test 1"
+echo "556 djd test 1"
+echo "666 test 2"
+echo "667 djd test 2"
+
+echo "777 NOTES_DJD.txt"
+echo "999 quit"
+echo "select"
+read select
+while [ $select -ne 999 ]
+do 
+case $select in
+0) swipl  ;;
+1) $EDITOR avltrees.pl  ;;
+2) $EDITOR avlTrees.pl  ;;
+3) $EDITOR builtin.pl  ;;
+4) $EDITOR checking.pl  ;;
+5) $EDITOR compiler.pl  ;;
+6) $EDITOR constraint.pl  ;;
+7) $EDITOR delay.pl  ;;
+8) $EDITOR dsa.pl  ;;
+9) $EDITOR extraSyntax.pl  ;;
+10) $EDITOR floats.pl  ;;
+11) $EDITOR flocksIO.pl  ;;
+12) $EDITOR flocks.pl  ;;
+13) $EDITOR formula.pl  ;;
+14) $EDITOR gfreeze.pl  ;;
+15) $EDITOR integers.pl  ;;
+16) $EDITOR io.pl  ;;
+17) $EDITOR lib.pl  ;;
+18) $EDITOR lists_g.pl  ;;
+19) $EDITOR numbersIO.pl  ;;
+20) $EDITOR numbers.pl  ;;
+21) $EDITOR parser.pl  ;;
+22) $EDITOR programCache.pl  ;;
+23) $EDITOR programsIO.pl  ;;
+24) $EDITOR programs.pl  ;;
+25) $EDITOR rationals.pl  ;;
+26) $EDITOR scriptsIO.pl  ;;
+27) $EDITOR scripts.pl  ;;
+28) $EDITOR sets.pl  ;;
+29) $EDITOR sets_sup.pl  ;;
+30) $EDITOR sharedPrograms.pl  ;;
+31) $EDITOR sharedSyntax.pl  ;;
+32) $EDITOR statement.pl  ;;
+33) $EDITOR strings.pl  ;;
+34) $EDITOR strings_sup.pl  ;;
+35) $EDITOR substs.pl  ;;
+36) $EDITOR syntax.pl  ;;
+37) $EDITOR system.pl  ;;
+38) $EDITOR tables.pl  ;;
+39) $EDITOR term.pl  ;;
+40) $EDITOR theoriesIO.pl  ;;
+41) $EDITOR theories.pl  ;;
+42) $EDITOR tokenizer2.pl  ;;
+43) $EDITOR tokenizer.pl  ;;
+44) $EDITOR toplev.pl  ;;
+45) $EDITOR tracer.pl  ;;
+46) $EDITOR transform.pl  ;;
+47) $EDITOR units.pl  ;;
+48) $EDITOR units_sup.pl  ;;
+49) $EDITOR utilities.pl  ;;
+50) $EDITOR djd01.pl  ;;
+
+444) $EDITOR ee ;;
+555) ./tst.sh ;;
+556) ./tstdjd01.sh ;;
+666) ./tst2.sh ;;
+667) ./tstdjd02.sh 01 ;;
+
+777) $EDITOR NOTES_DJD.txt & ;;
+
+esac
+
+echo "-----------"
+echo "Goedel tool"
+echo "-----------"
+echo "0 PceEmacs"
+echo "---------------------"
+echo "1 edit avltrees.pl"
+echo "2 edit avlTrees.pl"
+echo "3 edit builtin.pl"
+echo "4 edit checking.pl"
+echo "5 edit compiler.pl"
+echo "6 edit constraint.pl"
+echo "7 edit delay.pl"
+echo "8 edit dsa.pl"
+echo "9 edit extraSyntax.pl"
+echo "10 edit floats.pl"
+echo "11 edit flocksIO.pl"
+echo "12 edit flocks.pl"
+echo "13 edit formula.pl"
+echo "14 edit gfreeze.pl"
+echo "15 edit integers.pl"
+echo "16 edit io.pl"
+echo "17 edit lib.pl"
+echo "18 edit lists_g.pl"
+echo "19 edit numbersIO.pl"
+echo "20 edit numbers.pl"
+echo "21 edit parser.pl"
+echo "22 edit programCache.pl"
+echo "23 edit programsIO.pl"
+echo "24 edit programs.pl"
+echo "25 edit rationals.pl"
+echo "26 edit scriptsIO.pl"
+echo "---------------------"
+echo "<cr> to continue"
+read
+echo "---------------------"
+echo "27 edit scripts.pl"
+echo "28 edit sets.pl"
+echo "29 edit sets_sup.pl"
+echo "30 edit sharedPrograms.pl"
+echo "31 edit sharedSyntax.pl"
+echo "32 edit statement.pl"
+echo "33 edit strings.pl"
+echo "34 edit strings_sup.pl"
+echo "35 edit substs.pl"
+echo "36 edit syntax.pl"
+echo "37 edit system.pl"
+echo "38 edit tables.pl"
+echo "39 edit term.pl"
+echo "40 edit theoriesIO.pl"
+echo "41 edit theories.pl"
+echo "42 edit tokenizer2.pl"
+echo "43 edit tokenizer.pl"
+echo "44 edit toplev.pl"
+echo "45 edit tracer.pl"
+echo "46 edit transform.pl"
+echo "47 edit units.pl"
+echo "48 edit units_sup.pl"
+echo "49 edit utilities.pl"
+echo "50 edit djd01.pl"
+echo "---------------------"
+echo "444 edit ee"
+echo "555 test 1"
+echo "556 djd test 1"
+echo "666 test 2"
+echo "667 djd test 2"
+
+echo "777 NOTES_DJD.txt"
+echo "999 quit"
+echo "select"
+read select
+done

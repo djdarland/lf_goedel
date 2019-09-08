@@ -1,0 +1,5 @@
+goedel_version(X).
+goedel.
+;h.
+;quit.
+halt.

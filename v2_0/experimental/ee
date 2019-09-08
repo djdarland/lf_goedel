@@ -1,0 +1,45 @@
+echo "-----------"
+echo "SWI experimenting tool"
+echo "-----------"
+echo "0 PceEmacs"
+echo "---------------------"
+echo "55 edit djd01.pl"
+echo "---------------------"
+
+echo "555 djd test 1"
+echo "666 djd test 2"
+
+echo "777 NOTES_DJD.txt"
+echo "999 quit"
+echo "select"
+read select
+while [ $select -ne 999 ]
+do 
+case $select in
+0) swipl  ;;
+55) $EDITOR djd01.pl  ;;
+
+444) $EDITOR ee ;;
+555) ./tstdjd01.sh ;;
+666) ./tstdjd02.sh 01 ;;
+
+777) $EDITOR NOTES_DJD.txt & ;;
+
+esac
+
+echo "-----------"
+echo "Goedel tool"
+echo "-----------"
+echo "0 PceEmacs"
+echo "---------------------"
+echo "55 edit djd01.pl"
+echo "---------------------"
+echo "555 djd test 1"
+echo "666 djd test 2"
+echo "---------------------"
+
+echo "777 NOTES_DJD.txt"
+echo "999 quit"
+echo "select"
+read select
+done

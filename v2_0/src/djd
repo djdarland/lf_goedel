@@ -1,0 +1,845 @@
+checking.pl:collect_variables('ProgDefs.TrueCond.C0', Vars, Vars).
+checking.pl:collect_variables('ProgDefs.Ground.F1'(CondVar), Vars, Vars2) :-
+checking.pl:collect_variables('ProgDefs.Nonvar.F1'(CondVar), Vars, Vars2) :-
+checking.pl:collect_variables('ProgDefs.And.F2'(Cond1, Cond2), Vars, Vars2) :-
+checking.pl:collect_variables('ProgDefs.Or.F2'(Cond1, Cond2), Vars, Vars2) :-
+compiler.pl:   Program = 'ProgDefs.Program.F4'(_, ModuleDefavl, Language,
+compiler.pl:   ModuleCode = 'ProgDefs.Code.F2'(_, Code),
+compiler.pl:   Language = 'ProgDefs.Language.F1'(ModuleDescriptoravl),
+compiler.pl:   ModuleCode = 'ProgDefs.Code.F2'(_, Code),
+compiler.pl:   ModuleDescriptor = 'ProgDefs.Module.F3'(_,
+compiler.pl:			'ProgDefs.Categories.F2'(_, Symbols), _),
+compiler.pl:find_not_defined(['ProgDefs.Symbol.F2'(_, Decl)|Decls], Statements, S,
+compiler.pl:find_not_defined_aux('ProgDefs.ConstantDecl.F1'(_), _, _, PredicateSpecs,
+compiler.pl:find_not_defined_aux('ProgDefs.FunctionDecl.F4'(_,_,_,_), _, _, PredicateSpecs,
+compiler.pl:find_not_defined_aux('ProgDefs.PropositionDecl.C0', Statements, S,
+compiler.pl:   ( member('ProgDefs.PredDef.F4'(0, Formulae, _, _), Statements),
+compiler.pl:find_not_defined_aux('ProgDefs.PredicateDecl.F3'(Arity, _, _), Statements, S,
+compiler.pl:   ( member('ProgDefs.PredDef.F4'(Arity, Formulae, _, _), Statements),
+compiler.pl:   Program = 'ProgDefs.Program.F4'(_, _, _, StatementsAndDelays),
+compiler.pl:		'ProgDefs.Code.F2'(_, Code), _, RightTree), Program) :-
+compiler.pl:     ;  Program = 'ProgDefs.Program.F4'(_, ModuleDefavl, Language, _),
+compiler.pl:        Language = 'ProgDefs.Language.F1'(ModuleDescriptoravl),
+compiler.pl:compile_predicates(['ProgDefs.PredDef.F4'(_, Statements, ExpDelays, LocDelays)
+compiler.pl:build_term('MetaDefs.Prm.F1'(Prm), 'ProgDefs.CachedProgram.F1'(Prm),
+delay.pl:   Delay = 'ProgDefs.Delay.F2'('MetaDefs.Atom.F2'(Predicate, Argus), _),
+delay.pl:   Delay = 'ProgDefs.Delay.F2'('MetaDefs.Atom.F2'(Name, Argus), Condition),
+delay.pl:build_delays(['ProgDefs.Delay.F2'('MetaDefs.PAtom.F1'(_), _)|Delays],
+delay.pl:build_delays(['ProgDefs.Delay.F2'('MetaDefs.Atom.F2'(Name, Argus), Condition)
+delay.pl:		 ['ProgDefs.Delay.F2'('MetaDefs.Atom.F2'(Name, BuiltArgus),
+delay.pl:build_delay_condition('ProgDefs.TrueCond.C0', true, VarDict, VarDict).
+delay.pl:build_delay_condition('ProgDefs.Nonvar.F1'(Var), nonvar(BuiltVar), VarDict,
+delay.pl:build_delay_condition('ProgDefs.Ground.F1'(Var), ground([BuiltVar]), VarDict,
+delay.pl:build_delay_condition('ProgDefs.And.F2'(Cond1, Cond2), BuiltCond1 and BuiltCond2,
+delay.pl:build_delay_condition('ProgDefs.Or.F2'(Cond1, Cond2), BuiltCond1 or BuiltCond2,
+gfreeze.pl:removable('ProgDefs.Program.F4'(_, _, _, _)).
+gfreeze.pl:	( nonvar(Arg), Arg = 'ProgDefs.Program.F4'(_, _, _, _)
+parser.pl:   parse_language1(ExpTokens2, ExpTokens3, GModuleName, 'ProgDefs.Exported.C0',
+parser.pl:   parse_language2(ExpTokens3, ExpTokens4, GModuleName, 'ProgDefs.Exported.C0',
+parser.pl:   parse_language1(LocTokens2, LocTokens3, GModuleName, 'ProgDefs.Hidden.C0',
+parser.pl:   parse_language2(LocTokens3, LocTokens4, GModuleName, 'ProgDefs.Hidden.C0',
+parser.pl:	     ModuleDef = 'ProgDefs.ModDef.F4'(_, ImpExp, ImpLoc, Lifts),
+parser.pl:	                'ProgDefs.Exported.C0',	ExpLang, ExpLang2),
+parser.pl:	                'ProgDefs.Exported.C0',	ExpLang2, ExpLang3),
+parser.pl:	                'ProgDefs.Hidden.C0', LocLang, LocLang2),
+parser.pl:	               'ProgDefs.Hidden.C0', LocLang2, LocLang3),
+parser.pl:     -> ModuleKind = 'ProgDefs.ModuleKind.C0'
+parser.pl:	  -> ModuleKind = 'ProgDefs.NormalKind.C0'
+parser.pl:	  ;  ModuleKind = 'ProgDefs.ClosedKind.C0'
+parser.pl:     -> ModulePartLoc = 'ProgDefs.Module.C0'
+parser.pl:	  -> ModulePartExp = 'ProgDefs.Export.C0'
+parser.pl:	  ;  ModulePartExp = 'ProgDefs.Closed.C0'	% is this ok ?
+parser.pl:	ModulePartLoc = 'ProgDefs.Local.C0'
+parser.pl:		Accessibility, 'ProgDefs.BaseDecl.C0', NewLang2)
+parser.pl:accessibility2part('ProgDefs.Exported.C0', export).
+parser.pl:accessibility2part('ProgDefs.Hidden.C0', local).
+parser.pl:			    Accessibility, 'ProgDefs.ConstructorDecl.F1'(Arity),
+parser.pl:				'ProgDefs.ConstantDecl.F1'(Type), Lang2)
+parser.pl:	     insert_function_decl(FuncNames, 'ProgDefs.FunctionDecl.F4'(Arity,
+parser.pl:			Accessibility, 'ProgDefs.PropositionDecl.C0', Lang2)
+parser.pl:	     insert_predicate_decl(PredNames, 'ProgDefs.PredicateDecl.F3'(Arity,
+parser.pl:				'ProgDefs.Delay.F2'(HeadAtom, Condition),
+parser.pl:	       -> Condition = 'ProgDefs.And.F2'(Cond1, Cond2),
+parser.pl:	            -> Condition = 'ProgDefs.Or.F2'(Cond1, Cond2),
+parser.pl:     -> Condition = 'ProgDefs.TrueCond.C0',
+parser.pl:	       -> Condition = 'ProgDefs.Nonvar.F1'(VarRep)
+parser.pl:	            -> Condition = 'ProgDefs.Ground.F1'(VarRep)
+parser.pl:	  -> Condition = 'ProgDefs.And.F2'(Cond1, Cond2),
+parser.pl:	  -> Condition = 'ProgDefs.Or.F2'(Cond1, Cond2),
+parser.pl:system_module_name('"ProgDefs"').
+programCache.pl:'programCache.UnCacheProgram.P2'('ProgDefs.CachedProgram.F1'(A), B) :-
+programCache.pl:'~programCache.UnCacheProgram.P2'('ProgDefs.CachedProgram.F1'(A), B) :-
+programCache.pl:'programCache.UnCacheProgram.P2'('ProgDefs.Program.F4'(A,B,C,D), 'ProgDefs.Program.F4'(A,B,C,D)).
+programCache.pl:'~programCache.UnCacheProgram.P2'('ProgDefs.Program.F4'(A,B,C,D), 'ProgDefs.Program.F4'(A,B,C,D)).
+programsIO.pl:% 'ProgramsIO.GetProgramAux.P2'(Stream, 'ProgDefs.CachedProgram.F1'(Main)) :-
+programsIO.pl:%    Program = 'ProgDefs.Program.F4'(Main, _, _, _),
+programs.pl:'programs.DeclaredInOpenModule.P3.0'('ProgDefs.CachedProgram.F1'(A), B, C) :-
+programs.pl:'~programs.DeclaredInOpenModule.P3.0'('ProgDefs.CachedProgram.F1'(A), B, C) :-
+programs.pl:'programs.DeclaredInOpenModule.P3.0'('ProgDefs.Program.F4'(_,A,B,_), C, D) :-
+programs.pl:'~programs.DeclaredInOpenModule.P3.0'('ProgDefs.Program.F4'(_,A,B,_), C, D) :-
+programs.pl:'programs.AndCondition.P3'(A, B, 'ProgDefs.And.F2'(A,B)).
+programs.pl:'~programs.AndCondition.P3'(A, B, 'ProgDefs.And.F2'(A,B)).
+programs.pl:'programs.CompileObjectCode.P1'('avlTrees.Tree.F4'(A,B,'ProgDefs.Code.F2'(C,D),E)) :-
+programs.pl:'~programs.CompileObjectCode.P1'('avlTrees.Tree.F4'(A,B,'ProgDefs.Code.F2'(C,D),E)) :-
+programs.pl:'programs.CModulePart.P2.0'('programs.Export.C0', 'ProgDefs.Export.C0') :- !.
+programs.pl:'~programs.CModulePart.P2.0'('programs.Export.C0', 'ProgDefs.Export.C0').
+programs.pl:'programs.CModulePart.P2.0'('programs.Local.C0', 'ProgDefs.Local.C0') :- !.
+programs.pl:'~programs.CModulePart.P2.0'('programs.Local.C0', 'ProgDefs.Local.C0').
+programs.pl:'programs.CModulePart.P2.0'('programs.Module.C0', 'ProgDefs.Module.C0') :- !.
+programs.pl:'~programs.CModulePart.P2.0'('programs.Module.C0', 'ProgDefs.Module.C0').
+programs.pl:'programs.CModulePart.P2.0'('programs.Closed.C0', 'ProgDefs.Closed.C0') :- !.
+programs.pl:'~programs.CModulePart.P2.0'('programs.Closed.C0', 'ProgDefs.Closed.C0').
+programs.pl:'programs.CompileObjectProgram.P1'('ProgDefs.Program.F4'(_,_,_,A)) :-
+programs.pl:'~programs.CompileObjectProgram.P1'('ProgDefs.Program.F4'(_,_,_,A)) :-
+programs.pl:'programs.ConditionSatisfied.P2'('ProgDefs.Nonvar.F1'(A), B) :-
+programs.pl:'~programs.ConditionSatisfied.P2'('ProgDefs.Nonvar.F1'(A), B) :-
+programs.pl:'programs.ConditionSatisfied.P2'('ProgDefs.And.F2'(A,B), C) :-
+programs.pl:'~programs.ConditionSatisfied.P2'('ProgDefs.And.F2'(A,B), C) :-
+programs.pl:'programs.ConditionSatisfied.P2'('ProgDefs.Ground.F1'(A), B) :-
+programs.pl:'~programs.ConditionSatisfied.P2'('ProgDefs.Ground.F1'(A), B) :-
+programs.pl:'programs.ConditionSatisfied.P2'('ProgDefs.TrueCond.C0', _).
+programs.pl:'~programs.ConditionSatisfied.P2'('ProgDefs.TrueCond.C0', _).
+programs.pl:'programs.ConditionSatisfied.P2'('ProgDefs.Or.F2'(A,B), C) :-
+programs.pl:'~programs.ConditionSatisfied.P2'('ProgDefs.Or.F2'(A,B), C) :-
+programs.pl:'programs.DeclaredInClosedModule.P3.0'('ProgDefs.CachedProgram.F1'(A), B, C) :-
+programs.pl:'~programs.DeclaredInClosedModule.P3.0'('ProgDefs.CachedProgram.F1'(A), B, C) :-
+programs.pl:'programs.DeclaredInClosedModule.P3.0'('ProgDefs.Program.F4'(_,A,B,_), C, D) :-
+programs.pl:        user:goedel_freeze(ground([C]), (user:not_equal([],[C],C,'"'),true->'avlTrees':'avlTrees.avlSearch.P3'(A,C,'ProgDefs.ModDef.F4'('ProgDefs.ClosedKind.C0',_,_,_));true)).
+programs.pl:'~programs.DeclaredInClosedModule.P3.0'('ProgDefs.Program.F4'(_,A,B,_), C, D) :-
+programs.pl:        user:goedel_freeze(ground([C]), (user:not_equal([],[C],C,'"'),true->'avlTrees':'~avlTrees.avlSearch.P3'(A,C,'ProgDefs.ModDef.F4'('ProgDefs.ClosedKind.C0',_,_,_));true)).
+programs.pl:        'programs.DelDeclaration.P6'(F, B, C, D, 'ProgDefs.ConstantDecl.F1'(E), A).
+programs.pl:        '~programs.DelDeclaration.P6'(F, B, C, D, 'ProgDefs.ConstantDecl.F1'(E), A).
+programs.pl:'programs.DelayInModule.P5.0'('ProgDefs.CachedProgram.F1'(A), B, C, D, E) :-
+programs.pl:'~programs.DelayInModule.P5.0'('ProgDefs.CachedProgram.F1'(A), B, C, D, E) :-
+programs.pl:'programs.DelayInModule.P5.0'('ProgDefs.Program.F4'(_,A,_,B), C, D, E, F) :-
+programs.pl:        'SharedPrograms':'Sharedprograms.avlFind.P3'(B, C, 'ProgDefs.Code.F2'(_,I)),
+programs.pl:        'SharedPrograms':'Sharedprograms.FindPredDef.P3'(H, J, 'ProgDefs.PredDef.F4'(H,_,K,L)),
+programs.pl:        'avlTrees':'avlTrees.avlSearch.P3'(A, C, 'ProgDefs.ModDef.F4'(M,_,_,_)),
+programs.pl:        'programs.DelayInKind.P5'(M, D, K, L, 'ProgDefs.Delay.F2'(E,F)).
+programs.pl:'~programs.DelayInModule.P5.0'('ProgDefs.Program.F4'(_,A,_,B), C, D, E, F) :-
+programs.pl:        'SharedPrograms':'~Sharedprograms.avlFind.P3'(B, C, 'ProgDefs.Code.F2'(_,I)),
+programs.pl:        'SharedPrograms':'~Sharedprograms.FindPredDef.P3'(H, J, 'ProgDefs.PredDef.F4'(H,_,K,L)),
+programs.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(A, C, 'ProgDefs.ModDef.F4'(M,_,_,_)),
+programs.pl:        '~programs.DelayInKind.P5'(M, D, K, L, 'ProgDefs.Delay.F2'(E,F)).
+programs.pl:        G='ProgDefs.Program.F4'(J,K,L,M),
+programs.pl:        A='ProgDefs.Program.F4'(J,K,N,M).
+programs.pl:        G='ProgDefs.Program.F4'(J,K,L,M),
+programs.pl:        A='ProgDefs.Program.F4'(J,K,N,M).
+programs.pl:'programs.DefinitionInProgram.P4.0'('ProgDefs.CachedProgram.F1'(A), B, C, D) :-
+programs.pl:'~programs.DefinitionInProgram.P4.0'('ProgDefs.CachedProgram.F1'(A), B, C, D) :-
+programs.pl:'programs.DefinitionInProgram.P4.0'('ProgDefs.Program.F4'(_,A,B,C), D, E, F) :-
+programs.pl:        'avlTrees':'avlTrees.avlSearch.P3'(C, D, 'ProgDefs.Code.F2'(_,J)),
+programs.pl:        user:goedel_freeze(ground([I,J,G]), if((('avlTrees':'~avlTrees.avlSearch.P3'(J,G,K),'SharedPrograms':'~Sharedprograms.FindPredDef.P3'(I,K,'ProgDefs.PredDef.F4'(I,L,_,_))),true),F=L,F=[])).
+programs.pl:'~programs.DefinitionInProgram.P4.0'('ProgDefs.Program.F4'(_,A,B,C), D, E, F) :-
+programs.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(C, D, 'ProgDefs.Code.F2'(_,J)),
+programs.pl:        user:goedel_freeze(ground([I,J,G]), if((('avlTrees':'~avlTrees.avlSearch.P3'(J,G,K),'SharedPrograms':'~Sharedprograms.FindPredDef.P3'(I,K,'ProgDefs.PredDef.F4'(I,L,_,_))),true),F=L,F=[])).
+programs.pl:        G='ProgDefs.Program.F4'(J,K,L,M),
+programs.pl:        A='ProgDefs.Program.F4'(J,K,N,M).
+programs.pl:        G='ProgDefs.Program.F4'(J,K,L,M),
+programs.pl:        A='ProgDefs.Program.F4'(J,K,N,M).
+programs.pl:'programs.DelayInKind.P5'('ProgDefs.NormalKind.C0', A, B, C, D) :-
+programs.pl:'~programs.DelayInKind.P5'('ProgDefs.NormalKind.C0', A, B, C, D) :-
+programs.pl:'programs.DelayInKind.P5'('ProgDefs.ClosedKind.C0', 'programs.Closed.C0', A, _, B) :-
+programs.pl:'~programs.DelayInKind.P5'('ProgDefs.ClosedKind.C0', 'programs.Closed.C0', A, _, B) :-
+programs.pl:'programs.DelayInKind.P5'('ProgDefs.ModuleKind.C0', 'programs.Module.C0', _, A, B) :-
+programs.pl:'~programs.DelayInKind.P5'('ProgDefs.ModuleKind.C0', 'programs.Module.C0', _, A, B) :-
+programs.pl:'programs.DeleteDelay.P6.0'(A, B, C, D, E, 'ProgDefs.Program.F4'(F,G,H,I)) :-
+programs.pl:        J='ProgDefs.Program.F4'(F,G,H,M),
+programs.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(M, B, 'ProgDefs.Code.F2'(L,N), I, 'ProgDefs.Code.F2'(_,O)),
+programs.pl:        'SharedPrograms':'Sharedprograms.PickPredDef.P4'(Q, R, 'ProgDefs.PredDef.F4'(Q,S,T,U), V),
+programs.pl:        'programs.DeleteDelayFromPart.P6'(C, 'ProgDefs.Delay.F2'(D,E), T, U, W, X),
+programs.pl:        user:goedel_freeze(ground([W,X,S]), ((S=[],W=[],X=[]),true->Y=V;Y=['ProgDefs.PredDef.F4'(Q,S,W,X)|V])),
+programs.pl:'~programs.DeleteDelay.P6.0'(A, B, C, D, E, 'ProgDefs.Program.F4'(F,G,H,I)) :-
+programs.pl:        J='ProgDefs.Program.F4'(F,G,H,M),
+programs.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(M, B, 'ProgDefs.Code.F2'(L,N), I, 'ProgDefs.Code.F2'(_,O)),
+programs.pl:        'SharedPrograms':'~Sharedprograms.PickPredDef.P4'(Q, R, 'ProgDefs.PredDef.F4'(Q,S,T,U), V),
+programs.pl:        '~programs.DeleteDelayFromPart.P6'(C, 'ProgDefs.Delay.F2'(D,E), T, U, W, X),
+programs.pl:        user:goedel_freeze(ground([W,X,S]), ((S=[],W=[],X=[]),true->Y=V;Y=['ProgDefs.PredDef.F4'(Q,S,W,X)|V])),
+programs.pl:        'programs.DelTypeDeclaration.P6'(E, B, C, D, 'ProgDefs.BaseDecl.C0', A).
+programs.pl:        '~programs.DelTypeDeclaration.P6'(E, B, C, D, 'ProgDefs.BaseDecl.C0', A).
+programs.pl:        'programs.DelDeclaration.P6'(G, B, C, D, 'ProgDefs.PredicateDecl.F3'(_,E,F), A).
+programs.pl:        '~programs.DelDeclaration.P6'(G, B, C, D, 'ProgDefs.PredicateDecl.F3'(_,E,F), A).
+programs.pl:        'programs.DelDeclaration.P6'(H, B, C, D, 'ProgDefs.FunctionDecl.F4'(_,E,F,G), A).
+programs.pl:        '~programs.DelDeclaration.P6'(H, B, C, D, 'ProgDefs.FunctionDecl.F4'(_,E,F,G), A).
+programs.pl:        'programs.DelTypeDeclaration.P6'(F, B, C, D, 'ProgDefs.ConstructorDecl.F1'(E), A).
+programs.pl:        '~programs.DelTypeDeclaration.P6'(F, B, C, D, 'ProgDefs.ConstructorDecl.F1'(E), A).
+programs.pl:'programs.DeleteProgramImport.P5.0'('ProgDefs.CachedProgram.F1'(A), B, C, D, E) :-
+programs.pl:'~programs.DeleteProgramImport.P5.0'('ProgDefs.CachedProgram.F1'(A), B, C, D, E) :-
+programs.pl:'programs.DeleteProgramImport.P5.0'('ProgDefs.Program.F4'(A,B,'ProgDefs.Language.F1'(C),D), E, F, G, 'ProgDefs.Program.F4'(A,H,'ProgDefs.Language.F1'(I),J)) :-
+programs.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(B, E, 'ProgDefs.ModDef.F4'(L,M,N,O), P, 'ProgDefs.ModDef.F4'(L,Q,R,O)),
+programs.pl:'~programs.DeleteProgramImport.P5.0'('ProgDefs.Program.F4'(A,B,'ProgDefs.Language.F1'(C),D), E, F, G, 'ProgDefs.Program.F4'(A,H,'ProgDefs.Language.F1'(I),J)) :-
+programs.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(B, E, 'ProgDefs.ModDef.F4'(L,M,N,O), P, 'ProgDefs.ModDef.F4'(L,Q,R,O)),
+programs.pl:'programs.DeleteStatement.P4.0'('ProgDefs.CachedProgram.F1'(A), B, C, D) :-
+programs.pl:'~programs.DeleteStatement.P4.0'('ProgDefs.CachedProgram.F1'(A), B, C, D) :-
+programs.pl:'programs.DeleteStatement.P4.0'('ProgDefs.Program.F4'(A,B,C,D), E, F, 'ProgDefs.Program.F4'(A,B,C,G)) :-
+programs.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(D, E, 'ProgDefs.Code.F2'(H,I), G, 'ProgDefs.Code.F2'(_,J)),
+programs.pl:        'SharedPrograms':'Sharedprograms.PickPredDef.P4'(L, M, 'ProgDefs.PredDef.F4'(L,N,O,P), Q),
+programs.pl:        user:goedel_freeze(ground([O,P,R]), ((R=[],O=[],P=[]),true->S=Q;S=['ProgDefs.PredDef.F4'(L,R,O,P)|Q])),
+programs.pl:'~programs.DeleteStatement.P4.0'('ProgDefs.Program.F4'(A,B,C,D), E, F, 'ProgDefs.Program.F4'(A,B,C,G)) :-
+programs.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(D, E, 'ProgDefs.Code.F2'(H,I), G, 'ProgDefs.Code.F2'(_,J)),
+programs.pl:        'SharedPrograms':'~Sharedprograms.PickPredDef.P4'(L, M, 'ProgDefs.PredDef.F4'(L,N,O,P), Q),
+programs.pl:        user:goedel_freeze(ground([O,P,R]), ((R=[],O=[],P=[]),true->S=Q;S=['ProgDefs.PredDef.F4'(L,R,O,P)|Q])),
+programs.pl:        'programs.DelDeclaration.P6'(E, B, C, D, 'ProgDefs.PropositionDecl.C0', A).
+programs.pl:        '~programs.DelDeclaration.P6'(E, B, C, D, 'ProgDefs.PropositionDecl.C0', A).
+programs.pl:'programs.DeleteTypeSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+programs.pl:        'SharedPrograms':'Sharedprograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(J,K),L)),
+programs.pl:        'Lists':'Lists.DeleteFirst.P3'('ProgDefs.Symbol.F2'(F,G), M, N),
+programs.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(O,K),L), H, _).
+programs.pl:'~programs.DeleteTypeSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+programs.pl:        'SharedPrograms':'~Sharedprograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(J,K),L)),
+programs.pl:        'Lists':'~Lists.DeleteFirst.P3'('ProgDefs.Symbol.F2'(F,G), M, N),
+programs.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(O,K),L), H, _).
+programs.pl:'programs.DeleteSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+programs.pl:        'SharedPrograms':'Sharedprograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(J,K),L)),
+programs.pl:        'Lists':'Lists.DeleteFirst.P3'('ProgDefs.Symbol.F2'(F,G), M, N),
+programs.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(J,O),L), H, _).
+programs.pl:'~programs.DeleteSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+programs.pl:        'SharedPrograms':'~Sharedprograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(J,K),L)),
+programs.pl:        'Lists':'~Lists.DeleteFirst.P3'('ProgDefs.Symbol.F2'(F,G), M, N),
+programs.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(J,O),L), H, _).
+programs.pl:        'programs.InsTypeDeclaration.P6'(A, B, C, D, 'ProgDefs.BaseDecl.C0', E).
+programs.pl:        '~programs.InsTypeDeclaration.P6'(A, B, C, D, 'ProgDefs.BaseDecl.C0', E).
+programs.pl:'programs.GroundCondition.P2'('MetaDefs.Var.F2'(A,B), 'ProgDefs.Ground.F1'('MetaDefs.Var.F2'(A,B))).
+programs.pl:'~programs.GroundCondition.P2'('MetaDefs.Var.F2'(A,B), 'ProgDefs.Ground.F1'('MetaDefs.Var.F2'(A,B))).
+programs.pl:'programs.GroundCondition.P2'('MetaDefs.Var.F1'(A), 'ProgDefs.Ground.F1'('MetaDefs.Var.F1'(A))).
+programs.pl:'~programs.GroundCondition.P2'('MetaDefs.Var.F1'(A), 'ProgDefs.Ground.F1'('MetaDefs.Var.F1'(A))).
+programs.pl:        user:goedel_freeze(ground([B]), (B='programs.Export.C0',true->'Programs':'programs.TypeSymbolFreeInModule.P3'(A,C,D),D='ProgDefs.Program.F4'(_,E,_,_),user:goedel_freeze(ground([A,E,C,D]),user:goedel_not((('avlTrees':'~avlTrees.avlMember.P3'(E,F,G),user:not_equal([],[F,A],F,A),'Programs':'~programs.ModuleImported.P3'(A,G,E)),user:goedel_freeze(ground([F,C,D]),user:goedel_not('Programs':'~programs.TypeSymbolFreeInModule.P3'(F,C,D))))));'Programs':'programs.TypeSymbolFreeInModule.P3'(A,C,D))).
+programs.pl:        user:goedel_freeze(ground([B]), (B='programs.Export.C0',true->'Programs':'~programs.TypeSymbolFreeInModule.P3'(A,C,D),D='ProgDefs.Program.F4'(_,E,_,_),user:goedel_freeze(ground([A,E,C,D]),user:goedel_not((('avlTrees':'~avlTrees.avlMember.P3'(E,F,G),user:not_equal([],[F,A],F,A),'Programs':'~programs.ModuleImported.P3'(A,G,E)),user:goedel_freeze(ground([F,C,D]),user:goedel_not('Programs':'~programs.TypeSymbolFreeInModule.P3'(F,C,D))))));'Programs':'~programs.TypeSymbolFreeInModule.P3'(A,C,D))).
+programs.pl:'programs.FormulaInProgram.P4.0'('ProgDefs.CachedProgram.F1'(A), B, C, D) :-
+programs.pl:'~programs.FormulaInProgram.P4.0'('ProgDefs.CachedProgram.F1'(A), B, C, D) :-
+programs.pl:'programs.FormulaInProgram.P4.0'('ProgDefs.Program.F4'(_,_,A,_), B, C, D) :-
+programs.pl:'~programs.FormulaInProgram.P4.0'('ProgDefs.Program.F4'(_,_,A,_), B, C, D) :-
+programs.pl:        user:goedel_freeze(ground([B]), (B='programs.Export.C0',true->D='ProgDefs.Program.F4'(_,E,_,_),user:goedel_freeze(ground([A,E,C,D]),user:goedel_not((('avlTrees':'~avlTrees.avlMember.P3'(E,F,G),user:not_equal([],[F,A],F,A),'Programs':'~programs.ModuleImported.P3'(A,G,E)),user:goedel_freeze(ground([F,C,D]),user:goedel_not('Programs':'~programs.SymbolFreeInModule.P3'(F,C,D))))));true)).
+programs.pl:        user:goedel_freeze(ground([B]), (B='programs.Export.C0',true->D='ProgDefs.Program.F4'(_,E,_,_),user:goedel_freeze(ground([A,E,C,D]),user:goedel_not((('avlTrees':'~avlTrees.avlMember.P3'(E,F,G),user:not_equal([],[F,A],F,A),'Programs':'~programs.ModuleImported.P3'(A,G,E)),user:goedel_freeze(ground([F,C,D]),user:goedel_not('Programs':'~programs.SymbolFreeInModule.P3'(F,C,D))))));true)).
+programs.pl:'programs.ImportInModule.P4.0'('ProgDefs.CachedProgram.F1'(A), B, C, D) :-
+programs.pl:'~programs.ImportInModule.P4.0'('ProgDefs.CachedProgram.F1'(A), B, C, D) :-
+programs.pl:'programs.ImportInModule.P4.0'('ProgDefs.Program.F4'(_,A,_,_), B, C, D) :-
+programs.pl:        'SharedPrograms':'Sharedprograms.avlFind.P3'(A, B, 'ProgDefs.ModDef.F4'(E,F,G,_)),
+programs.pl:'~programs.ImportInModule.P4.0'('ProgDefs.Program.F4'(_,A,_,_), B, C, D) :-
+programs.pl:        'SharedPrograms':'~Sharedprograms.avlFind.P3'(A, B, 'ProgDefs.ModDef.F4'(E,F,G,_)),
+programs.pl:        G='ProgDefs.Program.F4'(J,K,L,M),
+programs.pl:        F='ProgDefs.Program.F4'(J,K,N,M).
+programs.pl:        G='ProgDefs.Program.F4'(J,K,L,M),
+programs.pl:        F='ProgDefs.Program.F4'(J,K,N,M).
+programs.pl:        G='ProgDefs.Program.F4'(J,K,L,M),
+programs.pl:        F='ProgDefs.Program.F4'(J,K,N,M).
+programs.pl:        G='ProgDefs.Program.F4'(J,K,L,M),
+programs.pl:        F='ProgDefs.Program.F4'(J,K,N,M).
+programs.pl:        user:not_equal([], [A], A, 'ProgDefs.ClosedKind.C0'),
+programs.pl:        user:not_equal([], [A], A, 'ProgDefs.ClosedKind.C0'),
+programs.pl:'programs.InsertDelay.P6.0'(A, B, C, D, E, 'ProgDefs.Program.F4'(F,G,H,I)) :-
+programs.pl:        user:not_equal([], [K], K, 'ProgDefs.Closed.C0'),
+programs.pl:        J='ProgDefs.Program.F4'(F,G,H,P),
+programs.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(P, B, 'ProgDefs.Code.F2'(O,Q), I, 'ProgDefs.Code.F2'(_,R)),
+programs.pl:        user:goedel_freeze(ground([N,T]), if(('Lists':'~Lists.DeleteFirst.P3'('ProgDefs.PredDef.F4'(N,U,V,W),T,X),true),('SharedPrograms':'Sharedprograms.UpdateDelays.P6'(K,'ProgDefs.Delay.F2'(D,E),V,W,Y,Z),S=['ProgDefs.PredDef.F4'(N,U,Y,Z)|X]),('SharedPrograms':'Sharedprograms.UpdateDelays.P6'(K,'ProgDefs.Delay.F2'(D,E),[],[],Y,Z),S=['ProgDefs.PredDef.F4'(N,[],Y,Z)|T]))).
+programs.pl:'~programs.InsertDelay.P6.0'(A, B, C, D, E, 'ProgDefs.Program.F4'(F,G,H,I)) :-
+programs.pl:        user:not_equal([], [K], K, 'ProgDefs.Closed.C0'),
+programs.pl:        J='ProgDefs.Program.F4'(F,G,H,P),
+programs.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(P, B, 'ProgDefs.Code.F2'(O,Q), I, 'ProgDefs.Code.F2'(_,R)),
+programs.pl:        user:goedel_freeze(ground([N,T]), if(('Lists':'~Lists.DeleteFirst.P3'('ProgDefs.PredDef.F4'(N,U,V,W),T,X),true),('SharedPrograms':'~Sharedprograms.UpdateDelays.P6'(K,'ProgDefs.Delay.F2'(D,E),V,W,Y,Z),S=['ProgDefs.PredDef.F4'(N,U,Y,Z)|X]),('SharedPrograms':'~Sharedprograms.UpdateDelays.P6'(K,'ProgDefs.Delay.F2'(D,E),[],[],Y,Z),S=['ProgDefs.PredDef.F4'(N,[],Y,Z)|T]))).
+programs.pl:        'programs.InsDeclaration.P6'(A, B, C, D, 'ProgDefs.PropositionDecl.C0', E).
+programs.pl:        '~programs.InsDeclaration.P6'(A, B, C, D, 'ProgDefs.PropositionDecl.C0', E).
+programs.pl:        'programs.InsDeclaration.P6'(A, B, C, D, 'ProgDefs.FunctionDecl.F4'(_,E,F,G), H).
+programs.pl:        '~programs.InsDeclaration.P6'(A, B, C, D, 'ProgDefs.FunctionDecl.F4'(_,E,F,G), H).
+programs.pl:        'programs.InsTypeDeclaration.P6'(A, B, C, D, 'ProgDefs.ConstructorDecl.F1'(E), F).
+programs.pl:        '~programs.InsTypeDeclaration.P6'(A, B, C, D, 'ProgDefs.ConstructorDecl.F1'(E), F).
+programs.pl:        'programs.InsDeclaration.P6'(A, B, C, D, 'ProgDefs.ConstantDecl.F1'(E), F).
+programs.pl:        '~programs.InsDeclaration.P6'(A, B, C, D, 'ProgDefs.ConstantDecl.F1'(E), F).
+programs.pl:'programs.InsertProgramImport.P5.0'('ProgDefs.CachedProgram.F1'(A), B, C, D, E) :-
+programs.pl:'~programs.InsertProgramImport.P5.0'('ProgDefs.CachedProgram.F1'(A), B, C, D, E) :-
+programs.pl:'programs.InsertProgramImport.P5.0'('ProgDefs.Program.F4'(A,B,'ProgDefs.Language.F1'(C),D), E, F, G, 'ProgDefs.Program.F4'(A,H,'ProgDefs.Language.F1'(I),J)) :-
+programs.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(B, E, 'ProgDefs.ModDef.F4'(L,M,N,O), P, 'ProgDefs.ModDef.F4'(L,Q,R,O)),
+programs.pl:'~programs.InsertProgramImport.P5.0'('ProgDefs.Program.F4'(A,B,'ProgDefs.Language.F1'(C),D), E, F, G, 'ProgDefs.Program.F4'(A,H,'ProgDefs.Language.F1'(I),J)) :-
+programs.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(B, E, 'ProgDefs.ModDef.F4'(L,M,N,O), P, 'ProgDefs.ModDef.F4'(L,Q,R,O)),
+programs.pl:        'programs.InsDeclaration.P6'(A, B, C, D, 'ProgDefs.PredicateDecl.F3'(_,E,F), G).
+programs.pl:        '~programs.InsDeclaration.P6'(A, B, C, D, 'ProgDefs.PredicateDecl.F3'(_,E,F), G).
+programs.pl:'programs.InsertStatement.P4.0'(A, B, C, 'ProgDefs.Program.F4'(D,E,F,G)) :-
+programs.pl:        H='ProgDefs.Program.F4'(D,E,F,L),
+programs.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(L, B, 'ProgDefs.Code.F2'(K,M), G, 'ProgDefs.Code.F2'(_,N)),
+programs.pl:        user:goedel_freeze(ground([J,P]), if(('Lists':'~Lists.DeleteFirst.P3'('ProgDefs.PredDef.F4'(J,Q,R,S),P,T),true),O=['ProgDefs.PredDef.F4'(J,[C|Q],R,S)|T],O=['ProgDefs.PredDef.F4'(J,[C],[],[])|P])).
+programs.pl:'~programs.InsertStatement.P4.0'(A, B, C, 'ProgDefs.Program.F4'(D,E,F,G)) :-
+programs.pl:        H='ProgDefs.Program.F4'(D,E,F,L),
+programs.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(L, B, 'ProgDefs.Code.F2'(K,M), G, 'ProgDefs.Code.F2'(_,N)),
+programs.pl:        user:goedel_freeze(ground([J,P]), if(('Lists':'~Lists.DeleteFirst.P3'('ProgDefs.PredDef.F4'(J,Q,R,S),P,T),true),O=['ProgDefs.PredDef.F4'(J,[C|Q],R,S)|T],O=['ProgDefs.PredDef.F4'(J,[C],[],[])|P])).
+programs.pl:'programs.ModulePartLanguage.P4'('ProgDefs.Export.C0', A, B, C) :-
+programs.pl:'~programs.ModulePartLanguage.P4'('ProgDefs.Export.C0', A, B, C) :-
+programs.pl:'programs.ModulePartLanguage.P4'('ProgDefs.Closed.C0', A, B, C) :-
+programs.pl:'~programs.ModulePartLanguage.P4'('ProgDefs.Closed.C0', A, B, C) :-
+programs.pl:'programs.ModulePartLanguage.P4'('ProgDefs.Local.C0', A, B, C) :-
+programs.pl:'~programs.ModulePartLanguage.P4'('ProgDefs.Local.C0', A, B, C) :-
+programs.pl:'programs.ModulePartLanguage.P4'('ProgDefs.Module.C0', A, B, C) :-
+programs.pl:'~programs.ModulePartLanguage.P4'('ProgDefs.Module.C0', A, B, C) :-
+programs.pl:'programs.ModuleInProgram.P2.0'('ProgDefs.CachedProgram.F1'(A), B) :-
+programs.pl:'~programs.ModuleInProgram.P2.0'('ProgDefs.CachedProgram.F1'(A), B) :-
+programs.pl:'programs.ModuleInProgram.P2.0'('ProgDefs.Program.F4'(_,A,_,_), B) :-
+programs.pl:'~programs.ModuleInProgram.P2.0'('ProgDefs.Program.F4'(_,A,_,_), B) :-
+programs.pl:'programs.ModuleImported.P3'(A, 'ProgDefs.ModDef.F4'(_,B,C,D), E) :-
+programs.pl:'~programs.ModuleImported.P3'(A, 'ProgDefs.ModDef.F4'(_,B,C,D), E) :-
+programs.pl:'programs.NonVarCondition.P2'('MetaDefs.Var.F2'(A,B), 'ProgDefs.Nonvar.F1'('MetaDefs.Var.F2'(A,B))).
+programs.pl:'~programs.NonVarCondition.P2'('MetaDefs.Var.F2'(A,B), 'ProgDefs.Nonvar.F1'('MetaDefs.Var.F2'(A,B))).
+programs.pl:'programs.NonVarCondition.P2'('MetaDefs.Var.F1'(A), 'ProgDefs.Nonvar.F1'('MetaDefs.Var.F1'(A))).
+programs.pl:'~programs.NonVarCondition.P2'('MetaDefs.Var.F1'(A), 'ProgDefs.Nonvar.F1'('MetaDefs.Var.F1'(A))).
+programs.pl:'programs.OrCondition.P3'(A, B, 'ProgDefs.Or.F2'(A,B)).
+programs.pl:'~programs.OrCondition.P3'(A, B, 'ProgDefs.Or.F2'(A,B)).
+programs.pl:'programs.PartAccessibility.P2'('programs.Export.C0', 'ProgDefs.Exported.C0').
+programs.pl:'~programs.PartAccessibility.P2'('programs.Export.C0', 'ProgDefs.Exported.C0').
+programs.pl:'programs.PartAccessibility.P2'('programs.Closed.C0', 'ProgDefs.Exported.C0').
+programs.pl:'~programs.PartAccessibility.P2'('programs.Closed.C0', 'ProgDefs.Exported.C0').
+programs.pl:'programs.PartAccessibility.P2'('programs.Local.C0', 'ProgDefs.Hidden.C0').
+programs.pl:'~programs.PartAccessibility.P2'('programs.Local.C0', 'ProgDefs.Hidden.C0').
+programs.pl:'programs.PartAccessibility.P2'('programs.Module.C0', 'ProgDefs.Hidden.C0').
+programs.pl:'~programs.PartAccessibility.P2'('programs.Module.C0', 'ProgDefs.Hidden.C0').
+programs.pl:'programs.StatementMatchAtom.P4.0'('ProgDefs.CachedProgram.F1'(A), B, C, D) :-
+programs.pl:'~programs.StatementMatchAtom.P4.0'('ProgDefs.CachedProgram.F1'(A), B, C, D) :-
+programs.pl:'programs.StatementMatchAtom.P4.0'('ProgDefs.Program.F4'(_,A,B,C), D, E, F) :-
+programs.pl:        'avlTrees':'avlTrees.avlSearch.P3'(C, D, 'ProgDefs.Code.F2'(_,J)),
+programs.pl:        'Lists':'Lists.MemberCheck.P2'('ProgDefs.PredDef.F4'(I,L,_,_), K),
+programs.pl:'~programs.StatementMatchAtom.P4.0'('ProgDefs.Program.F4'(_,A,B,C), D, E, F) :-
+programs.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(C, D, 'ProgDefs.Code.F2'(_,J)),
+programs.pl:        'Lists':'~Lists.MemberCheck.P2'('ProgDefs.PredDef.F4'(I,L,_,_), K),
+programs.pl:'programs.TermInProgram.P5.0'('ProgDefs.CachedProgram.F1'(A), B, C, D, E) :-
+programs.pl:'~programs.TermInProgram.P5.0'('ProgDefs.CachedProgram.F1'(A), B, C, D, E) :-
+programs.pl:'programs.TermInProgram.P5.0'('ProgDefs.Program.F4'(_,_,A,_), B, C, D, E) :-
+programs.pl:'~programs.TermInProgram.P5.0'('ProgDefs.Program.F4'(_,_,A,_), B, C, D, E) :-
+programs.pl:'programs.SymbolFreeInModule.P3'(A, B, 'ProgDefs.Program.F4'(_,_,_,C)) :-
+programs.pl:        'avlTrees':'avlTrees.avlSearch.P3'(C, A, 'ProgDefs.Code.F2'(_,D)),
+programs.pl:        user:goedel_freeze(ground([B,D]), user:goedel_not((('avlTrees':'~avlTrees.avlMember.P3'(D,_,E),'Lists':'~Lists.Member.P2'('ProgDefs.PredDef.F4'(_,F,G,H),E)),('Lists':'~Lists.Member.P2'(I,F),'Programs':'~programs.SymbolInFormula.P2'(I,B);'Lists':'~Lists.Member.P2'(J,G),'Programs':'~programs.SymbolInDelay.P2'(J,B);'Lists':'~Lists.Member.P2'(K,H),'Programs':'~programs.SymbolInDelay.P2'(K,B))))).
+programs.pl:'~programs.SymbolFreeInModule.P3'(A, B, 'ProgDefs.Program.F4'(_,_,_,C)) :-
+programs.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(C, A, 'ProgDefs.Code.F2'(_,D)),
+programs.pl:        user:goedel_freeze(ground([B,D]), user:goedel_not((('avlTrees':'~avlTrees.avlMember.P3'(D,_,E),'Lists':'~Lists.Member.P2'('ProgDefs.PredDef.F4'(_,F,G,H),E)),('Lists':'~Lists.Member.P2'(I,F),'Programs':'~programs.SymbolInFormula.P2'(I,B);'Lists':'~Lists.Member.P2'(J,G),'Programs':'~programs.SymbolInDelay.P2'(J,B);'Lists':'~Lists.Member.P2'(K,H),'Programs':'~programs.SymbolInDelay.P2'(K,B))))).
+programs.pl:'programs.SymbolInDelay.P2'('ProgDefs.Delay.F2'(A,_), B) :-
+programs.pl:'~programs.SymbolInDelay.P2'('ProgDefs.Delay.F2'(A,_), B) :-
+programs.pl:'programs.TrueCondition.P1'('ProgDefs.TrueCond.C0').
+programs.pl:'~programs.TrueCondition.P1'('ProgDefs.TrueCond.C0').
+programs.pl:'programs.TypeSymbolFreeInModule.P3'(A, B, 'ProgDefs.Program.F4'(_,_,'ProgDefs.Language.F1'(C),_)) :-
+programs.pl:        'avlTrees':'avlTrees.avlSearch.P3'(C, A, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(_,D),_)),
+programs.pl:        user:goedel_freeze(ground([B,D]), user:goedel_not(user:goedel_freeze(ground([F,B,D]),user:goedel_not(((user:goedel_freeze(ground([E,D]),user:goedel_not('avlTrees':'~avlTrees.avlMember.P3'(D,_,E)));user:goedel_freeze(ground([F,E]),user:goedel_not('Lists':'~Lists.Member.P2'('ProgDefs.Symbol.F2'(_,F),E))));user:goedel_freeze(ground([F,B]),user:goedel_not('Programs':'~programs.TypeSymbolInDeclaration.P2'(F,B)))))))).
+programs.pl:'~programs.TypeSymbolFreeInModule.P3'(A, B, 'ProgDefs.Program.F4'(_,_,'ProgDefs.Language.F1'(C),_)) :-
+programs.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(C, A, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(_,D),_)),
+programs.pl:        user:goedel_freeze(ground([B,D]), user:goedel_not(user:goedel_freeze(ground([F,B,D]),user:goedel_not(((user:goedel_freeze(ground([E,D]),user:goedel_not('avlTrees':'~avlTrees.avlMember.P3'(D,_,E)));user:goedel_freeze(ground([F,E]),user:goedel_not('Lists':'~Lists.Member.P2'('ProgDefs.Symbol.F2'(_,F),E))));user:goedel_freeze(ground([F,B]),user:goedel_not('Programs':'~programs.TypeSymbolInDeclaration.P2'(F,B)))))))).
+programs.pl:'programs.TypeInProgram.P2.0'('ProgDefs.CachedProgram.F1'(A), B) :-
+programs.pl:'~programs.TypeInProgram.P2.0'('ProgDefs.CachedProgram.F1'(A), B) :-
+programs.pl:'programs.TypeInProgram.P2.0'('ProgDefs.Program.F4'(_,_,A,_), B) :-
+programs.pl:'~programs.TypeInProgram.P2.0'('ProgDefs.Program.F4'(_,_,A,_), B) :-
+programs.pl:'programs.TypeSymbolInDeclaration.P2'('ProgDefs.ConstantDecl.F1'(A), B) :-
+programs.pl:'~programs.TypeSymbolInDeclaration.P2'('ProgDefs.ConstantDecl.F1'(A), B) :-
+programs.pl:'programs.TypeSymbolInDeclaration.P2'('ProgDefs.FunctionDecl.F4'(_,_,A,B), C) :-
+programs.pl:'~programs.TypeSymbolInDeclaration.P2'('ProgDefs.FunctionDecl.F4'(_,_,A,B), C) :-
+programs.pl:'programs.TypeSymbolInDeclaration.P2'('ProgDefs.PredicateDecl.F3'(_,_,A), B) :-
+programs.pl:'~programs.TypeSymbolInDeclaration.P2'('ProgDefs.PredicateDecl.F3'(_,_,A), B) :-
+programs.pl:        user:goedel_freeze(ground([E,A,B]), user:goedel_not(('avlTrees':'~avlTrees.avlMember.P3'(B,_,'ProgDefs.ModDef.F4'(_,C,D,E)),('Lists':'~Lists.Member.P2'(A,D);'Lists':'~Lists.Member.P2'(A,C);'Lists':'~Lists.Member.P2'(A,E))))).
+programs.pl:        user:goedel_freeze(ground([E,A,B]), user:goedel_not(('avlTrees':'~avlTrees.avlMember.P3'(B,_,'ProgDefs.ModDef.F4'(_,C,D,E)),('Lists':'~Lists.Member.P2'(A,D);'Lists':'~Lists.Member.P2'(A,C);'Lists':'~Lists.Member.P2'(A,E))))).
+programs.pl:'programs.ValidDeclaration.P4'('ProgDefs.BaseDecl.C0', _, _, _).
+programs.pl:'~programs.ValidDeclaration.P4'('ProgDefs.BaseDecl.C0', _, _, _).
+programs.pl:'programs.ValidDeclaration.P4'('ProgDefs.ConstructorDecl.F1'(_), _, _, _).
+programs.pl:'~programs.ValidDeclaration.P4'('ProgDefs.ConstructorDecl.F1'(_), _, _, _).
+programs.pl:'programs.ValidDeclaration.P4'('ProgDefs.ConstantDecl.F1'(A), B, C, D) :-
+programs.pl:'~programs.ValidDeclaration.P4'('ProgDefs.ConstantDecl.F1'(A), B, C, D) :-
+programs.pl:'programs.ValidDeclaration.P4'('ProgDefs.FunctionDecl.F4'(_,_,A,B), C, D, E) :-
+programs.pl:'~programs.ValidDeclaration.P4'('ProgDefs.FunctionDecl.F4'(_,_,A,B), C, D, E) :-
+programs.pl:'programs.ValidDeclaration.P4'('ProgDefs.PropositionDecl.C0', _, _, _).
+programs.pl:'~programs.ValidDeclaration.P4'('ProgDefs.PropositionDecl.C0', _, _, _).
+programs.pl:'programs.ValidDeclaration.P4'('ProgDefs.PredicateDecl.F3'(_,_,A), B, C, D) :-
+programs.pl:'~programs.ValidDeclaration.P4'('ProgDefs.PredicateDecl.F3'(_,_,A), B, C, D) :-
+programs.pl:        , 'ProgDefs.NormalKind.C0', Version, Program)
+scripts.pl:        'SharedPrograms':'SharedPrograms.avlFind.P3'(B, C, 'ProgDefs.Code.F2'(_,H)),
+scripts.pl:        'SharedPrograms':'SharedPrograms.FindPredDef.P3'(E, I, 'ProgDefs.PredDef.F4'(E,_,J,K)),
+scripts.pl:        'SharedPrograms':'~SharedPrograms.avlFind.P3'(B, C, 'ProgDefs.Code.F2'(_,H)),
+scripts.pl:        'SharedPrograms':'~SharedPrograms.FindPredDef.P3'(E, I, 'ProgDefs.PredDef.F4'(E,_,J,K)),
+scripts.pl:        'scripts.SymbolInScript.P4'(C, B, A, 'ProgDefs.ConstantDecl.F1'(D)).
+scripts.pl:        '~scripts.SymbolInScript.P4'(C, B, A, 'ProgDefs.ConstantDecl.F1'(D)).
+scripts.pl:        'scripts.TypeSymbolInScriptLanguage.P4'(C, B, A, 'ProgDefs.BaseDecl.C0').
+scripts.pl:        '~scripts.TypeSymbolInScriptLanguage.P4'(C, B, A, 'ProgDefs.BaseDecl.C0').
+scripts.pl:        'avlTrees':'avlTrees.avlSearch.P3'(B, A, 'ProgDefs.ModDef.F4'(C,_,_,_)),
+scripts.pl:        C='ProgDefs.ClosedKind.C0'.
+scripts.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(B, A, 'ProgDefs.ModDef.F4'(C,_,_,_)),
+scripts.pl:        C='ProgDefs.ClosedKind.C0'.
+scripts.pl:        'scripts.TypeSymbolInScriptLanguage.P4'(C, B, A, 'ProgDefs.ConstructorDecl.F1'(D)).
+scripts.pl:        '~scripts.TypeSymbolInScriptLanguage.P4'(C, B, A, 'ProgDefs.ConstructorDecl.F1'(D)).
+scripts.pl:        'scripts.DelDeclaration.P4'(E, B, 'ProgDefs.PredicateDecl.F3'(_,C,D), A).
+scripts.pl:        '~scripts.DelDeclaration.P4'(E, B, 'ProgDefs.PredicateDecl.F3'(_,C,D), A).
+scripts.pl:        'SharedPrograms':'SharedPrograms.avlFind.P3'(B, E, 'ProgDefs.Code.F2'(_,H)),
+scripts.pl:        'SharedPrograms':'SharedPrograms.FindPredDef.P3'(G, I, 'ProgDefs.PredDef.F4'(G,_,J,K)),
+scripts.pl:        'avlTrees':'avlTrees.avlSearch.P3'(A, E, 'ProgDefs.ModDef.F4'(L,_,_,_)),
+scripts.pl:        'scripts.DelayInKind.P4'(L, J, K, 'ProgDefs.Delay.F2'(C,D)).
+scripts.pl:        'SharedPrograms':'~SharedPrograms.avlFind.P3'(B, E, 'ProgDefs.Code.F2'(_,H)),
+scripts.pl:        'SharedPrograms':'~SharedPrograms.FindPredDef.P3'(G, I, 'ProgDefs.PredDef.F4'(G,_,J,K)),
+scripts.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(A, E, 'ProgDefs.ModDef.F4'(L,_,_,_)),
+scripts.pl:        '~scripts.DelayInKind.P4'(L, J, K, 'ProgDefs.Delay.F2'(C,D)).
+scripts.pl:        'SharedPrograms':'SharedPrograms.avlFind.P3'(B, C, 'ProgDefs.Code.F2'(_,H)),
+scripts.pl:        'SharedPrograms':'SharedPrograms.FindPredDef.P3'(F, I, 'ProgDefs.PredDef.F4'(F,G,_,_)),
+scripts.pl:        'SharedPrograms':'~SharedPrograms.avlFind.P3'(B, C, 'ProgDefs.Code.F2'(_,H)),
+scripts.pl:        'SharedPrograms':'~SharedPrograms.FindPredDef.P3'(F, I, 'ProgDefs.PredDef.F4'(F,G,_,_)),
+scripts.pl:'scripts.DelayInKind.P4'('ProgDefs.NormalKind.C0', A, B, C) :-
+scripts.pl:'~scripts.DelayInKind.P4'('ProgDefs.NormalKind.C0', A, B, C) :-
+scripts.pl:'scripts.DelayInKind.P4'('ProgDefs.ClosedKind.C0', A, _, B) :-
+scripts.pl:'~scripts.DelayInKind.P4'('ProgDefs.ClosedKind.C0', A, _, B) :-
+scripts.pl:'scripts.DelayInKind.P4'('ProgDefs.ModuleKind.C0', _, A, B) :-
+scripts.pl:'~scripts.DelayInKind.P4'('ProgDefs.ModuleKind.C0', _, A, B) :-
+scripts.pl:        'SharedPrograms':'SharedPrograms.avlFind.P3'(E, I, 'ProgDefs.Code.F2'(L,M)),
+scripts.pl:        'SharedPrograms':'SharedPrograms.PickPredDef.P4'(K, N, 'ProgDefs.PredDef.F4'(K,O,P,Q), R),
+scripts.pl:        (   'SharedPrograms':'SharedPrograms.PickOne.P3'('ProgDefs.Delay.F2'(F,G), P, S),
+scripts.pl:        ;   'SharedPrograms':'SharedPrograms.PickOne.P3'('ProgDefs.Delay.F2'(F,G), Q, T),
+scripts.pl:        user:goedel_freeze(ground([S,T,O]), ((O=[],S=[],T=[]),true->U=R;U=['ProgDefs.PredDef.F4'(K,O,S,T)|R])),
+scripts.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(E, I, 'ProgDefs.Code.F2'(L,V), H, _).
+scripts.pl:        'SharedPrograms':'~SharedPrograms.avlFind.P3'(E, I, 'ProgDefs.Code.F2'(L,M)),
+scripts.pl:        'SharedPrograms':'~SharedPrograms.PickPredDef.P4'(K, N, 'ProgDefs.PredDef.F4'(K,O,P,Q), R),
+scripts.pl:        (   'SharedPrograms':'~SharedPrograms.PickOne.P3'('ProgDefs.Delay.F2'(F,G), P, S),
+scripts.pl:        ;   'SharedPrograms':'~SharedPrograms.PickOne.P3'('ProgDefs.Delay.F2'(F,G), Q, T),
+scripts.pl:        user:goedel_freeze(ground([S,T,O]), ((O=[],S=[],T=[]),true->U=R;U=['ProgDefs.PredDef.F4'(K,O,S,T)|R])),
+scripts.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(E, I, 'ProgDefs.Code.F2'(L,V), H, _).
+scripts.pl:        'SharedPrograms':'SharedPrograms.avlFind.P3'(E, H, 'ProgDefs.Code.F2'(K,L)),
+scripts.pl:        'SharedPrograms':'SharedPrograms.PickPredDef.P4'(J, M, 'ProgDefs.PredDef.F4'(J,N,O,P), Q),
+scripts.pl:        user:goedel_freeze(ground([O,P,R]), ((R=[],O=[],P=[]),true->S=Q;S=['ProgDefs.PredDef.F4'(J,R,O,P)|Q])),
+scripts.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(E, H, 'ProgDefs.Code.F2'(K,T), G, _).
+scripts.pl:        'SharedPrograms':'~SharedPrograms.avlFind.P3'(E, H, 'ProgDefs.Code.F2'(K,L)),
+scripts.pl:        'SharedPrograms':'~SharedPrograms.PickPredDef.P4'(J, M, 'ProgDefs.PredDef.F4'(J,N,O,P), Q),
+scripts.pl:        user:goedel_freeze(ground([O,P,R]), ((R=[],O=[],P=[]),true->S=Q;S=['ProgDefs.PredDef.F4'(J,R,O,P)|Q])),
+scripts.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(E, H, 'ProgDefs.Code.F2'(K,T), G, _).
+scripts.pl:        'scripts.DelDeclaration.P4'(C, B, 'ProgDefs.PropositionDecl.C0', A).
+scripts.pl:        '~scripts.DelDeclaration.P4'(C, B, 'ProgDefs.PropositionDecl.C0', A).
+scripts.pl:'scripts.DeleteSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+scripts.pl:        'SharedPrograms':'SharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(J,K),L)),
+scripts.pl:        'Lists':'Lists.DeleteFirst.P3'('ProgDefs.Symbol.F2'(_,G), M, N),
+scripts.pl:        'avlTrees':'avlTrees.avlUpdate.P5'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(J,O),L), H, _).
+scripts.pl:'~scripts.DeleteSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+scripts.pl:        'SharedPrograms':'~SharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(J,K),L)),
+scripts.pl:        'Lists':'~Lists.DeleteFirst.P3'('ProgDefs.Symbol.F2'(_,G), M, N),
+scripts.pl:        'avlTrees':'~avlTrees.avlUpdate.P5'(E, A, 'ProgDefs.Module.F3'(I,'ProgDefs.Categories.F2'(J,O),L), H, _).
+scripts.pl:        G='ProgDefs.Program.F4'(B,C,D,F).
+scripts.pl:        G='ProgDefs.Program.F4'(B,C,D,F).
+scripts.pl:        'scripts.InsDeclaration.P4'(A, B, 'ProgDefs.PropositionDecl.C0', C).
+scripts.pl:        '~scripts.InsDeclaration.P4'(A, B, 'ProgDefs.PropositionDecl.C0', C).
+scripts.pl:        'SharedPrograms':'SharedPrograms.InsertSymbol.P5'(F, C, 'ProgDefs.Exported.C0', G, H).
+scripts.pl:        'SharedPrograms':'~SharedPrograms.InsertSymbol.P5'(F, C, 'ProgDefs.Exported.C0', G, H).
+scripts.pl:        'scripts.SymbolInScript.P4'(C, B, A, 'ProgDefs.FunctionDecl.F4'(_,D,E,F)).
+scripts.pl:        '~scripts.SymbolInScript.P4'(C, B, A, 'ProgDefs.FunctionDecl.F4'(_,D,E,F)).
+scripts.pl:        'avlTrees':'avlTrees.avlAmend.P6'(E, I, 'ProgDefs.Code.F2'(M,N), 'ProgDefs.Code.F2'(0,L), H, 'ProgDefs.Code.F2'(M,O)),
+scripts.pl:        user:goedel_freeze(ground([K,Q]), if(('Lists':'~Lists.DeleteFirst.P3'('ProgDefs.PredDef.F4'(K,R,S,T),Q,U),true),P=['ProgDefs.PredDef.F4'(K,R,S,['ProgDefs.Delay.F2'(F,G)|T])|U],P=['ProgDefs.PredDef.F4'(K,[],[],['ProgDefs.Delay.F2'(F,G)])|Q])).
+scripts.pl:        'avlTrees':'~avlTrees.avlAmend.P6'(E, I, 'ProgDefs.Code.F2'(M,N), 'ProgDefs.Code.F2'(0,L), H, 'ProgDefs.Code.F2'(M,O)),
+scripts.pl:        user:goedel_freeze(ground([K,Q]), if(('Lists':'~Lists.DeleteFirst.P3'('ProgDefs.PredDef.F4'(K,R,S,T),Q,U),true),P=['ProgDefs.PredDef.F4'(K,R,S,['ProgDefs.Delay.F2'(F,G)|T])|U],P=['ProgDefs.PredDef.F4'(K,[],[],['ProgDefs.Delay.F2'(F,G)])|Q])).
+scripts.pl:        'scripts.InsDeclaration.P4'(A, B, 'ProgDefs.PredicateDecl.F3'(_,C,D), E).
+scripts.pl:        '~scripts.InsDeclaration.P4'(A, B, 'ProgDefs.PredicateDecl.F3'(_,C,D), E).
+scripts.pl:        'avlTrees':'avlTrees.avlAmend.P6'(E, H, 'ProgDefs.Code.F2'(L,M), 'ProgDefs.Code.F2'(0,K), G, 'ProgDefs.Code.F2'(L,N)),
+scripts.pl:        user:goedel_freeze(ground([J,P]), if(('Lists':'~Lists.DeleteFirst.P3'('ProgDefs.PredDef.F4'(J,Q,R,S),P,T),true),O=['ProgDefs.PredDef.F4'(J,[F|Q],R,S)|T],O=['ProgDefs.PredDef.F4'(J,[F],[],[])|P])).
+scripts.pl:        'avlTrees':'~avlTrees.avlAmend.P6'(E, H, 'ProgDefs.Code.F2'(L,M), 'ProgDefs.Code.F2'(0,K), G, 'ProgDefs.Code.F2'(L,N)),
+scripts.pl:        user:goedel_freeze(ground([J,P]), if(('Lists':'~Lists.DeleteFirst.P3'('ProgDefs.PredDef.F4'(J,Q,R,S),P,T),true),O=['ProgDefs.PredDef.F4'(J,[F|Q],R,S)|T],O=['ProgDefs.PredDef.F4'(J,[F],[],[])|P])).
+scripts.pl:        'scripts.SymbolInScript.P4'(C, B, A, 'ProgDefs.PredicateDecl.F3'(_,D,E)).
+scripts.pl:        '~scripts.SymbolInScript.P4'(C, B, A, 'ProgDefs.PredicateDecl.F3'(_,D,E)).
+scripts.pl:'scripts.SymbolInScript.P4'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G) :-
+scripts.pl:        'SharedPrograms':'SharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(H,'ProgDefs.Categories.F2'(_,I),_)),
+scripts.pl:        'avlTrees':'avlTrees.avlSearch.P3'(F, A, 'ProgDefs.ModDef.F4'(J,_,_,_)),
+scripts.pl:        user:goedel_freeze(ground([J]), (J='ProgDefs.ClosedKind.C0',true->H='ProgDefs.Exported.C0';H='ProgDefs.Hidden.C0')),
+scripts.pl:'~scripts.SymbolInScript.P4'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G) :-
+scripts.pl:        'SharedPrograms':'~SharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(H,'ProgDefs.Categories.F2'(_,I),_)),
+scripts.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(F, A, 'ProgDefs.ModDef.F4'(J,_,_,_)),
+scripts.pl:        user:goedel_freeze(ground([J]), (J='ProgDefs.ClosedKind.C0',true->H='ProgDefs.Exported.C0';H='ProgDefs.Hidden.C0')),
+scripts.pl:'scripts.SymbolFreeInModuleCode.P2'(A, 'ProgDefs.Code.F2'(_,B)) :-
+scripts.pl:        user:goedel_freeze(ground([A,B]), user:goedel_not((('avlTrees':'~avlTrees.avlMember.P3'(B,_,C),'Lists':'~Lists.Member.P2'('ProgDefs.PredDef.F4'(_,D,E,F),C)),('Lists':'~Lists.Member.P2'(G,D),'Scripts':'~scripts.SymbolInFormula.P2'(G,A);'Lists':'~Lists.Member.P2'(H,E),'Scripts':'~scripts.SymbolInDelay.P2'(H,A);'Lists':'~Lists.Member.P2'(I,F),'Scripts':'~scripts.SymbolInDelay.P2'(I,A))))).
+scripts.pl:'~scripts.SymbolFreeInModuleCode.P2'(A, 'ProgDefs.Code.F2'(_,B)) :-
+scripts.pl:        user:goedel_freeze(ground([A,B]), user:goedel_not((('avlTrees':'~avlTrees.avlMember.P3'(B,_,C),'Lists':'~Lists.Member.P2'('ProgDefs.PredDef.F4'(_,D,E,F),C)),('Lists':'~Lists.Member.P2'(G,D),'Scripts':'~scripts.SymbolInFormula.P2'(G,A);'Lists':'~Lists.Member.P2'(H,E),'Scripts':'~scripts.SymbolInDelay.P2'(H,A);'Lists':'~Lists.Member.P2'(I,F),'Scripts':'~scripts.SymbolInDelay.P2'(I,A))))).
+scripts.pl:        'scripts.SymbolInScript.P4'(C, B, A, 'ProgDefs.PropositionDecl.C0').
+scripts.pl:        '~scripts.SymbolInScript.P4'(C, B, A, 'ProgDefs.PropositionDecl.C0').
+scripts.pl:'scripts.ReformatDelays.P3'(['ProgDefs.Delay.F2'(B,C)|A], [B|D], [C|E]) :-
+scripts.pl:'~scripts.ReformatDelays.P3'(['ProgDefs.Delay.F2'(B,C)|A], [B|D], [C|E]) :-
+scripts.pl:        'avlTrees':'avlTrees.avlSearch.P3'(C, F, 'ProgDefs.Code.F2'(_,I)),
+scripts.pl:        'Lists':'Lists.MemberCheck.P2'('ProgDefs.PredDef.F4'(H,K,_,_), J),
+scripts.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(C, F, 'ProgDefs.Code.F2'(_,I)),
+scripts.pl:        'Lists':'~Lists.MemberCheck.P2'('ProgDefs.PredDef.F4'(H,K,_,_), J),
+scripts.pl:'scripts.SymbolInDelay.P2'('ProgDefs.Delay.F2'(A,_), B) :-
+scripts.pl:'~scripts.SymbolInDelay.P2'('ProgDefs.Delay.F2'(A,_), B) :-
+scripts.pl:'scripts.TypeSymbolInScriptLanguage.P4'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G) :-
+scripts.pl:        'SharedPrograms':'SharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(H,_),_)),
+scripts.pl:        'avlTrees':'avlTrees.avlSearch.P3'(F, A, 'ProgDefs.ModDef.F4'(I,_,_,_)),
+scripts.pl:        user:goedel_freeze(ground([I]), (I='ProgDefs.ClosedKind.C0',true->J='ProgDefs.Exported.C0';J='ProgDefs.Hidden.C0')),
+scripts.pl:'~scripts.TypeSymbolInScriptLanguage.P4'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G) :-
+scripts.pl:        'SharedPrograms':'~SharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(H,_),_)),
+scripts.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(F, A, 'ProgDefs.ModDef.F4'(I,_,_,_)),
+scripts.pl:        user:goedel_freeze(ground([I]), (I='ProgDefs.ClosedKind.C0',true->J='ProgDefs.Exported.C0';J='ProgDefs.Hidden.C0')),
+scripts.pl:'scripts.ValidDeclaration.P2'('ProgDefs.PropositionDecl.C0', _).
+scripts.pl:'~scripts.ValidDeclaration.P2'('ProgDefs.PropositionDecl.C0', _).
+scripts.pl:'scripts.ValidDeclaration.P2'('ProgDefs.PredicateDecl.F3'(_,_,A), B) :-
+scripts.pl:'~scripts.ValidDeclaration.P2'('ProgDefs.PredicateDecl.F3'(_,_,A), B) :-
+sharedPrograms.pl:'sharedPrograms.ModulePartInProgram.P3'('ProgDefs.Program.F4'(_,A,_,_), B, C) :-
+sharedPrograms.pl:        'sharedPrograms.avlFind.P3'(A, B, 'ProgDefs.ModDef.F4'(D,_,_,_)),
+sharedPrograms.pl:'~sharedPrograms.ModulePartInProgram.P3'('ProgDefs.Program.F4'(_,A,_,_), B, C) :-
+sharedPrograms.pl:        '~sharedPrograms.avlFind.P3'(A, B, 'ProgDefs.ModDef.F4'(D,_,_,_)),
+sharedPrograms.pl:        'sharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"True','MetaDefs.Proposition.C0',0), A, 'ProgDefs.Exported.C0', 'ProgDefs.PropositionDecl.C0', C),
+sharedPrograms.pl:        'sharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"False','MetaDefs.Proposition.C0',0), C, 'ProgDefs.Exported.C0', 'ProgDefs.PropositionDecl.C0', D),
+sharedPrograms.pl:        'sharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"=','MetaDefs.Predicate.C0',2), D, 'ProgDefs.Exported.C0', 'ProgDefs.PredicateDecl.F3'(2,'Syntax.ZPZ.C0',['MetaDefs.Par.F1'(0),'MetaDefs.Par.F1'(0)]), E),
+sharedPrograms.pl:        'sharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"~=','MetaDefs.Predicate.C0',2), E, 'ProgDefs.Exported.C0', 'ProgDefs.PredicateDecl.F3'(2,'Syntax.ZPZ.C0',['MetaDefs.Par.F1'(0),'MetaDefs.Par.F1'(0)]), B).
+sharedPrograms.pl:        '~sharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"True','MetaDefs.Proposition.C0',0), A, 'ProgDefs.Exported.C0', 'ProgDefs.PropositionDecl.C0', C),
+sharedPrograms.pl:        '~sharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"False','MetaDefs.Proposition.C0',0), C, 'ProgDefs.Exported.C0', 'ProgDefs.PropositionDecl.C0', D),
+sharedPrograms.pl:        '~sharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"=','MetaDefs.Predicate.C0',2), D, 'ProgDefs.Exported.C0', 'ProgDefs.PredicateDecl.F3'(2,'Syntax.ZPZ.C0',['MetaDefs.Par.F1'(0),'MetaDefs.Par.F1'(0)]), E),
+sharedPrograms.pl:        '~sharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"~=','MetaDefs.Predicate.C0',2), E, 'ProgDefs.Exported.C0', 'ProgDefs.PredicateDecl.F3'(2,'Syntax.ZPZ.C0',['MetaDefs.Par.F1'(0),'MetaDefs.Par.F1'(0)]), B).
+sharedPrograms.pl:        user:goedel_freeze(ground([A]), ('SharedPrograms':'~sharedPrograms.SystemModule.P1'(A),true->'SharedPrograms':'sharedPrograms.SystemModuleRep.P4'(A,H,I,J),'avlTrees':'avlTrees.avlInsert.P4'(B,A,H,K),'avlTrees':'avlTrees.avlInsert.P4'(C,A,I,L),'avlTrees':'avlTrees.avlInsert.P4'(D,A,'ProgDefs.Code.F2'(0,J),M),'SharedPrograms':'sharedPrograms.AddOtherModules.P7'(H,K,L,M,E,F,G);'avlTrees':'avlTrees.avlInsert.P4'(B,A,'ProgDefs.ModDef.F4'('ProgDefs.NormalKind.C0',[],[],[]),E),F=C,'avlTrees':'avlTrees.avlIsEmpty.P1'(N),'SharedPrograms':'sharedPrograms.NextModuleVersion.P2'(A,O),'avlTrees':'avlTrees.avlInsert.P4'(D,A,'ProgDefs.Code.F2'(O,N),G))).
+sharedPrograms.pl:        user:goedel_freeze(ground([A]), ('SharedPrograms':'~sharedPrograms.SystemModule.P1'(A),true->'SharedPrograms':'~sharedPrograms.SystemModuleRep.P4'(A,H,I,J),'avlTrees':'~avlTrees.avlInsert.P4'(B,A,H,K),'avlTrees':'~avlTrees.avlInsert.P4'(C,A,I,L),'avlTrees':'~avlTrees.avlInsert.P4'(D,A,'ProgDefs.Code.F2'(0,J),M),'SharedPrograms':'~sharedPrograms.AddOtherModules.P7'(H,K,L,M,E,F,G);'avlTrees':'~avlTrees.avlInsert.P4'(B,A,'ProgDefs.ModDef.F4'('ProgDefs.NormalKind.C0',[],[],[]),E),F=C,'avlTrees':'~avlTrees.avlIsEmpty.P1'(N),'SharedPrograms':'~sharedPrograms.NextModuleVersion.P2'(A,O),'avlTrees':'~avlTrees.avlInsert.P4'(D,A,'ProgDefs.Code.F2'(O,N),G))).
+sharedPrograms.pl:'sharedPrograms.AddImportToPart.P6'('ProgDefs.Export.C0', A, B, C, [A|B], C).
+sharedPrograms.pl:'~sharedPrograms.AddImportToPart.P6'('ProgDefs.Export.C0', A, B, C, [A|B], C).
+sharedPrograms.pl:'sharedPrograms.AddImportToPart.P6'('ProgDefs.Closed.C0', A, B, C, [A|B], C).
+sharedPrograms.pl:'~sharedPrograms.AddImportToPart.P6'('ProgDefs.Closed.C0', A, B, C, [A|B], C).
+sharedPrograms.pl:'sharedPrograms.AddImportToPart.P6'('ProgDefs.Local.C0', A, B, C, B, [A|C]).
+sharedPrograms.pl:'~sharedPrograms.AddImportToPart.P6'('ProgDefs.Local.C0', A, B, C, B, [A|C]).
+sharedPrograms.pl:'sharedPrograms.AddImportToPart.P6'('ProgDefs.Module.C0', A, B, C, B, [A|C]).
+sharedPrograms.pl:'~sharedPrograms.AddImportToPart.P6'('ProgDefs.Module.C0', A, B, C, B, [A|C]).
+sharedPrograms.pl:'sharedPrograms.Accessible.P2'('ProgDefs.Exported.C0', 'ProgDefs.Exported.C0').
+sharedPrograms.pl:'~sharedPrograms.Accessible.P2'('ProgDefs.Exported.C0', 'ProgDefs.Exported.C0').
+sharedPrograms.pl:'sharedPrograms.Accessible.P2'('ProgDefs.Hidden.C0', _).
+sharedPrograms.pl:'~sharedPrograms.Accessible.P2'('ProgDefs.Hidden.C0', _).
+sharedPrograms.pl:'sharedPrograms.AddLiftedLanguage.P4'(['ProgDefs.Lift.F2'(B,C)|A], D, E, F) :-
+sharedPrograms.pl:        user:goedel_freeze(ground([D,B]), ('Lists':'~Lists.Member.P2'(B,D),true->G=E;'avlTrees':'avlTrees.avlIsEmpty.P1'(H),user:goedel_freeze(ground([H,B,E]),if(('avlTrees':'~avlTrees.avlUpdate.P5'(E,B,'ProgDefs.Module.F3'('ProgDefs.Exported.C0','ProgDefs.Categories.F2'(I,H),[]),J,'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(K,_),_)),true),('avlTrees':'avlTrees.avlJoin.P3'(C,K,I),G=J),'avlTrees':'avlTrees.avlInsert.P4'(E,B,'ProgDefs.Module.F3'('ProgDefs.Exported.C0','ProgDefs.Categories.F2'(C,H),[]),G))))),
+sharedPrograms.pl:'~sharedPrograms.AddLiftedLanguage.P4'(['ProgDefs.Lift.F2'(B,C)|A], D, E, F) :-
+sharedPrograms.pl:        user:goedel_freeze(ground([D,B]), ('Lists':'~Lists.Member.P2'(B,D),true->G=E;'avlTrees':'~avlTrees.avlIsEmpty.P1'(H),user:goedel_freeze(ground([H,B,E]),if(('avlTrees':'~avlTrees.avlUpdate.P5'(E,B,'ProgDefs.Module.F3'('ProgDefs.Exported.C0','ProgDefs.Categories.F2'(I,H),[]),J,'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(K,_),_)),true),('avlTrees':'~avlTrees.avlJoin.P3'(C,K,I),G=J),'avlTrees':'~avlTrees.avlInsert.P4'(E,B,'ProgDefs.Module.F3'('ProgDefs.Exported.C0','ProgDefs.Categories.F2'(C,H),[]),G))))),
+sharedPrograms.pl:'sharedPrograms.AddOtherModules.P7'('ProgDefs.ModDef.F4'(_,A,B,C), D, E, F, G, H, I) :-
+sharedPrograms.pl:'~sharedPrograms.AddOtherModules.P7'('ProgDefs.ModDef.F4'(_,A,B,C), D, E, F, G, H, I) :-
+sharedPrograms.pl:        'sharedPrograms.TypeSymbolInLanguage.P3'(A, B, 'ProgDefs.BaseDecl.C0').
+sharedPrograms.pl:        '~sharedPrograms.TypeSymbolInLanguage.P3'(A, B, 'ProgDefs.BaseDecl.C0').
+sharedPrograms.pl:'sharedPrograms.AndSeqToIntDL.P3'('ProgDefs.And.F2'(A,B), C, D) :-
+sharedPrograms.pl:        user:goedel_freeze(ground([B]), (B='ProgDefs.And.F2'(_,_),true->'SharedPrograms':'sharedPrograms.AndSeqToIntDL.P3'(B,G,D);'SharedPrograms':'sharedPrograms.SimpleCondToIntDL.P3'(B,G,D))).
+sharedPrograms.pl:'~sharedPrograms.AndSeqToIntDL.P3'('ProgDefs.And.F2'(A,B), C, D) :-
+sharedPrograms.pl:        user:goedel_freeze(ground([B]), (B='ProgDefs.And.F2'(_,_),true->'SharedPrograms':'~sharedPrograms.AndSeqToIntDL.P3'(B,G,D);'SharedPrograms':'~sharedPrograms.SimpleCondToIntDL.P3'(B,G,D))).
+sharedPrograms.pl:'sharedPrograms.EmptyCategoryTable.P1'('ProgDefs.Categories.F2'(A,A)) :-
+sharedPrograms.pl:'~sharedPrograms.EmptyCategoryTable.P1'('ProgDefs.Categories.F2'(A,A)) :-
+sharedPrograms.pl:        'sharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.ConstantDecl.F1'(C)).
+sharedPrograms.pl:        '~sharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.ConstantDecl.F1'(C)).
+sharedPrograms.pl:        user:goedel_freeze(ground([A]), (A='ProgDefs.And.F2'(_,_),true->'SharedPrograms':'sharedPrograms.AndSeqToIntDL.P3'(A,B,C);user:goedel_freeze(ground([A]),(A='ProgDefs.Or.F2'(_,_),true->'SharedPrograms':'sharedPrograms.OrSeqToIntDL.P3'(A,B,C);'SharedPrograms':'sharedPrograms.SimpleCondToIntDL.P3'(A,B,C))))).
+sharedPrograms.pl:        user:goedel_freeze(ground([A]), (A='ProgDefs.And.F2'(_,_),true->'SharedPrograms':'~sharedPrograms.AndSeqToIntDL.P3'(A,B,C);user:goedel_freeze(ground([A]),(A='ProgDefs.Or.F2'(_,_),true->'SharedPrograms':'~sharedPrograms.OrSeqToIntDL.P3'(A,B,C);'SharedPrograms':'~sharedPrograms.SimpleCondToIntDL.P3'(A,B,C))))).
+sharedPrograms.pl:        'sharedPrograms.TypeSymbolInLanguage.P3'(A, B, 'ProgDefs.ConstructorDecl.F1'(C)).
+sharedPrograms.pl:        '~sharedPrograms.TypeSymbolInLanguage.P3'(A, B, 'ProgDefs.ConstructorDecl.F1'(C)).
+sharedPrograms.pl:'sharedPrograms.ExportLanguage.P3'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),_), C, 'ProgDefs.Language.F1'(D)) :-
+sharedPrograms.pl:        'sharedPrograms.EmptyLanguage.P1'('ProgDefs.Language.F1'(E)),
+sharedPrograms.pl:'~sharedPrograms.ExportLanguage.P3'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),_), C, 'ProgDefs.Language.F1'(D)) :-
+sharedPrograms.pl:        '~sharedPrograms.EmptyLanguage.P1'('ProgDefs.Language.F1'(E)),
+sharedPrograms.pl:        'sharedPrograms.InitialiseLanguage.P2'('ProgDefs.Language.F1'(B), A).
+sharedPrograms.pl:        '~sharedPrograms.InitialiseLanguage.P2'('ProgDefs.Language.F1'(B), A).
+sharedPrograms.pl:        'sharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.FunctionDecl.F4'(_,C,D,E)).
+sharedPrograms.pl:        '~sharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.FunctionDecl.F4'(_,C,D,E)).
+sharedPrograms.pl:        user:goedel_freeze(ground([A,E]), ('Lists':'~Lists.Member.P2'(A,E),true->H=F,I=E,J=B;I=[A|E],user:goedel_freeze(ground([D,A]),if(('avlTrees':'~avlTrees.avlSearch.P3'(D,A,'ProgDefs.Module.F3'(_,K,L)),true),('avlTrees':'avlTrees.avlAmend.P6'(F,A,'ProgDefs.Module.F3'('ProgDefs.Exported.C0',K,[]),_,M,_),'SharedPrograms':'sharedPrograms.AddLiftedLanguage.P4'(L,I,M,H)),('SharedPrograms':'sharedPrograms.EmptyCategoryTable.P1'(N),'avlTrees':'avlTrees.avlAmend.P6'(F,A,'ProgDefs.Module.F3'('ProgDefs.Exported.C0',N,[]),_,H,_)))),'avlTrees':'avlTrees.avlSearch.P3'(C,A,'ProgDefs.ModDef.F4'(_,O,_,_)),'Lists':'Lists.Append.P3'(O,B,J))),
+sharedPrograms.pl:        user:goedel_freeze(ground([A,E]), ('Lists':'~Lists.Member.P2'(A,E),true->H=F,I=E,J=B;I=[A|E],user:goedel_freeze(ground([D,A]),if(('avlTrees':'~avlTrees.avlSearch.P3'(D,A,'ProgDefs.Module.F3'(_,K,L)),true),('avlTrees':'~avlTrees.avlAmend.P6'(F,A,'ProgDefs.Module.F3'('ProgDefs.Exported.C0',K,[]),_,M,_),'SharedPrograms':'~sharedPrograms.AddLiftedLanguage.P4'(L,I,M,H)),('SharedPrograms':'~sharedPrograms.EmptyCategoryTable.P1'(N),'avlTrees':'~avlTrees.avlAmend.P6'(F,A,'ProgDefs.Module.F3'('ProgDefs.Exported.C0',N,[]),_,H,_)))),'avlTrees':'~avlTrees.avlSearch.P3'(C,A,'ProgDefs.ModDef.F4'(_,O,_,_)),'Lists':'~Lists.Append.P3'(O,B,J))),
+sharedPrograms.pl:'sharedPrograms.MatchingDescriptor.P5'('ProgDefs.Symbol.F2'(A,B), C, D, E, B) :-
+sharedPrograms.pl:'~sharedPrograms.MatchingDescriptor.P5'('ProgDefs.Symbol.F2'(A,B), C, D, E, B) :-
+sharedPrograms.pl:'sharedPrograms.KindHasPart.P2'('ProgDefs.ModuleKind.C0', 'ProgDefs.Module.C0').
+sharedPrograms.pl:'~sharedPrograms.KindHasPart.P2'('ProgDefs.ModuleKind.C0', 'ProgDefs.Module.C0').
+sharedPrograms.pl:'sharedPrograms.KindHasPart.P2'('ProgDefs.NormalKind.C0', A) :-
+sharedPrograms.pl:        'sharedPrograms.FindMember.P2'(A, ['ProgDefs.Export.C0','ProgDefs.Local.C0']).
+sharedPrograms.pl:'~sharedPrograms.KindHasPart.P2'('ProgDefs.NormalKind.C0', A) :-
+sharedPrograms.pl:        '~sharedPrograms.FindMember.P2'(A, ['ProgDefs.Export.C0','ProgDefs.Local.C0']).
+sharedPrograms.pl:'sharedPrograms.KindHasPart.P2'('ProgDefs.ClosedKind.C0', 'ProgDefs.Closed.C0').
+sharedPrograms.pl:'~sharedPrograms.KindHasPart.P2'('ProgDefs.ClosedKind.C0', 'ProgDefs.Closed.C0').
+sharedPrograms.pl:'sharedPrograms.InsertTypeSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+sharedPrograms.pl:        'avlTrees':'avlTrees.avlAmend.P6'(E, A, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(L,M),N), 'ProgDefs.Module.F3'('ProgDefs.Hidden.C0','ProgDefs.Categories.F2'(I,J),[]), H, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(O,M),N)),
+sharedPrograms.pl:        'sharedPrograms.AddToDescriptorList.P6'(Q, K, C, D, 'ProgDefs.Symbol.F2'(F,G), P).
+sharedPrograms.pl:'~sharedPrograms.InsertTypeSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+sharedPrograms.pl:        'avlTrees':'~avlTrees.avlAmend.P6'(E, A, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(L,M),N), 'ProgDefs.Module.F3'('ProgDefs.Hidden.C0','ProgDefs.Categories.F2'(I,J),[]), H, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(O,M),N)),
+sharedPrograms.pl:        '~sharedPrograms.AddToDescriptorList.P6'(Q, K, C, D, 'ProgDefs.Symbol.F2'(F,G), P).
+sharedPrograms.pl:'sharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+sharedPrograms.pl:        'avlTrees':'avlTrees.avlAmend.P6'(E, A, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(L,M),N), 'ProgDefs.Module.F3'('ProgDefs.Hidden.C0','ProgDefs.Categories.F2'(I,J),[]), H, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(L,O),N)),
+sharedPrograms.pl:        'sharedPrograms.AddToDescriptorList.P6'(Q, K, C, D, 'ProgDefs.Symbol.F2'(F,G), P).
+sharedPrograms.pl:'~sharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+sharedPrograms.pl:        'avlTrees':'~avlTrees.avlAmend.P6'(E, A, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(L,M),N), 'ProgDefs.Module.F3'('ProgDefs.Hidden.C0','ProgDefs.Categories.F2'(I,J),[]), H, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(L,O),N)),
+sharedPrograms.pl:        '~sharedPrograms.AddToDescriptorList.P6'(Q, K, C, D, 'ProgDefs.Symbol.F2'(F,G), P).
+sharedPrograms.pl:'sharedPrograms.MatchingName.P3'('ProgDefs.BaseDecl.C0', 'MetaDefs.Base.C0', 0).
+sharedPrograms.pl:'~sharedPrograms.MatchingName.P3'('ProgDefs.BaseDecl.C0', 'MetaDefs.Base.C0', 0).
+sharedPrograms.pl:'sharedPrograms.MatchingName.P3'('ProgDefs.ConstructorDecl.F1'(A), 'MetaDefs.Constructor.C0', A).
+sharedPrograms.pl:'~sharedPrograms.MatchingName.P3'('ProgDefs.ConstructorDecl.F1'(A), 'MetaDefs.Constructor.C0', A).
+sharedPrograms.pl:'sharedPrograms.MatchingName.P3'('ProgDefs.ConstantDecl.F1'(_), 'MetaDefs.Constant.C0', 0).
+sharedPrograms.pl:'~sharedPrograms.MatchingName.P3'('ProgDefs.ConstantDecl.F1'(_), 'MetaDefs.Constant.C0', 0).
+sharedPrograms.pl:'sharedPrograms.MatchingName.P3'('ProgDefs.FunctionDecl.F4'(A,_,_,_), 'MetaDefs.Function.C0', A).
+sharedPrograms.pl:'~sharedPrograms.MatchingName.P3'('ProgDefs.FunctionDecl.F4'(A,_,_,_), 'MetaDefs.Function.C0', A).
+sharedPrograms.pl:'sharedPrograms.MatchingName.P3'('ProgDefs.PropositionDecl.C0', 'MetaDefs.Proposition.C0', 0).
+sharedPrograms.pl:'~sharedPrograms.MatchingName.P3'('ProgDefs.PropositionDecl.C0', 'MetaDefs.Proposition.C0', 0).
+sharedPrograms.pl:'sharedPrograms.MatchingName.P3'('ProgDefs.PredicateDecl.F3'(A,_,_), 'MetaDefs.Predicate.C0', A).
+sharedPrograms.pl:'~sharedPrograms.MatchingName.P3'('ProgDefs.PredicateDecl.F3'(A,_,_), 'MetaDefs.Predicate.C0', A).
+sharedPrograms.pl:        G='MetaDefs.Name.F4'('"ProgDefs','"Program','MetaDefs.Base.C0',0),
+sharedPrograms.pl:        G='MetaDefs.Name.F4'('"ProgDefs','"Program','MetaDefs.Base.C0',0),
+sharedPrograms.pl:'sharedPrograms.ModuleLanguage.P3'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),_), C, 'ProgDefs.Language.F1'(D)) :-
+sharedPrograms.pl:        'sharedPrograms.EmptyLanguage.P1'('ProgDefs.Language.F1'(E)),
+sharedPrograms.pl:        'avlTrees':'avlTrees.avlSearch.P3'(A, C, 'ProgDefs.ModDef.F4'(F,G,H,I)),
+sharedPrograms.pl:        user:goedel_freeze(ground([F]), (F='ProgDefs.ClosedKind.C0',true->'SharedPrograms':'sharedPrograms.ImportedLanguage.P6'([C],A,B,[],E,D);user:goedel_freeze(ground([B,C]),if(('avlTrees':'~avlTrees.avlSearch.P3'(B,C,J),true),'avlTrees':'avlTrees.avlInsert.P4'(E,C,J,K),K=E)),'Lists':'Lists.Append.P3'(G,H,L),'Lists':'Lists.Append.P3'(I,L,M),'SharedPrograms':'sharedPrograms.ImportedLanguage.P6'(M,A,B,[C],K,D))).
+sharedPrograms.pl:'~sharedPrograms.ModuleLanguage.P3'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),_), C, 'ProgDefs.Language.F1'(D)) :-
+sharedPrograms.pl:        '~sharedPrograms.EmptyLanguage.P1'('ProgDefs.Language.F1'(E)),
+sharedPrograms.pl:        'avlTrees':'~avlTrees.avlSearch.P3'(A, C, 'ProgDefs.ModDef.F4'(F,G,H,I)),
+sharedPrograms.pl:        user:goedel_freeze(ground([F]), (F='ProgDefs.ClosedKind.C0',true->'SharedPrograms':'~sharedPrograms.ImportedLanguage.P6'([C],A,B,[],E,D);user:goedel_freeze(ground([B,C]),if(('avlTrees':'~avlTrees.avlSearch.P3'(B,C,J),true),'avlTrees':'~avlTrees.avlInsert.P4'(E,C,J,K),K=E)),'Lists':'~Lists.Append.P3'(G,H,L),'Lists':'~Lists.Append.P3'(I,L,M),'SharedPrograms':'~sharedPrograms.ImportedLanguage.P6'(M,A,B,[C],K,D))).
+sharedPrograms.pl:'sharedPrograms.SymbolInLanguage.P3'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F) :-
+sharedPrograms.pl:        'sharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(G,'ProgDefs.Categories.F2'(_,H),_)),
+sharedPrograms.pl:'~sharedPrograms.SymbolInLanguage.P3'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F) :-
+sharedPrograms.pl:        '~sharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(G,'ProgDefs.Categories.F2'(_,H),_)),
+sharedPrograms.pl:'sharedPrograms.SControlInProgram.P5'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),C), D, E, F, G) :-
+sharedPrograms.pl:        'sharedPrograms.avlFind.P3'(B, D, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(_,J),_)),
+sharedPrograms.pl:        user:goedel_freeze(ground([D]), (D='"',true->L='ProgDefs.ClosedKind.C0',M='ProgDefs.Exported.C0';'avlTrees':'avlTrees.avlSearch.P3'(A,D,'ProgDefs.ModDef.F4'(L,_,_,_)),user:goedel_freeze(ground([L]),(L='ProgDefs.ClosedKind.C0',true->M='ProgDefs.Exported.C0';M='ProgDefs.Hidden.C0')))),
+sharedPrograms.pl:        'sharedPrograms.FindDescriptor.P5'(K, M, _, I, 'ProgDefs.PredicateDecl.F3'(_,_,_)),
+sharedPrograms.pl:        user:goedel_freeze(ground([I,C,D,H]), if((('avlTrees':'~avlTrees.avlSearch.P3'(C,D,'ProgDefs.Code.F2'(_,N)),'avlTrees':'~avlTrees.avlSearch.P3'(N,H,O),'SharedPrograms':'~sharedPrograms.FindPredDef.P3'(I,O,'ProgDefs.PredDef.F4'(I,_,P,Q))),true),(user:goedel_freeze(ground([L]),(L='ProgDefs.ClosedKind.C0',true->R=P;'Lists':'Lists.Append.P3'(P,Q,R))),'SharedPrograms':'sharedPrograms.ReformatDelays.P3'(R,F,G)),(F=[],G=[]))).
+sharedPrograms.pl:'~sharedPrograms.SControlInProgram.P5'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),C), D, E, F, G) :-
+sharedPrograms.pl:        '~sharedPrograms.avlFind.P3'(B, D, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(_,J),_)),
+sharedPrograms.pl:        user:goedel_freeze(ground([D]), (D='"',true->L='ProgDefs.ClosedKind.C0',M='ProgDefs.Exported.C0';'avlTrees':'~avlTrees.avlSearch.P3'(A,D,'ProgDefs.ModDef.F4'(L,_,_,_)),user:goedel_freeze(ground([L]),(L='ProgDefs.ClosedKind.C0',true->M='ProgDefs.Exported.C0';M='ProgDefs.Hidden.C0')))),
+sharedPrograms.pl:        '~sharedPrograms.FindDescriptor.P5'(K, M, _, I, 'ProgDefs.PredicateDecl.F3'(_,_,_)),
+sharedPrograms.pl:        user:goedel_freeze(ground([I,C,D,H]), if((('avlTrees':'~avlTrees.avlSearch.P3'(C,D,'ProgDefs.Code.F2'(_,N)),'avlTrees':'~avlTrees.avlSearch.P3'(N,H,O),'SharedPrograms':'~sharedPrograms.FindPredDef.P3'(I,O,'ProgDefs.PredDef.F4'(I,_,P,Q))),true),(user:goedel_freeze(ground([L]),(L='ProgDefs.ClosedKind.C0',true->R=P;'Lists':'~Lists.Append.P3'(P,Q,R))),'SharedPrograms':'~sharedPrograms.ReformatDelays.P3'(R,F,G)),(F=[],G=[]))).
+sharedPrograms.pl:'sharedPrograms.ProgramSkeleton.P4'(A, B, C, 'ProgDefs.Program.F4'(A,D,E,F)) :-
+sharedPrograms.pl:        'avlTrees':'avlTrees.avlInsert.P4'(G, A, 'ProgDefs.ModDef.F4'(B,[],[],[]), D),
+sharedPrograms.pl:        'avlTrees':'avlTrees.avlInsert.P4'(H, A, 'ProgDefs.Code.F2'(C,I), F),
+sharedPrograms.pl:'~sharedPrograms.ProgramSkeleton.P4'(A, B, C, 'ProgDefs.Program.F4'(A,D,E,F)) :-
+sharedPrograms.pl:        'avlTrees':'~avlTrees.avlInsert.P4'(G, A, 'ProgDefs.ModDef.F4'(B,[],[],[]), D),
+sharedPrograms.pl:        'avlTrees':'~avlTrees.avlInsert.P4'(H, A, 'ProgDefs.Code.F2'(C,I), F),
+sharedPrograms.pl:        'sharedPrograms.avlFind.P3'(A, B, 'ProgDefs.ModDef.F4'(C,_,_,_)),
+sharedPrograms.pl:        '~sharedPrograms.avlFind.P3'(A, B, 'ProgDefs.ModDef.F4'(C,_,_,_)),
+sharedPrograms.pl:'sharedPrograms.OpenKind.P1'('ProgDefs.NormalKind.C0').
+sharedPrograms.pl:'~sharedPrograms.OpenKind.P1'('ProgDefs.NormalKind.C0').
+sharedPrograms.pl:'sharedPrograms.OpenKind.P1'('ProgDefs.ModuleKind.C0').
+sharedPrograms.pl:'~sharedPrograms.OpenKind.P1'('ProgDefs.ModuleKind.C0').
+sharedPrograms.pl:        'sharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.PredicateDecl.F3'(_,C,D)).
+sharedPrograms.pl:        '~sharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.PredicateDecl.F3'(_,C,D)).
+sharedPrograms.pl:'sharedPrograms.OrSeqToIntDL.P3'('ProgDefs.Or.F2'(A,B), C, D) :-
+sharedPrograms.pl:        user:goedel_freeze(ground([B]), (B='ProgDefs.Or.F2'(_,_),true->'SharedPrograms':'sharedPrograms.OrSeqToIntDL.P3'(B,G,D);'SharedPrograms':'sharedPrograms.SimpleCondToIntDL.P3'(B,G,D))).
+sharedPrograms.pl:'~sharedPrograms.OrSeqToIntDL.P3'('ProgDefs.Or.F2'(A,B), C, D) :-
+sharedPrograms.pl:        user:goedel_freeze(ground([B]), (B='ProgDefs.Or.F2'(_,_),true->'SharedPrograms':'~sharedPrograms.OrSeqToIntDL.P3'(B,G,D);'SharedPrograms':'~sharedPrograms.SimpleCondToIntDL.P3'(B,G,D))).
+sharedPrograms.pl:'sharedPrograms.ProgramLanguage.P2'('ProgDefs.Program.F4'(_,_,A,_), A).
+sharedPrograms.pl:'~sharedPrograms.ProgramLanguage.P2'('ProgDefs.Program.F4'(_,_,A,_), A).
+sharedPrograms.pl:        'sharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.PropositionDecl.C0').
+sharedPrograms.pl:        '~sharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.PropositionDecl.C0').
+sharedPrograms.pl:'sharedPrograms.ReformatDelays.P3'(['ProgDefs.Delay.F2'(B,C)|A], [B|D], [C|E]) :-
+sharedPrograms.pl:'~sharedPrograms.ReformatDelays.P3'(['ProgDefs.Delay.F2'(B,C)|A], [B|D], [C|E]) :-
+sharedPrograms.pl:'sharedPrograms.SOpenModule.P2'('ProgDefs.Program.F4'(_,A,_,_), B) :-
+sharedPrograms.pl:'~sharedPrograms.SOpenModule.P2'('ProgDefs.Program.F4'(_,A,_,_), B) :-
+sharedPrograms.pl:'sharedPrograms.SMainModuleInProgram.P2'('ProgDefs.Program.F4'(A,_,_,_), A).
+sharedPrograms.pl:'~sharedPrograms.SMainModuleInProgram.P2'('ProgDefs.Program.F4'(A,_,_,_), A).
+sharedPrograms.pl:'sharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.Nonvar.F1'(A), B, C) :-
+sharedPrograms.pl:'~sharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.Nonvar.F1'(A), B, C) :-
+sharedPrograms.pl:'sharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.Ground.F1'(A), B, C) :-
+sharedPrograms.pl:'~sharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.Ground.F1'(A), B, C) :-
+sharedPrograms.pl:'sharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.And.F2'(A,B), C, D) :-
+sharedPrograms.pl:        'sharedPrograms.AndSeqToIntDL.P3'('ProgDefs.And.F2'(A,B), E, F),
+sharedPrograms.pl:'~sharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.And.F2'(A,B), C, D) :-
+sharedPrograms.pl:        '~sharedPrograms.AndSeqToIntDL.P3'('ProgDefs.And.F2'(A,B), E, F),
+sharedPrograms.pl:'sharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.Or.F2'(A,B), C, D) :-
+sharedPrograms.pl:        'sharedPrograms.OrSeqToIntDL.P3'('ProgDefs.Or.F2'(A,B), E, F),
+sharedPrograms.pl:'~sharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.Or.F2'(A,B), C, D) :-
+sharedPrograms.pl:        '~sharedPrograms.OrSeqToIntDL.P3'('ProgDefs.Or.F2'(A,B), E, F),
+sharedPrograms.pl:'sharedPrograms.TypeSymbolInLanguage.P3'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F) :-
+sharedPrograms.pl:        'sharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(G,'ProgDefs.Categories.F2'(H,_),_)),
+sharedPrograms.pl:'~sharedPrograms.TypeSymbolInLanguage.P3'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F) :-
+sharedPrograms.pl:        '~sharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(G,'ProgDefs.Categories.F2'(H,_),_)),
+sharedPrograms.pl:'sharedPrograms.UpdateDelays.P6'('ProgDefs.Export.C0', A, B, C, [A|B], C).
+sharedPrograms.pl:'~sharedPrograms.UpdateDelays.P6'('ProgDefs.Export.C0', A, B, C, [A|B], C).
+sharedPrograms.pl:'sharedPrograms.UpdateDelays.P6'('ProgDefs.Closed.C0', A, B, C, [A|B], C).
+sharedPrograms.pl:'~sharedPrograms.UpdateDelays.P6'('ProgDefs.Closed.C0', A, B, C, [A|B], C).
+sharedPrograms.pl:'sharedPrograms.UpdateDelays.P6'('ProgDefs.Local.C0', A, B, C, B, [A|C]).
+sharedPrograms.pl:'~sharedPrograms.UpdateDelays.P6'('ProgDefs.Local.C0', A, B, C, B, [A|C]).
+sharedPrograms.pl:'sharedPrograms.UpdateDelays.P6'('ProgDefs.Module.C0', A, B, C, B, [A|C]).
+sharedPrograms.pl:'~sharedPrograms.UpdateDelays.P6'('ProgDefs.Module.C0', A, B, C, B, [A|C]).
+sharedPrograms.pl:      , 'ProgDefs.PredDef.F4'(Arity, Statements, Delays1, Delays2)
+sharedPrograms.pl:     user:'Lists.Member.P2'('ProgDefs.PredDef.F4'(Arity, Statements
+sharedPrograms.pl:   ; user:'Lists.MemberCheck.P2'('ProgDefs.PredDef.F4'(Arity, Statements
+sharedPrograms.pl:      , 'ProgDefs.PredDef.F4'(Arity, Statements, Delays1, Delays2), RestDefs
+sharedPrograms.pl:     'Lists':'Lists.Delete.P3'('ProgDefs.PredDef.F4'(Arity, Statements
+sharedPrograms.pl:   ; 'Lists':'Lists.DeleteFirst.P3'('ProgDefs.PredDef.F4'(Arity, Statements
+system.pl:'ParserPrograms.ExportSymbolTable.P3'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),_), C, 'ParserPrograms.SymbTab.F4'(C,D,E,F)) :-
+system.pl:            G='ProgDefs.Module.F3'(_,_,H)
+system.pl:            D='ProgDefs.Module.F3'('ProgDefs.Hidden.C0',I,H),
+system.pl:        'avlTrees.avlSearch.P3'(A, C, 'ProgDefs.ModDef.F4'(_,J,_,K)),
+system.pl:'ParserPrograms.CandidateNames.P6'(['ProgDefs.Symbol.F2'(B,C)|A], D, E, F, G, H) :-
+system.pl:'ParserPrograms.AddLiftedSymbols.P3'(['ProgDefs.Lift.F2'(B,C)|A], D, E) :-
+system.pl:        A='ProgDefs.Program.F4'(_,C,_,_),
+system.pl:'ParserPrograms.DecompileDelay.P4'('ProgDefs.Delay.F2'(A,B), C, D, E) :-
+system.pl:'ParserPrograms.DecompileExportPredicates.P4'(['ProgDefs.PredDef.F4'(_,_,B,_)|A], C, D, E) :-
+system.pl:        (   A='ProgDefs.FunctionDecl.F4'(_,C,_,_),
+system.pl:        ;   A='ProgDefs.PredicateDecl.F3'(_,H,_),
+system.pl:'ParserPrograms.DecompileModule.P7'('ProgDefs.ClosedKind.C0', _, _, _, _, _, _) :- !.
+system.pl:'ParserPrograms.DecompileModule.P7'('ProgDefs.NormalKind.C0', A, B, C, D, E, F) :-
+system.pl:        E='ProgDefs.Program.F4'(_,_,'ProgDefs.Language.F1'(H),I),
+system.pl:        'avlTrees.avlSearch.P3'(H, A, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(J,K),L)),
+system.pl:        'avlTrees.avlSearch.P3'(I, A, 'ProgDefs.Code.F2'(_,O)),
+system.pl:            'ParserPrograms.DecompileTypeLanguage.P4'(M, 'ProgDefs.Exported.C0', L, Q),
+system.pl:            'ParserPrograms.DecompileLanguage.P5'(N, 'ProgDefs.Exported.C0', E, A, Q),
+system.pl:            'ParserPrograms.DecompileTypeLanguage.P4'(M, 'ProgDefs.Hidden.C0', [], R),
+system.pl:            'ParserPrograms.DecompileLanguage.P5'(N, 'ProgDefs.Hidden.C0', E, A, R),
+system.pl:'ParserPrograms.DecompileModule.P7'('ProgDefs.ModuleKind.C0', A, _, B, C, D, E) :-
+system.pl:            D='ProgDefs.Program.F4'(_,_,'ProgDefs.Language.F1'(H),I),
+system.pl:            'avlTrees.avlSearch.P3'(H, A, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(J,K),_)),
+system.pl:            'avlTrees.avlSearch.P3'(I, A, 'ProgDefs.Code.F2'(_,N)),
+system.pl:            'ParserPrograms.DecompileTypeLanguage.P4'(L, 'ProgDefs.Hidden.C0', [], G),
+system.pl:            'ParserPrograms.DecompileLanguage.P5'(M, 'ProgDefs.Hidden.C0', D, A, G),
+system.pl:'ParserPrograms.DecompileLocalPredicates.P4'(['ProgDefs.PredDef.F4'(_,B,_,C)|A], D, E, F) :-
+system.pl:'ParserPrograms.DecompileModuleTree.P3'('avlTrees.Tree.F4'(A,B,'ProgDefs.ModDef.F4'(C,D,E,F),G), H, I) :-
+system.pl:'ParserPrograms.DecompileType.P4'('ProgDefs.ConstantDecl.F1'(A), B, C, D) :-
+system.pl:'ParserPrograms.DecompileType.P4'('ProgDefs.FunctionDecl.F4'(_,_,A,B), C, D, E) :-
+system.pl:'ParserPrograms.DecompileType.P4'('ProgDefs.PredicateDecl.F3'(_,_,A), B, C, D) :-
+system.pl:'ParserPrograms.LocalSymbolTable.P3'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),_), C, 'ParserPrograms.SymbTab.F4'(C,D,E,[])) :-
+system.pl:            D='ProgDefs.Module.F3'('ProgDefs.Hidden.C0',G,[])
+system.pl:        'avlTrees.avlSearch.P3'(A, C, 'ProgDefs.ModDef.F4'(_,H,I,J)),
+system.pl:'ParserPrograms.GatherDeclaration.P14'('ProgDefs.BaseDecl.C0', A, ['ParserPrograms.ID.F2'(A,'ProgDefs.BaseDecl.C0')|B], B, C, C, D, D, E, E, F, F, G, G).
+system.pl:'ParserPrograms.GatherDeclaration.P14'('ProgDefs.ConstructorDecl.F1'(A), B, C, C, ['ParserPrograms.ID.F2'(B,'ProgDefs.ConstructorDecl.F1'(A))|D], D, E, E, F, F, G, G, H, H).
+system.pl:'ParserPrograms.GatherDeclaration.P14'('ProgDefs.ConstantDecl.F1'(A), B, C, C, D, D, ['ParserPrograms.ID.F2'(B,'ProgDefs.ConstantDecl.F1'(A))|E], E, F, F, G, G, H, H).
+system.pl:'ParserPrograms.GatherDeclaration.P14'('ProgDefs.FunctionDecl.F4'(A,B,C,D), E, F, F, G, G, H, H, ['ParserPrograms.ID.F2'(E,'ProgDefs.FunctionDecl.F4'(A,B,C,D))|I], I, J, J, K, K).
+system.pl:'ParserPrograms.GatherDeclaration.P14'('ProgDefs.PropositionDecl.C0', A, B, B, C, C, D, D, E, E, ['ParserPrograms.ID.F2'(A,'ProgDefs.PropositionDecl.C0')|F], F, G, G).
+system.pl:'ParserPrograms.GatherDeclaration.P14'('ProgDefs.PredicateDecl.F3'(A,B,C), D, E, E, F, F, G, G, H, H, I, I, ['ParserPrograms.ID.F2'(D,'ProgDefs.PredicateDecl.F3'(A,B,C))|J], J).
+system.pl:        (   A='ProgDefs.Symbol.F2'(D,Q) ->
+system.pl:'ParserPrograms.GatherLiftedDeclarations.P5'(['ProgDefs.Lift.F2'(_,B)|A], C, D, E, F) :-
+system.pl:        'ParserPrograms.GatherDeclarations.P14'(G, 'ProgDefs.Exported.C0', C, H, E, I, _, _, _, _, _, _, _, _),
+system.pl:        'ParserPrograms.DictionaryCandidates.P6'(B, A, C, 'ProgDefs.Exported.C0', D, E).
+system.pl:            (   'avlTrees.avlSearch.P3'(D, A, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(K,L),M)) ->
+system.pl:            'avlTrees.avlSearch.P3'(C, A, 'ProgDefs.ModDef.F4'(_,P,_,_)),
+system.pl:        'avlTrees.avlSearch.P3'(A, '"', 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(B,C),_)).
+system.pl:        'ParserPrograms.DictionaryTypeCandidates.P6'(B, A, C, 'ProgDefs.Exported.C0', D, E).
+system.pl:        'ParserPrograms.DictionaryTypeCandidates.P6'(B, A, C, 'ProgDefs.Exported.C0', D, E).
+system.pl:'ParserPrograms.ListExportDelaysOnly.P2'(['ProgDefs.PredDef.F4'(B,_,C,_)|A], ['ProgDefs.PredDef.F4'(B,[],C,[])|D]) :-
+system.pl:'ParserPrograms.ModuleTypeCandidates.P5'('ProgDefs.Module.F3'(A,'ProgDefs.Categories.F2'(B,_),_), C, D, E, F) :-
+system.pl:'ParserPrograms.ModuleCandidates.P5'('ProgDefs.Module.F3'(A,'ProgDefs.Categories.F2'(_,B),_), C, D, E, F) :-
+system.pl:'ParserPrograms.MakeCandidate.P4'('ProgDefs.ConstantDecl.F1'(_), A, B, 'ParserPrograms.FCandidate.F2'('MetaDefs.Name.F4'(A,B,'MetaDefs.Constant.C0',0),'Syntax.NoFunctInd.C0')).
+system.pl:'ParserPrograms.MakeCandidate.P4'('ProgDefs.FunctionDecl.F4'(A,B,_,_), C, D, 'ParserPrograms.FCandidate.F2'('MetaDefs.Name.F4'(C,D,'MetaDefs.Function.C0',A),B)).
+system.pl:'ParserPrograms.MakeCandidate.P4'('ProgDefs.PropositionDecl.C0', A, B, 'ParserPrograms.PCandidate.F2'('MetaDefs.Name.F4'(A,B,'MetaDefs.Proposition.C0',0),'Syntax.NoPredInd.C0')).
+system.pl:'ParserPrograms.MakeCandidate.P4'('ProgDefs.PredicateDecl.F3'(A,B,_), C, D, 'ParserPrograms.PCandidate.F2'('MetaDefs.Name.F4'(C,D,'MetaDefs.Predicate.C0',A),B)).
+system.pl:'ParserPrograms.QuickInsertModuleDescriptor.P4'('ProgDefs.Language.F1'(A), B, C, 'ProgDefs.Language.F1'(D)) :-
+system.pl:'ParserPrograms.ParserInsert.P5'('ParserPrograms.SymbTab.F4'(A,'ProgDefs.Module.F3'(B,'ProgDefs.Categories.F2'(C,D),E),F,G), 'MetaDefs.Name.F4'(A,H,_,_), I, J, 'ParserPrograms.SymbTab.F4'(A,'ProgDefs.Module.F3'(B,'ProgDefs.Categories.F2'(C,K),E),F,G)) :-
+system.pl:        'avlTrees.avlAmend.P6'(D, H, ['ProgDefs.Symbol.F2'(I,J)|L], [], K, L).
+system.pl:'ParserPrograms.ParserTypeInsert.P5'('ParserPrograms.SymbTab.F4'(A,'ProgDefs.Module.F3'(B,'ProgDefs.Categories.F2'(C,D),E),F,G), 'MetaDefs.Name.F4'(A,H,I,J), K, L, 'ParserPrograms.SymbTab.F4'(A,'ProgDefs.Module.F3'(B,'ProgDefs.Categories.F2'(M,D),N),O,G)) :-
+system.pl:        (   K='ProgDefs.Exported.C0',
+system.pl:            'avlTrees.avlAmend.P6'(C, H, ['ProgDefs.Symbol.F2'(K,L)|Q], [], M, Q)
+system.pl:'ParserPrograms.QuickInsertImport.P5'('ProgDefs.Program.F4'(A,B,'ProgDefs.Language.F1'(C),D), E, F, G, 'ProgDefs.Program.F4'(A,H,'ProgDefs.Language.F1'(I),J)) :-
+system.pl:        'avlTrees.avlUpdate.P5'(B, E, 'ProgDefs.ModDef.F4'(K,L,M,N), O, 'ProgDefs.ModDef.F4'(K,P,Q,N)),
+system.pl:'ParserPrograms.QuickInsertDelay.P7'('ProgDefs.Program.F4'(A,B,C,D), E, F, G, H, I, 'ProgDefs.Program.F4'(A,B,C,J)) :-
+system.pl:        'avlTrees.avlUpdate.P5'(D, E, 'ProgDefs.Code.F2'(K,L), J, 'ProgDefs.Code.F2'(K,M)),
+system.pl:        (   'lists_g.DeleteFirst.P3'('ProgDefs.PredDef.F4'(G,P,Q,R), O, S) ->
+system.pl:            N=['ProgDefs.PredDef.F4'(G,P,T,U)|S]
+system.pl:            N=['ProgDefs.PredDef.F4'(G,[],T,U)|O]
+system.pl:'ParserPrograms.QuickInsertModuleCode.P4'('ProgDefs.Program.F4'(A,B,C,D), E, F, 'ProgDefs.Program.F4'(A,B,C,G)) :-
+system.pl:        'avlTrees.avlInsert.P4'(D, E, 'ProgDefs.Code.F2'(0,F), G).
+system.pl:'ParserPrograms.QuickInsertLift.P4'('ProgDefs.Program.F4'(A,B,'ProgDefs.Language.F1'(C),D), E, F, 'ProgDefs.Program.F4'(A,G,'ProgDefs.Language.F1'(H),I)) :-
+system.pl:        'avlTrees.avlUpdate.P5'(B, E, 'ProgDefs.ModDef.F4'(J,K,L,[F|M]), N, 'ProgDefs.ModDef.F4'(J,K,L,M)),
+system.pl:'ParserPrograms.QuickInsertModuleDef.P4'('ProgDefs.Program.F4'(A,B,C,D), E, F, 'ProgDefs.Program.F4'(A,G,C,D)) :-
+system.pl:'ParserPrograms.QuickMakeModule.P3'(A, 'ProgDefs.Program.F4'(B,C,'ProgDefs.Language.F1'(D),E), 'ProgDefs.Program.F4'(B,F,'ProgDefs.Language.F1'(G),H)) :-
+system.pl:'ParserPrograms.QuickInsertStatement.P6'('ProgDefs.Program.F4'(A,B,C,D), E, F, G, H, 'ProgDefs.Program.F4'(A,B,C,I)) :-
+system.pl:        'avlTrees.avlUpdate.P5'(D, E, 'ProgDefs.Code.F2'(J,K), I, 'ProgDefs.Code.F2'(J,L)),
+system.pl:        (   'lists_g.DeleteFirst.P3'('ProgDefs.PredDef.F4'(G,O,P,Q), N, R) ->
+system.pl:            M=['ProgDefs.PredDef.F4'(G,[H|O],P,Q)|R]
+system.pl:        ;   M=['ProgDefs.PredDef.F4'(G,[H],[],[])|N]
+system.pl:'ParserPrograms.ReplaceProgramLanguage.P3'('ProgDefs.Program.F4'(A,B,_,C), D, 'ProgDefs.Program.F4'(A,B,D,C)).
+system.pl:'ParserPrograms.UpdateProgramLanguage.P4'('ProgDefs.Program.F4'(A,B,'ProgDefs.Language.F1'(C),D), E, 'ParserPrograms.SymbTab.F4'(E,F,_,_), 'ProgDefs.Program.F4'(A,B,'ProgDefs.Language.F1'(G),D)) :-
+system.pl:        'SharedPrograms.FindDescriptor.P5'(E, 'ProgDefs.Exported.C0', C, D, _).
+system.pl:        (   'lists_g.DeleteFirst.P3'('ProgDefs.Lift.F2'(A,G), E, H) ->
+system.pl:        'avlTrees.avlAmend.P6'(I, C, ['ProgDefs.Symbol.F2'('ProgDefs.Exported.C0',D)|K], [], L, K),
+system.pl:        'ParserPrograms.UpdateLiftedSymbols.P5'(B, C, D, ['ProgDefs.Lift.F2'(A,L)|J], F).
+system.pl:        'lists_g.MemberCheck.P2'('ProgDefs.Lift.F2'(A,F), C),
+system.pl:'ParserPrograms.VariantDeclarations.P2'('ProgDefs.ConstantDecl.F1'(A), 'ProgDefs.ConstantDecl.F1'(B)) :-
+system.pl:'ParserPrograms.VariantDeclarations.P2'('ProgDefs.FunctionDecl.F4'(_,_,A,B), 'ProgDefs.FunctionDecl.F4'(_,_,C,D)) :-
+system.pl:'ParserPrograms.VariantDeclarations.P2'('ProgDefs.PredicateDecl.F3'(_,_,A), 'ProgDefs.PredicateDecl.F3'(_,_,B)) :-
+system.pl:'ParserPrograms.WriteConstructor.P3'(A, 'ProgDefs.ConstructorDecl.F1'(B), C) :-
+system.pl:'SharedPrograms.ModulePartInProgram.P3'('ProgDefs.Program.F4'(_,A,_,_), B, C) :-
+system.pl:        'SharedPrograms.avlFind.P3'(A, B, 'ProgDefs.ModDef.F4'(D,_,_,_)),
+system.pl:        'SharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"True','MetaDefs.Proposition.C0',0), A, 'ProgDefs.Exported.C0', 'ProgDefs.PropositionDecl.C0', C),
+system.pl:        'SharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"False','MetaDefs.Proposition.C0',0), C, 'ProgDefs.Exported.C0', 'ProgDefs.PropositionDecl.C0', D),
+system.pl:        'SharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"=','MetaDefs.Predicate.C0',2), D, 'ProgDefs.Exported.C0', 'ProgDefs.PredicateDecl.F3'(2,'Syntax.ZPZ.C0',['MetaDefs.Par.F1'(0),'MetaDefs.Par.F1'(0)]), E),
+system.pl:        'SharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'('"','"~=','MetaDefs.Predicate.C0',2), E, 'ProgDefs.Exported.C0', 'ProgDefs.PredicateDecl.F3'(2,'Syntax.ZPZ.C0',['MetaDefs.Par.F1'(0),'MetaDefs.Par.F1'(0)]), B).
+system.pl:            'avlTrees.avlInsert.P4'(D, A, 'ProgDefs.Code.F2'(0,J), M),
+system.pl:        ;   'avlTrees.avlInsert.P4'(B, A, 'ProgDefs.ModDef.F4'('ProgDefs.NormalKind.C0',[],[],[]), E),
+system.pl:            'avlTrees.avlInsert.P4'(D, A, 'ProgDefs.Code.F2'(O,N), G)
+system.pl:'SharedPrograms.AddImportToPart.P6'('ProgDefs.Export.C0', A, B, C, [A|B], C).
+system.pl:'SharedPrograms.AddImportToPart.P6'('ProgDefs.Closed.C0', A, B, C, [A|B], C).
+system.pl:'SharedPrograms.AddImportToPart.P6'('ProgDefs.Local.C0', A, B, C, B, [A|C]).
+system.pl:'SharedPrograms.AddImportToPart.P6'('ProgDefs.Module.C0', A, B, C, B, [A|C]).
+system.pl:'SharedPrograms.Accessible.P2'('ProgDefs.Exported.C0', 'ProgDefs.Exported.C0').
+system.pl:'SharedPrograms.Accessible.P2'('ProgDefs.Hidden.C0', _).
+system.pl:'SharedPrograms.AddLiftedLanguage.P4'(['ProgDefs.Lift.F2'(B,C)|A], D, E, F) :-
+system.pl:            (   'avlTrees.avlUpdate.P5'(E, B, 'ProgDefs.Module.F3'('ProgDefs.Exported.C0','ProgDefs.Categories.F2'(I,H),[]), J, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(K,_),_)) ->
+system.pl:            ;   'avlTrees.avlInsert.P4'(E, B, 'ProgDefs.Module.F3'('ProgDefs.Exported.C0','ProgDefs.Categories.F2'(C,H),[]), G)
+system.pl:'SharedPrograms.AddOtherModules.P7'('ProgDefs.ModDef.F4'(_,A,B,C), D, E, F, G, H, I) :-
+system.pl:        'SharedPrograms.TypeSymbolInLanguage.P3'(A, B, 'ProgDefs.BaseDecl.C0').
+system.pl:'SharedPrograms.AndSeqToIntDL.P3'('ProgDefs.And.F2'(A,B), C, D) :-
+system.pl:        (   B='ProgDefs.And.F2'(_,_) ->
+system.pl:'SharedPrograms.EmptyCategoryTable.P1'('ProgDefs.Categories.F2'(A,A)) :-
+system.pl:        'SharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.ConstantDecl.F1'(C)).
+system.pl:        (   A='ProgDefs.And.F2'(_,_) ->
+system.pl:        ;   A='ProgDefs.Or.F2'(_,_) ->
+system.pl:        'SharedPrograms.TypeSymbolInLanguage.P3'(A, B, 'ProgDefs.ConstructorDecl.F1'(C)).
+system.pl:'SharedPrograms.ExportLanguage.P3'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),_), C, 'ProgDefs.Language.F1'(D)) :-
+system.pl:        'SharedPrograms.EmptyLanguage.P1'('ProgDefs.Language.F1'(E)),
+system.pl:        'SharedPrograms.InitialiseLanguage.P2'('ProgDefs.Language.F1'(B), A).
+system.pl:        'SharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.FunctionDecl.F4'(_,C,D,E)).
+system.pl:            (   'avlTrees.avlSearch.P3'(D, A, 'ProgDefs.Module.F3'(_,K,L)) ->
+system.pl:                'avlTrees.avlAmend.P6'(F, A, 'ProgDefs.Module.F3'('ProgDefs.Exported.C0',K,[]), _, M, _),
+system.pl:                'avlTrees.avlAmend.P6'(F, A, 'ProgDefs.Module.F3'('ProgDefs.Exported.C0',N,[]), _, H, _)
+system.pl:            'avlTrees.avlSearch.P3'(C, A, 'ProgDefs.ModDef.F4'(_,O,_,_)),
+system.pl:'SharedPrograms.MatchingDescriptor.P5'('ProgDefs.Symbol.F2'(A,B), C, D, E, B) :-
+system.pl:'SharedPrograms.KindHasPart.P2'('ProgDefs.ModuleKind.C0', 'ProgDefs.Module.C0').
+system.pl:'SharedPrograms.KindHasPart.P2'('ProgDefs.NormalKind.C0', A) :-
+system.pl:        'SharedPrograms.FindMember.P2'(A, ['ProgDefs.Export.C0','ProgDefs.Local.C0']).
+system.pl:'SharedPrograms.KindHasPart.P2'('ProgDefs.ClosedKind.C0', 'ProgDefs.Closed.C0').
+system.pl:'SharedPrograms.InsertTypeSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+system.pl:        'avlTrees.avlAmend.P6'(E, A, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(L,M),N), 'ProgDefs.Module.F3'('ProgDefs.Hidden.C0','ProgDefs.Categories.F2'(I,J),[]), H, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(O,M),N)),
+system.pl:        'SharedPrograms.AddToDescriptorList.P6'(Q, K, C, D, 'ProgDefs.Symbol.F2'(F,G), P).
+system.pl:'SharedPrograms.InsertSymbol.P5'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F, G, 'ProgDefs.Language.F1'(H)) :-
+system.pl:        'avlTrees.avlAmend.P6'(E, A, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(L,M),N), 'ProgDefs.Module.F3'('ProgDefs.Hidden.C0','ProgDefs.Categories.F2'(I,J),[]), H, 'ProgDefs.Module.F3'(K,'ProgDefs.Categories.F2'(L,O),N)),
+system.pl:        'SharedPrograms.AddToDescriptorList.P6'(Q, K, C, D, 'ProgDefs.Symbol.F2'(F,G), P).
+system.pl:'SharedPrograms.MatchingName.P3'('ProgDefs.BaseDecl.C0', 'MetaDefs.Base.C0', 0).
+system.pl:'SharedPrograms.MatchingName.P3'('ProgDefs.ConstructorDecl.F1'(A), 'MetaDefs.Constructor.C0', A).
+system.pl:'SharedPrograms.MatchingName.P3'('ProgDefs.ConstantDecl.F1'(_), 'MetaDefs.Constant.C0', 0).
+system.pl:'SharedPrograms.MatchingName.P3'('ProgDefs.FunctionDecl.F4'(A,_,_,_), 'MetaDefs.Function.C0', A).
+system.pl:'SharedPrograms.MatchingName.P3'('ProgDefs.PropositionDecl.C0', 'MetaDefs.Proposition.C0', 0).
+system.pl:'SharedPrograms.MatchingName.P3'('ProgDefs.PredicateDecl.F3'(A,_,_), 'MetaDefs.Predicate.C0', A).
+system.pl:        G='MetaDefs.Name.F4'('"ProgDefs','"Program','MetaDefs.Base.C0',0),
+system.pl:'SharedPrograms.ModuleLanguage.P3'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),_), C, 'ProgDefs.Language.F1'(D)) :-
+system.pl:        'SharedPrograms.EmptyLanguage.P1'('ProgDefs.Language.F1'(E)),
+system.pl:        'avlTrees.avlSearch.P3'(A, C, 'ProgDefs.ModDef.F4'(F,G,H,I)),
+system.pl:        (   F='ProgDefs.ClosedKind.C0' ->
+system.pl:'SharedPrograms.SymbolInLanguage.P3'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F) :-
+system.pl:        'SharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(G,'ProgDefs.Categories.F2'(_,H),_)),
+system.pl:'SharedPrograms.SControlInProgram.P5'('ProgDefs.Program.F4'(_,A,'ProgDefs.Language.F1'(B),C), D, E, F, G) :-
+system.pl:        'SharedPrograms.avlFind.P3'(B, D, 'ProgDefs.Module.F3'(_,'ProgDefs.Categories.F2'(_,J),_)),
+system.pl:            L='ProgDefs.ClosedKind.C0',
+system.pl:            M='ProgDefs.Exported.C0'
+system.pl:        ;   'avlTrees.avlSearch.P3'(A, D, 'ProgDefs.ModDef.F4'(L,_,_,_)),
+system.pl:            (   L='ProgDefs.ClosedKind.C0' ->
+system.pl:                M='ProgDefs.Exported.C0'
+system.pl:            ;   M='ProgDefs.Hidden.C0'
+system.pl:        'SharedPrograms.FindDescriptor.P5'(K, M, _, I, 'ProgDefs.PredicateDecl.F3'(_,_,_)),
+system.pl:        (   'avlTrees.avlSearch.P3'(C, D, 'ProgDefs.Code.F2'(_,N)),
+system.pl:            'SharedPrograms.FindPredDef.P3'(I, O, 'ProgDefs.PredDef.F4'(I,_,P,Q)) ->
+system.pl:            (   L='ProgDefs.ClosedKind.C0' ->
+system.pl:'SharedPrograms.ProgramSkeleton.P4'(A, B, C, 'ProgDefs.Program.F4'(A,D,E,F)) :-
+system.pl:        'avlTrees.avlInsert.P4'(G, A, 'ProgDefs.ModDef.F4'(B,[],[],[]), D),
+system.pl:        'avlTrees.avlInsert.P4'(H, A, 'ProgDefs.Code.F2'(C,I), F),
+system.pl:        'SharedPrograms.avlFind.P3'(A, B, 'ProgDefs.ModDef.F4'(C,_,_,_)),
+system.pl:'SharedPrograms.OpenKind.P1'('ProgDefs.NormalKind.C0').
+system.pl:'SharedPrograms.OpenKind.P1'('ProgDefs.ModuleKind.C0').
+system.pl:        'SharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.PredicateDecl.F3'(_,C,D)).
+system.pl:'SharedPrograms.OrSeqToIntDL.P3'('ProgDefs.Or.F2'(A,B), C, D) :-
+system.pl:        (   B='ProgDefs.Or.F2'(_,_) ->
+system.pl:'SharedPrograms.ProgramLanguage.P2'('ProgDefs.Program.F4'(_,_,A,_), A).
+system.pl:        'SharedPrograms.SymbolInLanguage.P3'(A, B, 'ProgDefs.PropositionDecl.C0').
+system.pl:'SharedPrograms.ReformatDelays.P3'(['ProgDefs.Delay.F2'(B,C)|A], [B|D], [C|E]) :-
+system.pl:'SharedPrograms.SOpenModule.P2'('ProgDefs.Program.F4'(_,A,_,_), B) :-
+system.pl:'SharedPrograms.SMainModuleInProgram.P2'('ProgDefs.Program.F4'(A,_,_,_), A).
+system.pl:'SharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.Nonvar.F1'(A), B, C) :-
+system.pl:'SharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.Ground.F1'(A), B, C) :-
+system.pl:'SharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.And.F2'(A,B), C, D) :-
+system.pl:        'SharedPrograms.AndSeqToIntDL.P3'('ProgDefs.And.F2'(A,B), E, F),
+system.pl:'SharedPrograms.SimpleCondToIntDL.P3'('ProgDefs.Or.F2'(A,B), C, D) :-
+system.pl:        'SharedPrograms.OrSeqToIntDL.P3'('ProgDefs.Or.F2'(A,B), E, F),
+system.pl:'SharedPrograms.TypeSymbolInLanguage.P3'('MetaDefs.Name.F4'(A,B,C,D), 'ProgDefs.Language.F1'(E), F) :-
+system.pl:        'SharedPrograms.avlFind.P3'(E, A, 'ProgDefs.Module.F3'(G,'ProgDefs.Categories.F2'(H,_),_)),
+system.pl:'SharedPrograms.UpdateDelays.P6'('ProgDefs.Export.C0', A, B, C, [A|B], C).
+system.pl:'SharedPrograms.UpdateDelays.P6'('ProgDefs.Closed.C0', A, B, C, [A|B], C).
+system.pl:'SharedPrograms.UpdateDelays.P6'('ProgDefs.Local.C0', A, B, C, B, [A|C]).
+system.pl:'SharedPrograms.UpdateDelays.P6'('ProgDefs.Module.C0', A, B, C, B, [A|C]).
+system.pl:      , 'ProgDefs.PredDef.F4'(Arity, Statements, Delays1, Delays2)
+system.pl:     user:'lists_g.Member.P2'('ProgDefs.PredDef.F4'(Arity, Statements
+system.pl:   ; user:'lists_g.MemberCheck.P2'('ProgDefs.PredDef.F4'(Arity, Statements
+system.pl:      , 'ProgDefs.PredDef.F4'(Arity, Statements, Delays1, Delays2), RestDefs
+system.pl:     'lists_g':'lists_g.Delete.P3'('ProgDefs.PredDef.F4'(Arity, Statements
+system.pl:   ; 'lists_g':'lists_g.DeleteFirst.P3'('ProgDefs.PredDef.F4'(Arity, Statements
+toplev.pl:   'ParserPrograms.QuickNewProgram.P3'(GModuleName, 'ProgDefs.NormalKind.C0', Prog),   
+toplev.pl:               -> NewProg = 'ProgDefs.Program.F4'(GModuleName, ModuleDef,
+toplev.pl:	          ModuleDef = 'ProgDefs.ModDef.F4'(_, ImpExp, ImpLoc, Lifts),
+toplev.pl:   Prog = 'ProgDefs.Program.F4'(GModuleName, Emptyavl, Language, Emptyavl),
+toplev.pl:	ModuleDef = 'ProgDefs.ModDef.F4'(_, ImpExp, ImpLoc, Lifts),
+toplev.pl:   Program = 'ProgDefs.Program.F4'(MainModuleName, ModuleDefavl, Language,
+toplev.pl:   Language = 'ProgDefs.Language.F1'(ModuleDescriptoravl),
+toplev.pl:           , 'ProgDefs.Code.F2'(_, Code)),
+toplev.pl:   Program = 'ProgDefs.Program.F4'(Module, _, _, _),
+toplev.pl:   ; Term = 'ProgDefs.CachedProgram.F1'(String) ->
+toplev.pl:	Program = 'ProgDefs.Program.F4'(MainModuleName, ModuleDefavl, Language,
+toplev.pl:	Language = 'ProgDefs.Language.F1'(ModuleDescriptoravl),
+toplev.pl:	EmptyLang = 'ProgDefs.Language.F1'(EmptyMDavl),
+toplev.pl:			'ProgDefs.Code.F2'(0, Codes), StatementsAndDelays3)
+toplev.pl:		'ProgDefs.Code.F2'(Version, Codes), StatementsAndDelays3)
+tracer.pl:% convert_to_goedel_term('ProgDefs.Program.F4'(_,_,_,_), '<Program>', _) :- !.
+tracer.pl:% convert_to_goedel_term('ProgDefs.Language.F1'(_), '<Language>', _) :- !.

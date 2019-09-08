@@ -1,0 +1,3 @@
+loop   line = input   :f(end)
+       output = '$EDITOR ' line :(loop)
+end
