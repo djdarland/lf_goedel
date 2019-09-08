@@ -1,4 +1,4 @@
-:- style_check(-singleton). % added djd
+% :- style_check(-singleton). % added djd
 % Copyright (C) Goedel Group, University of Bristol, June 1992.
 % Title and ownership of all Goedel software originating from the Goedel
 % Group at the University of Bristol remains with the Goedel Group.
@@ -51,11 +51,12 @@ file_version('2.0').
 %% So I am merging files (by grouping).
 
 % swi libraries
-:- use_module(library(clpq)).
+% :- use_module(library(clpq)).
 %% :- use_module(library(clpr)).
 
 
 % top-level
+load("toplev.lf")?
 :- use_module(toplev).
 :- use_module(utilities).
 :- use_module(tracer).
