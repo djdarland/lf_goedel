@@ -1,5 +1,11 @@
 %:- module(toplev, [top_loop/3,no_message/0,checking_is_off/0,next_command/3,process_command/7,build_command/7]).   % converted djd
 module("toplev")?
+public(top_loop)?
+public(no_message)?
+public(checking_is_off)?
+public(next_command)?
+public(process_command)?
+public(build_command)?
 % :- style_check(-singleton). % added djd
 
 % Copyright (C) Goedel Group, University of Bristol, June 1992.
@@ -47,38 +53,38 @@ goedel_info :-	\+ ('$$module'(S), write(S), fail).
 
 %------------------------------------------------------------------------------
 
-:- dynamic there_is_error/0.
-:- dynamic no_message/0.
-:- dynamic create_tracer/0.
-:- dynamic trace_is_on/0.
-:- dynamic checking_is_off/0.
-:- dynamic spied/1.
-:- dynamic cached_program/2.
+dynamic(there_is_error)?
+dynamic(no_message)?
+dynamic(create_tracer)?
+dynamic(trace_is_on)?
+dynamic(checking_is_off)?
+dynamic(spied)?
+dynamic(cached_program)?
 
 %------------------------------------------------------------------------------
 % operators for displaying Goedel formulas
 % The precedences are determined by "=" and "+"
 
-:- op(700, xfx, [=, '~=', <, >, =<, >=, 'In', 'Subset', 'StrictSubset']).
-:- op(705, fx,  ['~ ']).
-:- op(710, xfy, [' & ']).
-:- op(720, xfy, [' \\/ ']).   % added another \ DJD
-:- op(750, xf,  ['THEN ... ELSE ...']).
-:- op(760, fx,  ['IF']).
+g_op(700, xfx, [=, '~=', <, >, =<, >=, 'In', 'Subset', 'StrictSubset']).
+g_op(705, fx,  ['~ ']).
+g_op(710, xfy, [' & ']).
+g_op(720, xfy, [' \\/ ']).   % added another \ DJD
+g_op(750, xf,  ['THEN ... ELSE ...']).
+g_op(760, fx,  ['IF']).
 
-:- op(200, xfy, [^]).
-:- op(400, yfx, [*, /, 'Div', 'Mod', 'Rem', //]).
-:- op(500, yfx, [+, -, '++']).
-:- op(500, fx,  [-]).
-:- op(600, yfx, [\]).
+g_op(200, xfy, [^]).
+g_op(400, yfx, [*, /, 'Div', 'Mod', 'Rem', //]).
+g_op(500, yfx, [+, -]).  %% had , '++' at end also 
+g_op(500, fx,  [-]).
+g_op(600, yfx, ['\\']).   % was \
 
 
 %------------------------------------------------------------------------------
 
 % turn off SICStus system messages.
-portray_message(informational, _).
+% portray_message(informational, _).
 
-/*===========================================================================*/
+% /*===========================================================================*/
 
 top_loop(ModuleName, Prog, SymbolTable) :-
    retractall(create_tracer),
@@ -87,8 +93,8 @@ top_loop(ModuleName, Prog, SymbolTable) :-
    write("top_loop 000001\n"),
    next_command(ModuleName, Prog, SymbolTable).
 
-/*-----------------------------------------------------------------------------
- */
+%/*-----------------------------------------------------------------------------
+% */
 
 next_command(ModuleName, Prog, SymbolTable) :-
    write("next_command 000001\n"),
@@ -114,8 +120,8 @@ next_command(ModuleName, Prog, SymbolTable) :-
    write("DJD top_djd_next_command 00006\n"),
    top_loop(NewModuleName, NewProg, NewSymbolTable).
 
-/*-----------------------------------------------------------------------------
- */
+%/*-----------------------------------------------------------------------------
+% */
 
 process_command(String, SymbolTable, Prog, NewProg, ModuleName, NewModuleName,
 	LanguageDif):-
@@ -124,8 +130,8 @@ process_command(String, SymbolTable, Prog, NewProg, ModuleName, NewModuleName,
    build_command(Tokens, SymbolTable, Prog, NewProg, ModuleName,
 	NewModuleName, LanguageDif).
 
-/*-----------------------------------------------------------------------------
- */
+%/*-----------------------------------------------------------------------------
+% */
 % ignore empty command
 build_command([], _, Prog, Prog, ModuleName, ModuleName, no).
 
@@ -471,25 +477,25 @@ show_usage(Abbrev) :-
    format(user_error, 'Syntax error, use ~s~n', U).
 
 %------------------------------------------------------------------------------
-make_prompts(Module, Prompt1, Prompt2) :-
+make_prompts_old(Module, Prompt1, Prompt2) :-
 %    write("Dgb djd top make_prompts 0001\n"),
 % name(Atomic, CodeList)  
-    name(Module, String1),
+%    name(Module, String1),
 %    write("make prompts String1 (module code list)= "),
 %    write(String1),nl,
-    name('[',StrDjd2),
+%    name('[',StrDjd2),
 %    write("Dgb djd top make_prompts 0002\n"),
 % append(List1, List2, List1AndList2) 
-    append(StrDjd2, String1, String2),
+%    append(StrDjd2, String1, String2),
 %    write("make prompts String2 = "),
 %    write(String2),nl,
 %    write("Dgb djd top make_prompts 0003\n"),
 % name(Atomic, CodeList)  
-    name('] <- ', StrDjd3),
+%    name('] <- ', StrDjd3),
 %    write("StrDjd3 = "),
 %    write(StrDjd3),
 % append(List1, List2, List1AndList2) 
-    append(String2, StrDjd3 , String3),
+%    append(String2, StrDjd3 , String3),
 %    write("Dgb djd top make_prompts 0004\n"),
 %    write("String3 = "),
 % string_codes(String,Codes)
@@ -533,9 +539,30 @@ make_prompts_orig(Module, Prompt1, Prompt2) :-
     write("Dgb djd top make_prompts 0007\n"),
    name(Prompt2, String4).
 
+make_prompts(Module, Prompt1, Prompt2) :-
+   %% name(Module, String1),
+   %% append("[", String1, String2),
+   %% append(String2, "] <- ", String3),
+   %% name(Prompt1, String3),
+   %% length(String3, N),
+   %% rep(N, 32, String4),
+   %% name(Prompt2, String4).
+   psi2str(Module, String1),
+   append("[", String1, String2),
+   append(String2, "] <- ", String3),
+   psi2str(Prompt1, String3),
+   length(String3, N),
+   rep(N, 32, String4),
+   psi2str(Prompt2, String4).
+
+
+
+
+
+
 rep(0, _, []) :- !.
 rep(N, X, [X|Xs]) :-
-   N > 0, N1 is N-1, rep(N1, X, Xs).
+   N > 0, N1 = N-1, rep(N1, X, Xs). % = was is
 
 %------------------------------------------------------------------------------
 
@@ -767,10 +794,10 @@ load_cmd_aux2([GModuleName|ImportedMods], Loaded, NewLoaded, Prog, NewProg) :-
    load_cmd_aux(GModuleName, Loaded, Loaded2, Prog, Prog2),
    load_cmd_aux2(ImportedMods, Loaded2, NewLoaded, Prog2, NewProg).
 
-/*-----------------------------------------------------------------------------
- * This is the routine for Program.NewProgram, very similar to load_cmd
- * Prolog code is not loaded
- */
+%/*-----------------------------------------------------------------------------
+% * This is the routine for Program.NewProgram, very similar to load_cmd
+% * Prolog code is not loaded
+% */
 
 load_system_module(ModuleName, Program):-
    string2Gstring(ModuleName, GModuleName),
@@ -896,7 +923,7 @@ script_compile_cmd(GModuleName) :-
    gstring2string(GModuleName, ModuleName),
    sappend(ModuleName, '.scr', FileName),
    ( open(FileName, read, Stream)
-     -> 'ScriptsIO':readin_script(Stream, Script),
+     -> ScriptsIO#readin_script(Stream, Script),
 	close(Stream),
 	compile_script(Script, ModuleName)
      ;  format(user_error, '~nError: cannot open file "~a".~n', [FileName])
@@ -947,7 +974,7 @@ flock_compile_cmd(F1, F2) :-
    ( open(F1, read, Stream)
      -> read_file(Stream, Chars),
         close(Stream),
-        (  'Units':token_identifiers(Chars, Tokens, []),
+        (  Units#token_identifiers(Chars, Tokens, []),
            flock_compile_cmd_aux(Tokens, FlockList),
            sappend(F2, '.flk', FileName),
            ( open(FileName, write, Stream2)
@@ -963,7 +990,7 @@ flock_compile_cmd(F1, F2) :-
 
 
 flock_compile_cmd_aux(Tokens, Flock) :-
-   'Units':parse_unit(Tokens, Remains, Unit),
+   Units#parse_unit(Tokens, Remains, Unit),
    ( Unit = null
      -> Flock = []
      ;  Flock = [Unit|Flock2],
@@ -1004,7 +1031,7 @@ flock_decompile_cmd(F1, F2) :-
 
 flock_decompile_cmd_aux([], _).
 flock_decompile_cmd_aux([Unit|List], Stream) :-
-   'Units':'Units.UnitToString.P2'(Unit, GString),
+   Units#Units.UnitToString.P2(Unit, GString),
    gstring2string(GString, String),
    format(Stream, '~w.~n', [String]),
    flock_decompile_cmd_aux(List, Stream).
@@ -1055,9 +1082,9 @@ removespy :-
    format(user_output, 'All spy points removed~n', []),
    retractall(spied(_)).
 
-/*-----------------------------------------------------------------------------
- * help_cmd.
- */
+%/*-----------------------------------------------------------------------------
+% * help_cmd.
+% */
 
 help_cmd :-
    format(user_output, 'Goedel commands:~n~n', []),
@@ -1186,25 +1213,27 @@ process_query(Tokens, Program, SymbolTable) :-
      ;  true
    ).
 
-/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- * colon_notation(+Tokens, -Remains, -ColonVars, -Error)
- * when there is no colon notation ColonVars = null
- *	Error not instantiated shows no error
- */
+%/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% * colon_notation(+Tokens, -Remains, -ColonVars, -Error)
+% * when there is no colon notation ColonVars = null
+% *	Error not instantiated shows no error
+% */
 
 colon_notation(Tokens, Remains, ColonVars, Error) :-
-   split_list(Tokens, graphic_name(':'), VarTokens, Remains2),
-   ( member('{', VarTokens)
-     -> Remains = Tokens,
-	ColonVars = null
-     ;  ( Remains2 = []
-	  -> Remains = Tokens,
-	     ColonVars = null
-          ;  Remains = Remains2,
-	     length(Remains, RestPosition),
-	     var_seq(VarTokens, Tokens, RestPosition+1, ColonVars, Error)
-	)
-   ).
+    split_list(Tokens, graphic_name(':'), VarTokens, Remains2),
+    ( cond(member('\{', VarTokens)
+	   -> Remains = Tokens,
+	      ColonVars = null
+	      ,  cond(( Remains2 = []
+		       -> Remains = Tokens,
+			  ColonVars = null
+			  ,  Remains = Remains2,
+			  length(Remains, RestPosition),
+			  var_seq(VarTokens, Tokens, RestPosition+1, ColonVars, Error)
+		      )
+		     )
+	  )
+    ).
 
 var_seq([], _, _, [], _).
 var_seq([Token|VarTokens], WholeTokens, RestPosition, ColonVars, Error) :-
@@ -1213,7 +1242,7 @@ var_seq([Token|VarTokens], WholeTokens, RestPosition, ColonVars, Error) :-
 var_seq(little_name(VarName), VarTokens, WholeTokens, RestPosition,
 		[ColonVar|ColonVars], Error) :- !,
    string2Gstring(VarName, GVarName),
-   user:'SharedSyntax.SVariableName.P3'(ColonVar, GVarName, 0),
+   user#SharedSyntax.SVariableName.P3(ColonVar, GVarName, 0),
    ( VarTokens = []
      -> ColonVars = []
      ;  ( VarTokens = [','|VarTokens2]
@@ -1575,9 +1604,9 @@ write_codes([C|Cs]) :-
    put(user_output, C),
    write_codes(Cs).
 
-/*------------------------------------------------------------------------------
- * user_satisfied
- */
+%/*------------------------------------------------------------------------------
+% * user_satisfied
+% */
 
 user_satisfied:-
    format(user_output, ' ? ', []), ttyflush,
@@ -1766,8 +1795,8 @@ readin_program(Stream, Program) :-
 	Program = 'ProgDefs.Program.F4'(MainModuleName, ModuleDefavl, Language,
 			StatementsAndDelays),
 	Language = 'ProgDefs.Language.F1'(ModuleDescriptoravl),
-	user:'avlTrees.avlIsEmpty.P1'(Emptyavl),
-	user:'SharedPrograms.EmptyLanguage.P1'(EmptyLang),
+	user#avlTrees.avlIsEmpty.P1(Emptyavl),
+	user#SharedPrograms.EmptyLanguage.P1(EmptyLang),
 	EmptyLang = 'ProgDefs.Language.F1'(EmptyMDavl),
 	readin_program_aux(Stream, Emptyavl, ModuleDefavl, Emptyavl,
 			StatementsAndDelays, EmptyMDavl, ModuleDescriptoravl)
@@ -1784,23 +1813,23 @@ readin_program_aux(Stream, ModuleDefavl, ModuleDefavl2, StatementsAndDelays,
 	ModuleDescriptoravl = ModuleDescriptoravl2
      ;  ( Term = import(GModuleName)
           -> user:system_module(GModuleName, ModuleDef, ModuleDes, Codes),
-	     user:'avlTrees.avlInsert.P4'(ModuleDefavl, GModuleName,
+	     user#avlTrees.avlInsert.P4(ModuleDefavl, GModuleName,
 				ModuleDef, ModuleDefavl3),
-	     user:'avlTrees.avlInsert.P4'(ModuleDescriptoravl, GModuleName,
+	     user#avlTrees.avlInsert.P4(ModuleDescriptoravl, GModuleName,
 			ModuleDes, ModuleDescriptoravl3),
-	     user:'avlTrees.avlInsert.P4'(StatementsAndDelays, GModuleName,
+	     user#avlTrees.avlInsert.P4(StatementsAndDelays, GModuleName,
 			'ProgDefs.Code.F2'(0, Codes), StatementsAndDelays3)
           ;  Term = module_name(GModuleName),
 	     read(Stream, ModuleDef),
-	     user:'avlTrees.avlInsert.P4'(ModuleDefavl, GModuleName, ModuleDef,
+	     user#avlTrees.avlInsert.P4(ModuleDefavl, GModuleName, ModuleDef,
 			     ModuleDefavl3),
 	     read(Stream, ModuleDes),
-	     user:'avlTrees.avlInsert.P4'(ModuleDescriptoravl, GModuleName,
+	     user#avlTrees.avlInsert.P4(ModuleDescriptoravl, GModuleName,
 		ModuleDes, ModuleDescriptoravl3),
 	     read(Stream, Codes),
-             user:'SharedPrograms.NextModuleVersion.P2'(GModuleName, Version),
+             user#SharedPrograms.NextModuleVersion.P2(GModuleName, Version),
 	     user:'avlTrees.avlInsert.P4'(StatementsAndDelays, GModuleName,
-		'ProgDefs.Code.F2'(Version, Codes), StatementsAndDelays3)
+		ProgDefs.Code.F2(Version, Codes), StatementsAndDelays3)
         ),
         readin_program_aux(Stream, ModuleDefavl3, ModuleDefavl2,
 		StatementsAndDelays3, StatementsAndDelays2,
