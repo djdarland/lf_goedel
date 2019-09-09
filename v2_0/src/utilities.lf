@@ -1,5 +1,12 @@
-:- module(utilities,[sappend/3,string2Gstring/2,gstring2string/2,delete_once/3,member_check/2,cartesian_product/2]).  % converted djd
-:- style_check(-singleton). % added djd
+%% :- module(utilities,[sappend/3,string2Gstring/2,gstring2string/2,delete_once/3,member_check/2,cartesian_product/2]).  % converted djd
+%% :- style_check(-singleton). % added djd
+module("utilities")?
+      public(sappend)?
+      public(string2Gstring)?
+      public(gstring2string)?
+public(delete_once)?
+      public(member_check)?
+      public(cartesian_product)?
 % Copyright (C) Goedel Group, University of Bristol, June 1992.
 % Title and ownership of all Goedel software originating from the Goedel
 % Group at the University of Bristol remains with the Goedel Group.
@@ -23,20 +30,20 @@
 % should be directed to J.W. Lloyd at jwl@compsci.bristol.ac.uk.
 
 
-/*
-File:       utilities.pl
-Author:     Jiwei Wang
-Date:       11 September 1991
+%% /*
+%% File:       utilities.pl
+%% Author:     Jiwei Wang
+%% Date:       11 September 1991
 
-Commonly used predicates.
-*/
+%% Commonly used predicates.
+%% */
 
 %% 'module'('@(#)utilities.pl 1.15 last updated 93/12/08 16:19:53 by jiwei').
 
 
 
-/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- */
+%% /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%%  */
 
 % split_list : +List * +Atom * -List * -List.
 % split_list divides list into two according the atom A.
@@ -47,12 +54,14 @@ split_list([A|T], A, [], T):- !.
 split_list([H|T], A, [H|R], S):-
    split_list(T, A, R, S).
 
-/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- */
+%% /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%%  */
 
-member(X,[X|_]).
-member(X,[_|Y]):-
-   member(X,Y).
+%% use WildLIFE membee
+
+%% member(X,[X|_]).
+%% member(X,[_|Y]):-
+%%    member(X,Y).
 
 % member_check doesn't allow backtracking
 member_check(X,[X|_]) :- !.
@@ -60,9 +69,12 @@ member_check(X,[_|Y]) :-
    member_check(X,Y).
 
 
-append([],Y,Y).
-append([U|X],Y,[U|Z]):-
-   append(X,Y,Z).
+
+%% cannot override WildLIFE
+
+%append([],Y,Y).
+%append([U|X],Y,[U|Z]):-
+%   append(X,Y,Z).
 
 
 reverse(X,Y) :-
@@ -103,7 +115,7 @@ first_n_elements(List, N, Front, Rear) :-
 
 first_n_elements_aux(0, Rear, [], Rear).
 first_n_elements_aux(N, [H|T], [H|Front], Rear) :-
-   N2 is N - 1,
+   N2 = N - 1,
    first_n_elements_aux(N2, T, Front, Rear).
 
 
@@ -120,9 +132,9 @@ last_n_elements_aux([H|T], N, List) :-
      ;  last_n_elements_aux(T, N, List)
    ).
 
-/*------------------------------------------------------------------------------
- * Assuming sets as ordered
- */
+%% /*------------------------------------------------------------------------------
+%%  * Assuming sets as ordered
+%%  */
 
 union([], Ys, Ys) :- !.
 
@@ -132,16 +144,16 @@ union([X|Xs], [X|Ys], [X|Zs]) :- !,
    union(Xs, Ys, Zs).
 
 union([X|Xs], [Y|Ys], [X|Zs]) :-
-   X @< Y, !,
+   X :< Y, !,
    union(Xs, [Y|Ys], Zs).
 
 union([X|Xs], [Y|Ys], [Y|Zs]) :-
-   X @> Y, !,
+   X :> Y, !,
    union([X|Xs], Ys, Zs).
 
-/*------------------------------------------------------------------------------
- * Assuming sets as ordered
- */
+%% /*------------------------------------------------------------------------------
+%%  * Assuming sets as ordered
+%%  */
 
 difference([X|Xs], [], [X|Xs]) :- !.
 
@@ -151,16 +163,16 @@ difference([X|Xs], [X|Ys], Zs) :- !,
    difference(Xs, Ys, Zs).
 
 difference([X|Xs], [Y|Ys], [X|Zs]) :-
-   X @< Y, !,
+   X :< Y, !,
    difference(Xs, [Y|Ys], Zs).
 
 difference([X|Xs], [Y|Ys], Zs) :-
-   X @> Y, !,
+   X :> Y, !,
    difference([X|Xs], Ys, Zs).
 
-/*------------------------------------------------------------------------------
- * Assuming sets as ordered
- */
+%% /*------------------------------------------------------------------------------
+%%  * Assuming sets as ordered
+%%  */
 
 intersection([], _, []) :- !.
 
@@ -170,29 +182,31 @@ intersection([X|Xs], [X|Ys], [X|Zs]) :- !,
    intersection(Xs, Ys, Zs).
 
 intersection([X|Xs], [Y|Ys], Zs) :-
-   X @< Y, !,
+   X :< Y, !,
    intersection(Xs, [Y|Ys], Zs).
 
 intersection([X|Xs], [Y|Ys], Zs) :-
-   X @> Y, !,
+   X :> Y, !,
    intersection([X|Xs], Ys, Zs).
 
-/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- */
+%% /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%%  */
 
 % sappend takes two atoms and returns an atom concatenated from the two
 sappend(A, B, C):-
-   name(A, A1),
-   name(B, B1),
-   append(A1, B1, C1),
-   name(C, C1), !.
+   psi2str(A, A1),
+   psi2str(B, B1),
+   C1 = strcon(A1, B1),
+   str2psi(C1, C), ! .
 
 
-/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- * delete_once fails if X doesn't occur in the list
- */
+%% /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%%  * delete_once fails if X doesn't occur in the list
+%%  *
+%% /
 
-delete_once([X|T], X, T) :- !.
+delete_once([X|T], X, T) :- ! .
+
 delete_once([H|T], X, [H|T2]) :-
    delete_once(T, X, T2).
 
@@ -211,10 +225,10 @@ delete_last([_], []):- !.
 delete_last([H|T], [H|T2]):-
    delete_last(T, T2).
 
-/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
- * cartesian_product mainly performs an Cartesian products of terms_seqs
- * to produce parse trees for a sequence of terms.
- */
+%% /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%%  * cartesian_product mainly performs an Cartesian products of terms_seqs
+%%  * to produce parse trees for a sequence of terms.
+%%  */
 
 
 cartesian_product([], []) :-  !.
@@ -248,8 +262,8 @@ times_one([H|T], One, [[One|H]|L], LTail):-
    times_one(T, One, L, LTail).
 
 
-/*------------------------------------------------------------------------------
- */
+%% /*------------------------------------------------------------------------------
+%%  */
 
 string2Gstring(String, GString) :-
    name(String, List),
@@ -266,8 +280,8 @@ gstringlist2stringlist([GString|T], [String|T2]) :-
    gstring2string(GString, String),
    gstringlist2stringlist(T, T2).
 
-/*------------------------------------------------------------------------------
- */
+%% /*------------------------------------------------------------------------------
+%%  */
 
 var_list([]).
 var_list([Var|Vars]):-

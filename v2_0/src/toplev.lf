@@ -1242,7 +1242,7 @@ var_seq([Token|VarTokens], WholeTokens, RestPosition, ColonVars, Error) :-
 var_seq(little_name(VarName), VarTokens, WholeTokens, RestPosition,
 		[ColonVar|ColonVars], Error) :- !,
    string2Gstring(VarName, GVarName),
-   user#SharedSyntax.SVariableName.P3(ColonVar, GVarName, 0),
+   sharedSyntax#SharedSyntax.SVariableName.P3(ColonVar, GVarName, 0),
    ( VarTokens = []
      -> ColonVars = []
      ;  ( VarTokens = [','|VarTokens2]

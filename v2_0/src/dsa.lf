@@ -21,7 +21,6 @@
 % Any enquiries about this copyright notice or the use of this software
 % should be directed to J.W. Lloyd at jwl@compsci.bristol.ac.uk.
 
-
 % change the following two directory addresses if necessary
 
 % default system source code dir /usr/local/lib/Goedel/src
@@ -54,92 +53,8 @@ file_version('2.0').
 % :- use_module(library(clpq)).
 %% :- use_module(library(clpr)).
 
-load_from_src(Y) :-     
-     X = "~/lf_goedel/v2_0/src/",
-     Z = strcon(X,Y),
-     load(Z).
-
 
 % top-level
-load_from_src("toplev.lf")?
-% :- use_module(toplev).
-:- use_module(utilities).
-:- use_module(tracer).
-
-% library
-:- use_module(lib).
-:- use_module(gfreeze).
-
-% parser
-:- use_module(tokenizer).
-:- use_module(tokenizer2).
-:- use_module(term).
-:- use_module(formula).
-:- use_module(statement).
-:- use_module(parser).
-:- use_module(checking).
-
-% ground representation
-:- consult(system).
-:- use_module(avlTrees).
-:- use_module(builtin).
-
-% compiler
-:- use_module(compiler).
-:- use_module(delay).
-:- use_module(constraint).
-:- use_module(transform).
-
-% language files of system modules
-% [sys_modules_djd].
-% NOTE =========================has been commented out=============
-
-% system modules code
-:- use_module(integers).
-:- use_module(rationals).
-:- use_module(floats).
-:- use_module(numbers).
-:- use_module(lists_g).
-:- use_module(sets).
-%% :- use_module(sets_sup).
-:- use_module(strings).
-%% :- use_module(strings_sup).
-
-:- use_module(tables).
-:- use_module(units).
-%% :- use_module(units_sup).
-:- use_module(flocks).
-:- use_module(flocksIO).
-:- use_module(io).
-:- use_module(numbersIO).
-
-:- use_module(syntax).
-:- use_module(extraSyntax).
-:- use_module(sharedSyntax).
-:- use_module(substs).
-
-:- use_module(programs).
-:- use_module(sharedPrograms).
-:- use_module(programCache).
-
-:- use_module(scripts).
-:- use_module(scriptsIO).
-
-% :- use_module(avlTrees).
-
-:- use_module(programsIO).
-:- use_module(theories).
-:- use_module(theoriesIO).
-
-% This file suplies routines for the runtime system.  Never :- consultd in
-% the saved states.
-%% [aux_djd].
-%% :- use_module(sys_modules).
-					% SICStus works properly.
-
-%------------------------------------------------------------------------------
-
-:- write("Dennis is here!!!\n").
 
 goedel :-
     trace(top_loop),
@@ -267,6 +182,6 @@ init_append([U|X],Y,[U|Z]):-
 	init_append(X,Y,Z).
 
 
-:- goedel.
+goedel?
 
 
